@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D018EF2E2894EFCC00EA2BA1 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF2D2894EFCC00EA2BA1 /* APICall.swift */; };
+		D018EF302894F04C00EA2BA1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF2F2894F04C00EA2BA1 /* AppState.swift */; };
+		D018EF322894F19C00EA2BA1 /* UserPermissionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF312894F19C00EA2BA1 /* UserPermissionsService.swift */; };
+		D018EF34289503BF00EA2BA1 /* ServicesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF33289503BF00EA2BA1 /* ServicesContainer.swift */; };
+		D018EF36289504D100EA2BA1 /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF35289504D100EA2BA1 /* DependencyInjector.swift */; };
+		D018EF382895088B00EA2BA1 /* CommunitiesWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF372895088B00EA2BA1 /* CommunitiesWebRepository.swift */; };
+		D018EF3A289508B200EA2BA1 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF39289508B200EA2BA1 /* WebRepository.swift */; };
+		D018EF3E289E3A7100EA2BA1 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF3D289E3A7100EA2BA1 /* Community.swift */; };
+		D018EF41289E43C600EA2BA1 /* CreateCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF40289E43C600EA2BA1 /* CreateCommunity.swift */; };
+		D018EF43289E44E500EA2BA1 /* CreateCommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF42289E44E500EA2BA1 /* CreateCommunityViewModel.swift */; };
+		D018EF45289E48E400EA2BA1 /* CommunitiesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF44289E48E400EA2BA1 /* CommunitiesService.swift */; };
+		D018EF47289E5F2F00EA2BA1 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF46289E5F2F00EA2BA1 /* Loadable.swift */; };
+		D018EF49289E7CF200EA2BA1 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */; };
+		D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */; };
 		D0D2F1E5287D1E2A00AB3E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */; };
 		D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */; };
 		D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */; };
@@ -37,6 +51,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D018EF2D2894EFCC00EA2BA1 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		D018EF2F2894F04C00EA2BA1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D018EF312894F19C00EA2BA1 /* UserPermissionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPermissionsService.swift; sourceTree = "<group>"; };
+		D018EF33289503BF00EA2BA1 /* ServicesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesContainer.swift; sourceTree = "<group>"; };
+		D018EF35289504D100EA2BA1 /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
+		D018EF372895088B00EA2BA1 /* CommunitiesWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesWebRepository.swift; sourceTree = "<group>"; };
+		D018EF39289508B200EA2BA1 /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
+		D018EF3D289E3A7100EA2BA1 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
+		D018EF40289E43C600EA2BA1 /* CreateCommunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCommunity.swift; sourceTree = "<group>"; };
+		D018EF42289E44E500EA2BA1 /* CreateCommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCommunityViewModel.swift; sourceTree = "<group>"; };
+		D018EF44289E48E400EA2BA1 /* CommunitiesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesService.swift; sourceTree = "<group>"; };
+		D018EF46289E5F2F00EA2BA1 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesContainer.swift; sourceTree = "<group>"; };
 		D0D2F1E1287D1E2A00AB3E6A /* boogi-iOS-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "boogi-iOS-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +106,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D018EF282894EF4900EA2BA1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D018EF2D2894EFCC00EA2BA1 /* APICall.swift */,
+				D018EF39289508B200EA2BA1 /* WebRepository.swift */,
+				D018EF46289E5F2F00EA2BA1 /* Loadable.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D018EF292894EF6100EA2BA1 /* Injected */ = {
+			isa = PBXGroup;
+			children = (
+				D018EF2F2894F04C00EA2BA1 /* AppState.swift */,
+				D018EF33289503BF00EA2BA1 /* ServicesContainer.swift */,
+				D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */,
+				D018EF35289504D100EA2BA1 /* DependencyInjector.swift */,
+			);
+			path = Injected;
+			sourceTree = "<group>";
+		};
+		D018EF2A2894EF6F00EA2BA1 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				D018EF372895088B00EA2BA1 /* CommunitiesWebRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		D018EF2B2894EF7B00EA2BA1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D018EF312894F19C00EA2BA1 /* UserPermissionsService.swift */,
+				D018EF44289E48E400EA2BA1 /* CommunitiesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D018EF2C2894EF8800EA2BA1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D018EF3D289E3A7100EA2BA1 /* Community.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D018EF3F289E437C00EA2BA1 /* CreateCommunity */ = {
+			isa = PBXGroup;
+			children = (
+				D018EF40289E43C600EA2BA1 /* CreateCommunity.swift */,
+				D018EF42289E44E500EA2BA1 /* CreateCommunityViewModel.swift */,
+			);
+			path = CreateCommunity;
+			sourceTree = "<group>";
+		};
+		D060F0AD2894E0E7000116EE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D0D2F1ED287D1E2B00AB3E6A /* Assets.xcassets */,
+				D0D2F1EF287D1E2B00AB3E6A /* LaunchScreen.storyboard */,
+				D0D2F1F2287D1E2B00AB3E6A /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D060F0AE2894E130000116EE /* System */ = {
+			isa = PBXGroup;
+			children = (
+				D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */,
+				D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */,
+				D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		D060F0AF2894E144000116EE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D018EF3F289E437C00EA2BA1 /* CreateCommunity */,
+				D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */,
+				D0D2F1EA287D1E2A00AB3E6A /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		D0D2F1D8287D1E2A00AB3E6A = {
 			isa = PBXGroup;
 			children = (
@@ -102,13 +215,14 @@
 		D0D2F1E3287D1E2A00AB3E6A /* boogi-iOS-MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */,
-				D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */,
-				D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */,
-				D0D2F1EA287D1E2A00AB3E6A /* Main.storyboard */,
-				D0D2F1ED287D1E2B00AB3E6A /* Assets.xcassets */,
-				D0D2F1EF287D1E2B00AB3E6A /* LaunchScreen.storyboard */,
-				D0D2F1F2287D1E2B00AB3E6A /* Info.plist */,
+				D018EF2C2894EF8800EA2BA1 /* Models */,
+				D018EF2B2894EF7B00EA2BA1 /* Services */,
+				D018EF2A2894EF6F00EA2BA1 /* Repositories */,
+				D018EF292894EF6100EA2BA1 /* Injected */,
+				D018EF282894EF4900EA2BA1 /* Utilities */,
+				D060F0AF2894E144000116EE /* UI */,
+				D060F0AE2894E130000116EE /* System */,
+				D060F0AD2894E0E7000116EE /* Resources */,
 			);
 			path = "boogi-iOS-MVVM";
 			sourceTree = "<group>";
@@ -262,9 +376,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D018EF36289504D100EA2BA1 /* DependencyInjector.swift in Sources */,
+				D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */,
+				D018EF45289E48E400EA2BA1 /* CommunitiesService.swift in Sources */,
+				D018EF34289503BF00EA2BA1 /* ServicesContainer.swift in Sources */,
 				D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */,
+				D018EF302894F04C00EA2BA1 /* AppState.swift in Sources */,
+				D018EF49289E7CF200EA2BA1 /* AppEnvironment.swift in Sources */,
 				D0D2F1E5287D1E2A00AB3E6A /* AppDelegate.swift in Sources */,
+				D018EF322894F19C00EA2BA1 /* UserPermissionsService.swift in Sources */,
+				D018EF3A289508B200EA2BA1 /* WebRepository.swift in Sources */,
+				D018EF2E2894EFCC00EA2BA1 /* APICall.swift in Sources */,
+				D018EF382895088B00EA2BA1 /* CommunitiesWebRepository.swift in Sources */,
+				D018EF3E289E3A7100EA2BA1 /* Community.swift in Sources */,
+				D018EF41289E43C600EA2BA1 /* CreateCommunity.swift in Sources */,
+				D018EF43289E44E500EA2BA1 /* CreateCommunityViewModel.swift in Sources */,
 				D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */,
+				D018EF47289E5F2F00EA2BA1 /* Loadable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -424,6 +553,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -442,7 +572,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "boogi-iOS-MVVM/Info.plist";
+				INFOPLIST_FILE = "boogi-iOS-MVVM/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -469,7 +599,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "boogi-iOS-MVVM/Info.plist";
+				INFOPLIST_FILE = "boogi-iOS-MVVM/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
