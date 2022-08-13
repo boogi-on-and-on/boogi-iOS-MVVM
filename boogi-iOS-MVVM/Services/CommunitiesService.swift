@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import Combine
 
 protocol CommunitiesService {
-    func requestCreate(form: Community.Create)
+    func requestCreate(form: Community.Create, _ success: inout Bool, _ fail: inout Bool) async
 }
 
 struct RealCommunityService: CommunitiesService {
@@ -19,19 +18,24 @@ struct RealCommunityService: CommunitiesService {
         self.webRepository = webRepository
     }
     
-    func requestCreate(form: Community.Create) {
-        webRepository.createCommunity(form: form)
-            .sink { _ in
-            } receiveValue: { _ in
-            }
-            .cancel()
+    func requestCreate(form: Community.Create, _ success: inout Bool, _ fail: inout Bool) async {
+        let res = await webRepository.createCommunity(form: form)
+        
+        switch res {
+        case .success(let data):
+            print(data)
+            success = true
+            break
+        case .failure(let err):
+            print(err)
+            fail = true
+            break
+        }
     }
 }
 
 struct StubCommunitiesService: CommunitiesService {
-    func requestCreate(form: Community.Create) {
-        Just(-1)
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
+    func requestCreate(form: Community.Create, _ success: inout Bool, _ fail: inout Bool) async {
+        
     }
 }

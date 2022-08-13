@@ -12,7 +12,7 @@ struct Community {
 }
 
 extension Community {
-    struct Create {
+    struct Create: Codable {
         var name: String = ""
         var description: String = ""
         var category: CommunityCategory = .academic
@@ -23,7 +23,7 @@ extension Community {
 }
 
 extension Community.Create {
-    enum CommunityCategory: String, Equatable {
+    enum CommunityCategory: String, Equatable, Codable {
         case all = "ALL", academic = "ACADEMIC", club = "CLUB", hobby = "HOBBY", other = "OTHER"
         
         func type() -> String {

@@ -12,15 +12,17 @@ import Foundation
 extension CreateCommunity {
     class ViewModel: ObservableObject {
         @Published var form = Community.Create()
+        @Published var success: Bool = false
+        @Published var fail: Bool = false
         
         let container: DIContainer
         init(container: DIContainer) {
             self.container = container
         }
         
-        func requestCreate() {
-            container.services.communitiesService
-                .requestCreate(form: form)
+        func requestCreate() async {
+            await container.services.communitiesService
+                .requestCreate(form: form, &success, &fail)
         }
     }
 }
