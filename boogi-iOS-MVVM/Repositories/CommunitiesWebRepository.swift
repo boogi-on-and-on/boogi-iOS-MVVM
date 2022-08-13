@@ -6,17 +6,14 @@
 //
 
 import Foundation
-import Combine
 
 protocol CommunitiesWebRepository: WebRepository {
-    func createCommunity(form: Community.Create) -> AnyPublisher<Int, Error>
+    func createCommunity(form: Community.Create) async -> Result<Int, Error>
 }
 
 struct RealCommunitiesWebRepository: CommunitiesWebRepository {
-    
-    func createCommunity(form: Community.Create) -> AnyPublisher<Int, Error> {
-        return call(endpoint: API.create(form))
-            .eraseToAnyPublisher()
+    func createCommunity(form: Community.Create) async -> Result<Int, Error> {
+        return await call(endpoint: API.create(form))
     }
     
     init(session: URLSession, baseURL: String) {
@@ -24,12 +21,9 @@ struct RealCommunitiesWebRepository: CommunitiesWebRepository {
         self.baseURL = baseURL
     }
     
-    
     var session: URLSession
     
     var baseURL: String
-    
-//    var bgQueue: DispatchQueue
 }
 
 // MARK: - Endpoints
@@ -64,7 +58,10 @@ extension RealCommunitiesWebRepository.API: APICall {
     }
     
     func body() throws -> Data? {
-        nil
+        switch self {
+        case .create(let form):
+            return try JSONEncoder().encode(form)
+        }
     }
     
     
