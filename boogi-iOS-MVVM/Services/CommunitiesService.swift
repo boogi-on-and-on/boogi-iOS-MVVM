@@ -8,17 +8,17 @@
 import Foundation
 
 protocol CommunitiesService {
-    func requestCreate(form: Community.Create) async -> Int
+    func createCommunity(form: Community.Create) async -> Int
 }
 
-struct RealCommunityService: CommunitiesService {
+struct RealCommunitiesService: CommunitiesService {
     let webRepository: CommunitiesWebRepository
     
     init(webRepository: CommunitiesWebRepository) {
         self.webRepository = webRepository
     }
     
-    func requestCreate(form: Community.Create) async -> Int {
+    func createCommunity(form: Community.Create) async -> Int {
         let res = await webRepository.createCommunity(form: form)
         
         switch res {
@@ -33,7 +33,7 @@ struct RealCommunityService: CommunitiesService {
 }
 
 struct StubCommunitiesService: CommunitiesService {
-    func requestCreate(form: Community.Create) async -> Int {
+    func createCommunity(form: Community.Create) async -> Int {
         -1
     }
 }
