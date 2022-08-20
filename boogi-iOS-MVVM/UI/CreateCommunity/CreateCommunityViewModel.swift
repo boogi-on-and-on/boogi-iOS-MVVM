@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // MARK: - ViewModel
 
@@ -15,14 +16,32 @@ extension CreateCommunity {
         @Published var success: Bool = false
         @Published var fail: Bool = false
         
+        @State var alertPresent: Bool = false
+        @State var confirmPresent = false
+        @State var cantCreate = false
+        
         let container: DIContainer
         init(container: DIContainer) {
             self.container = container
         }
         
         func requestCreate() async {
-            await container.services.communitiesService
-                .requestCreate(form: form, &success, &fail)
+            if (form.name == "" ||
+                form.description == "") {
+                cantCreate = true
+                return
+            }
+            form.hashtags.removeAll { $0 == "" }
+            
+            let res = await container.services.communitiesService
+                .requestCreate(form: form)
+            
+            switch res {
+            case -1:
+                self.fail = true
+            default:
+                self.success = true
+            }
         }
     }
 }

@@ -21,6 +21,7 @@
 		D018EF47289E5F2F00EA2BA1 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF46289E5F2F00EA2BA1 /* Loadable.swift */; };
 		D018EF49289E7CF200EA2BA1 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */; };
 		D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */; };
+		D0A1B47628A9D75E00FB4127 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = D0A1B47528A9D75E00FB4127 /* WrappingHStack */; };
 		D0D2F1E5287D1E2A00AB3E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */; };
 		D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */; };
 		D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */; };
@@ -86,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A1B47628A9D75E00FB4127 /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,11 +186,19 @@
 		D060F0AF2894E144000116EE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D0A1B47728B0814E00FB4127 /* CreatePost */,
 				D018EF3F289E437C00EA2BA1 /* CreateCommunity */,
 				D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */,
 				D0D2F1EA287D1E2A00AB3E6A /* Main.storyboard */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		D0A1B47728B0814E00FB4127 /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreatePost;
 			sourceTree = "<group>";
 		};
 		D0D2F1D8287D1E2A00AB3E6A = {
@@ -260,6 +270,9 @@
 			dependencies = (
 			);
 			name = "boogi-iOS-MVVM";
+			packageProductDependencies = (
+				D0A1B47528A9D75E00FB4127 /* WrappingHStack */,
+			);
 			productName = "boogi-iOS-MVVM";
 			productReference = D0D2F1E1287D1E2A00AB3E6A /* boogi-iOS-MVVM.app */;
 			productType = "com.apple.product-type.application";
@@ -332,6 +345,9 @@
 				Base,
 			);
 			mainGroup = D0D2F1D8287D1E2A00AB3E6A;
+			packageReferences = (
+				D0A1B47428A9D75E00FB4127 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+			);
 			productRefGroup = D0D2F1E2287D1E2A00AB3E6A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -730,6 +746,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D0A1B47428A9D75E00FB4127 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0A1B47528A9D75E00FB4127 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0A1B47428A9D75E00FB4127 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0D2F1D9287D1E2A00AB3E6A /* Project object */;
 }
