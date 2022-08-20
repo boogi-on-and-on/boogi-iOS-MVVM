@@ -23,7 +23,7 @@ extension Community {
 }
 
 extension Community.Create {
-    enum CommunityCategory: String, Equatable, Codable {
+    enum CommunityCategory: String, Equatable, Codable, CaseIterable {
         case all = "ALL", academic = "ACADEMIC", club = "CLUB", hobby = "HOBBY", other = "OTHER"
         
         func type() -> String {

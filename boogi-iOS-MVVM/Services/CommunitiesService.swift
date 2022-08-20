@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CommunitiesService {
-    func requestCreate(form: Community.Create, _ success: inout Bool, _ fail: inout Bool) async
+    func requestCreate(form: Community.Create) async -> Int
 }
 
 struct RealCommunityService: CommunitiesService {
@@ -18,24 +18,22 @@ struct RealCommunityService: CommunitiesService {
         self.webRepository = webRepository
     }
     
-    func requestCreate(form: Community.Create, _ success: inout Bool, _ fail: inout Bool) async {
+    func requestCreate(form: Community.Create) async -> Int {
         let res = await webRepository.createCommunity(form: form)
         
         switch res {
         case .success(let data):
             print(data)
-            success = true
-            break
+            return data
         case .failure(let err):
             print(err)
-            fail = true
-            break
+            return -1
         }
     }
 }
 
 struct StubCommunitiesService: CommunitiesService {
-    func requestCreate(form: Community.Create, _ success: inout Bool, _ fail: inout Bool) async {
-        
+    func requestCreate(form: Community.Create) async -> Int {
+        -1
     }
 }
