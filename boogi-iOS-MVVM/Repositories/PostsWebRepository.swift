@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol CommunitiesWebRepository: WebRepository {
-    func createCommunity(form: Community.Create) async -> Result<Int, Error>
+protocol PostsWebRepository: WebRepository {
+    func createPost(form: Post.Create) async -> Result<Int, Error>
 }
 
-struct RealCommunitiesWebRepository: CommunitiesWebRepository {
-    func createCommunity(form: Community.Create) async -> Result<Int, Error> {
+struct RealPostsWebRepository: PostsWebRepository {
+    func createPost(form: Post.Create) async -> Result<Int, Error> {
         return await call(endpoint: API.create(form))
     }
     
@@ -27,13 +27,13 @@ struct RealCommunitiesWebRepository: CommunitiesWebRepository {
 
 // MARK: - Endpoints
 
-extension RealCommunitiesWebRepository {
+extension RealPostsWebRepository {
     enum API {
-        case create(Community.Create)
+        case create(Post.Create)
     }
 }
 
-extension RealCommunitiesWebRepository.API: APICall {
+extension RealPostsWebRepository.API: APICall {
     var path: String {
         switch self {
         case .create:

@@ -22,6 +22,13 @@
 		D018EF49289E7CF200EA2BA1 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */; };
 		D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */; };
 		D0A1B47628A9D75E00FB4127 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = D0A1B47528A9D75E00FB4127 /* WrappingHStack */; };
+		D0A1B47928B0844C00FB4127 /* PostsWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */; };
+		D0A1B47B28B0849E00FB4127 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B47A28B0849E00FB4127 /* Post.swift */; };
+		D0A1B47D28B0886200FB4127 /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B47C28B0886200FB4127 /* PostsService.swift */; };
+		D0A1B47F28B08BC800FB4127 /* CreatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B47E28B08BC800FB4127 /* CreatePost.swift */; };
+		D0A1B48128B08C6C00FB4127 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48028B08C6C00FB4127 /* CreatePostViewModel.swift */; };
+		D0A1B48328B0A54100FB4127 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48228B0A54100FB4127 /* UsersService.swift */; };
+		D0A1B48528B0A59400FB4127 /* UsersWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48428B0A59400FB4127 /* UsersWebRepository.swift */; };
 		D0D2F1E5287D1E2A00AB3E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */; };
 		D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */; };
 		D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */; };
@@ -66,6 +73,13 @@
 		D018EF46289E5F2F00EA2BA1 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesContainer.swift; sourceTree = "<group>"; };
+		D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsWebRepository.swift; sourceTree = "<group>"; };
+		D0A1B47A28B0849E00FB4127 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D0A1B47C28B0886200FB4127 /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
+		D0A1B47E28B08BC800FB4127 /* CreatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePost.swift; sourceTree = "<group>"; };
+		D0A1B48028B08C6C00FB4127 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
+		D0A1B48228B0A54100FB4127 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		D0A1B48428B0A59400FB4127 /* UsersWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersWebRepository.swift; sourceTree = "<group>"; };
 		D0D2F1E1287D1E2A00AB3E6A /* boogi-iOS-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "boogi-iOS-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				D018EF372895088B00EA2BA1 /* CommunitiesWebRepository.swift */,
+				D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */,
+				D0A1B48428B0A59400FB4127 /* UsersWebRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -142,6 +158,8 @@
 			children = (
 				D018EF312894F19C00EA2BA1 /* UserPermissionsService.swift */,
 				D018EF44289E48E400EA2BA1 /* CommunitiesService.swift */,
+				D0A1B47C28B0886200FB4127 /* PostsService.swift */,
+				D0A1B48228B0A54100FB4127 /* UsersService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -150,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				D018EF3D289E3A7100EA2BA1 /* Community.swift */,
+				D0A1B47A28B0849E00FB4127 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,6 +216,8 @@
 		D0A1B47728B0814E00FB4127 /* CreatePost */ = {
 			isa = PBXGroup;
 			children = (
+				D0A1B47E28B08BC800FB4127 /* CreatePost.swift */,
+				D0A1B48028B08C6C00FB4127 /* CreatePostViewModel.swift */,
 			);
 			path = CreatePost;
 			sourceTree = "<group>";
@@ -392,22 +413,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A1B47F28B08BC800FB4127 /* CreatePost.swift in Sources */,
 				D018EF36289504D100EA2BA1 /* DependencyInjector.swift in Sources */,
 				D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */,
+				D0A1B48528B0A59400FB4127 /* UsersWebRepository.swift in Sources */,
 				D018EF45289E48E400EA2BA1 /* CommunitiesService.swift in Sources */,
 				D018EF34289503BF00EA2BA1 /* ServicesContainer.swift in Sources */,
 				D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */,
 				D018EF302894F04C00EA2BA1 /* AppState.swift in Sources */,
 				D018EF49289E7CF200EA2BA1 /* AppEnvironment.swift in Sources */,
 				D0D2F1E5287D1E2A00AB3E6A /* AppDelegate.swift in Sources */,
+				D0A1B47928B0844C00FB4127 /* PostsWebRepository.swift in Sources */,
 				D018EF322894F19C00EA2BA1 /* UserPermissionsService.swift in Sources */,
 				D018EF3A289508B200EA2BA1 /* WebRepository.swift in Sources */,
 				D018EF2E2894EFCC00EA2BA1 /* APICall.swift in Sources */,
 				D018EF382895088B00EA2BA1 /* CommunitiesWebRepository.swift in Sources */,
 				D018EF3E289E3A7100EA2BA1 /* Community.swift in Sources */,
 				D018EF41289E43C600EA2BA1 /* CreateCommunity.swift in Sources */,
+				D0A1B47D28B0886200FB4127 /* PostsService.swift in Sources */,
 				D018EF43289E44E500EA2BA1 /* CreateCommunityViewModel.swift in Sources */,
+				D0A1B48128B08C6C00FB4127 /* CreatePostViewModel.swift in Sources */,
+				D0A1B47B28B0849E00FB4127 /* Post.swift in Sources */,
 				D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */,
+				D0A1B48328B0A54100FB4127 /* UsersService.swift in Sources */,
 				D018EF47289E5F2F00EA2BA1 /* Loadable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

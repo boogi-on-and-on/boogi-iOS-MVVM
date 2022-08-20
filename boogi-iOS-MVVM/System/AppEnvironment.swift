@@ -17,8 +17,7 @@ extension AppEnvironment {
     static func bootstrap() -> AppEnvironment {
         let session = configuredURLSession()
         let webRepositories = configuredWebRepositories(session: session)
-        let services = configuredServices(// appState: appState,
-                                                webRepositories: webRepositories)
+        let services = configuredServices(/* appState: appState,*/webRepositories: webRepositories)
         let diContainer = DIContainer(/* appState: appState, */services: services)
         // let deepLinksHandler = RealDeepLinksHandler(container: diContainer)
         // let pushNotificationsHandler = RealPushNotificationsHandler(deepLinksHandler: deepLinksHandler)
@@ -43,20 +42,36 @@ extension AppEnvironment {
     
     private static func configuredWebRepositories(session: URLSession) -> DIContainer.Repositories {
         let communitiesWebRepository = RealCommunitiesWebRepository(
-            session: session,
-            baseURL: "ip/communities/")
+            session: session, baseURL: "ip/communities"
+        )
+        
+        let postsWebRepository = RealPostsWebRepository(
+            session: session, baseURL: "ip/posts"
+        )
+        
+        let usersWebRepository = RealUsersWebRepository(
+            session: session, baseURL: "ip/users"
+        )
         
         
-        return .init(communitiesWebRepository: communitiesWebRepository)
+        return .init(
+            communitiesWebRepository: communitiesWebRepository,
+            postsWebRepository: postsWebRepository,
+            usersWebRepository: usersWebRepository
+        )
     }
     
     private static func configuredServices(
         // appState: Store<AppState>,
         webRepositories: DIContainer.Repositories
     ) -> DIContainer.Services {
-        let communitiesService = RealCommunityService(
+        let communitiesService = RealCommunitiesService(
             webRepository: webRepositories.communitiesWebRepository)
 //            appState: appState)
+        
+        let postsService = RealPostsService(webRepository: webRepositories.postsWebRepository)
+        
+        let usersService = RealUsersService(webRepository: webRepositories.usersWebRepository)
         
 //        let userPermissionsService = RealUserPermissionsService(
 //            appState: appState, openAppSettings: {
@@ -65,7 +80,11 @@ extension AppEnvironment {
 //                }
 //            })
         
-        return .init(communitiesService: communitiesService)
-                     // userPermissionsService: userPermissionsService)
+        return .init(
+            // userPermissionsService: userPermissionsService)
+            communitiesService: communitiesService,
+            postsService: postsService,
+            usersService: usersService
+        )
     }
 }

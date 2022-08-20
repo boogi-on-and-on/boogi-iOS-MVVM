@@ -34,7 +34,7 @@ extension CreateCommunity {
             form.hashtags.removeAll { $0 == "" }
             
             let res = await container.services.communitiesService
-                .requestCreate(form: form)
+                .createCommunity(form: form)
             
             switch res {
             case -1:

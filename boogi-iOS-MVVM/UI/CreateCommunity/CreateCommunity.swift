@@ -26,15 +26,13 @@ struct CreateCommunity: View {
     
     var createForm: some View {
         Form {
-            Section("카테고리") {
-                categoryPicker
-                nameTextField
-                descriptionTextField
-                tags
-                tagAddButton
-                settings
-                createButton
-            }
+            categoryPicker
+            nameTextField
+            descriptionTextField
+            tags
+            tagAddButton
+            settings
+            createButton
         }
     }
 }
@@ -42,9 +40,11 @@ struct CreateCommunity: View {
 // MARK: - CreateView
 private extension CreateCommunity {
     var categoryPicker: some View {
-        Picker("카테고리", selection: $viewModel.form.category) {
-            ForEach(Community.Create.CommunityCategory.allCases.filter { $0 != .all }, id: \.self) { category in
-                Text(category.type())
+        Section("카테고리") {
+            Picker("카테고리", selection: $viewModel.form.category) {
+                ForEach(Community.Create.CommunityCategory.allCases.filter { $0 != .all }, id: \.self) { category in
+                    Text(category.type())
+                }
             }
         }
     }

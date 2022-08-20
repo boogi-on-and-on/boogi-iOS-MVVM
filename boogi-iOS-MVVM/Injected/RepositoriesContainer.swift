@@ -10,5 +10,7 @@ import Foundation
 extension DIContainer {
     struct Repositories {
         let communitiesWebRepository: CommunitiesWebRepository
+        let postsWebRepository: PostsWebRepository
+        let usersWebRepository: UsersWebRepository
     }
 }
