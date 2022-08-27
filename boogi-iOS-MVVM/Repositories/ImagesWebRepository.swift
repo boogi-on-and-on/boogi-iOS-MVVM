@@ -32,13 +32,6 @@ struct RealImagesWebRepository: ImagesWebRepository {
 extension RealImagesWebRepository {
     enum API {
         case getPostMediaIds(String, [UIImage])
-        // TODO: - todos
-        /*
-         case: getBlockedMessages
-         case: postBlockedMessages
-         case: postUnblockedMessages
-         case: getNotificationsConfig
-         */
     }
 }
 
