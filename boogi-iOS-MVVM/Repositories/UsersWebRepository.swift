@@ -31,13 +31,6 @@ struct RealUsersWebRepository: UsersWebRepository {
 extension RealUsersWebRepository {
     enum API {
         case getJoinedCommunities
-        // TODO: - todos
-        /*
-         case: getBlockedMessages
-         case: postBlockedMessages
-         case: postUnblockedMessages
-         case: getNotificationsConfig
-         */
     }
 }
 
@@ -58,9 +51,9 @@ extension RealUsersWebRepository.API: APICall {
     
     var headers: [String : String]? {
         return [
-            "Accept": "application/json",
+            "Content-Type": "application/json",
             // TODO: need user authentication token
-            "": "X-Auth-Token"
+            "X-Auth-Token": "X-Auth-Token"
         ]
     }
     
@@ -70,6 +63,4 @@ extension RealUsersWebRepository.API: APICall {
             return nil
         }
     }
-    
-    
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol UsersService {
     func getJoinedCommunities() async -> Community.Joined

@@ -12,5 +12,7 @@ extension DIContainer {
         let communitiesWebRepository: CommunitiesWebRepository
         let postsWebRepository: PostsWebRepository
         let usersWebRepository: UsersWebRepository
+        let imagesWebRepository: ImagesWebRepository
+        let searchWebRepository: SearchWebRepository
     }
 }

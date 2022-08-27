@@ -50,9 +50,9 @@ extension RealCommunitiesWebRepository.API: APICall {
     
     var headers: [String : String]? {
         return [
-            "Accept": "application/json",
+            "Content-Type": "application/json",
             // TODO: need user authentication token
-            "": "X-Auth-Token"
+            "X-Auth-Token": ""
         ]
     }
     
