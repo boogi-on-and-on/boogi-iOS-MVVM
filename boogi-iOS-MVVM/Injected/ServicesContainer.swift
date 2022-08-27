@@ -7,24 +7,24 @@
 
 extension DIContainer {
     struct Services {
-        // let imagesService: ImagesService
         // let userPermissionsService: UserPermissionsService
         let communitiesService: CommunitiesService
         let postsService: PostsService
         let usersService: UsersService
+        let imagesService: ImagesService
         
-        init(// countriesService: CountriesService,
-             // imagesService: ImagesService,
+        init(
              // userPermissionsService: UserPermissionsService,
              communitiesService: CommunitiesService,
              postsService: PostsService,
-             usersService: UsersService
+             usersService: UsersService,
+             imagesService: ImagesService
         ) {
-            // self.imagesService = imagesService
             // self.userPermissionsService = userPermissionsService
             self.communitiesService = communitiesService
             self.postsService = postsService
             self.usersService = usersService
+            self.imagesService = imagesService
         }
         
         static var stub: Self {
@@ -33,7 +33,8 @@ extension DIContainer {
                   // userPermissionsService: StubUserPermissionsService(),
                   communitiesService: StubCommunitiesService(),
                   postsService: StubPostsService(),
-                  usersService: StubUsersService()
+                  usersService: StubUsersService(),
+                  imagesService: StubImagesService()
             )
         }
     }

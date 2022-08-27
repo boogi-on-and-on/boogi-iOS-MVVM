@@ -13,11 +13,12 @@ import SwiftUI
 extension CreatePost {
     class ViewModel: ObservableObject {
         @Published var form = Post.Create()
-        @Published var selectedCommunity: Community.Joined.CommunityInfo?
+        @Published var selectedCommunity = Community.Joined.CommunityInfo(name: "", id: -1)
         @Published var images: [UIImage] = []
         
         @Published var alertPresent = false
         @Published var confirmPresent = false
+        @Published var isProgressing = false
         
         var joinedCommunities = Community.Joined(communities: [])
         
@@ -31,6 +32,21 @@ extension CreatePost {
                 .getJoinedCommunities()
             
             joinedCommunities = res
+        }
+        
+        func requestCreate() async {
+            isProgressing = true
+            form.hashtags.removeAll { $0 == "" }
+            form.communityId = selectedCommunity.id
+            
+            if !images.isEmpty {
+                form.postMediaIds = await container.services.imagesService.getPostMediaIds(images: images)
+            }
+            
+            let _ = await container.services.postsService.requestCreate(form: form)
+            
+            isProgressing = false
+            confirmPresent = true
         }
     }
 }

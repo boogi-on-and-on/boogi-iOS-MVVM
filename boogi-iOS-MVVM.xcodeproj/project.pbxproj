@@ -29,6 +29,8 @@
 		D0A1B48128B08C6C00FB4127 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48028B08C6C00FB4127 /* CreatePostViewModel.swift */; };
 		D0A1B48328B0A54100FB4127 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48228B0A54100FB4127 /* UsersService.swift */; };
 		D0A1B48528B0A59400FB4127 /* UsersWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48428B0A59400FB4127 /* UsersWebRepository.swift */; };
+		D0A1B48728B9A32A00FB4127 /* ImagesWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48628B9A32A00FB4127 /* ImagesWebRepository.swift */; };
+		D0A1B48928B9A7C400FB4127 /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48828B9A7C400FB4127 /* ImagesService.swift */; };
 		D0D2F1E5287D1E2A00AB3E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */; };
 		D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */; };
 		D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */; };
@@ -80,6 +82,8 @@
 		D0A1B48028B08C6C00FB4127 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		D0A1B48228B0A54100FB4127 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		D0A1B48428B0A59400FB4127 /* UsersWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersWebRepository.swift; sourceTree = "<group>"; };
+		D0A1B48628B9A32A00FB4127 /* ImagesWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesWebRepository.swift; sourceTree = "<group>"; };
+		D0A1B48828B9A7C400FB4127 /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
 		D0D2F1E1287D1E2A00AB3E6A /* boogi-iOS-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "boogi-iOS-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				D018EF372895088B00EA2BA1 /* CommunitiesWebRepository.swift */,
 				D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */,
 				D0A1B48428B0A59400FB4127 /* UsersWebRepository.swift */,
+				D0A1B48628B9A32A00FB4127 /* ImagesWebRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 				D018EF44289E48E400EA2BA1 /* CommunitiesService.swift */,
 				D0A1B47C28B0886200FB4127 /* PostsService.swift */,
 				D0A1B48228B0A54100FB4127 /* UsersService.swift */,
+				D0A1B48828B9A7C400FB4127 /* ImagesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -417,8 +423,10 @@
 				D018EF36289504D100EA2BA1 /* DependencyInjector.swift in Sources */,
 				D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */,
 				D0A1B48528B0A59400FB4127 /* UsersWebRepository.swift in Sources */,
+				D0A1B48728B9A32A00FB4127 /* ImagesWebRepository.swift in Sources */,
 				D018EF45289E48E400EA2BA1 /* CommunitiesService.swift in Sources */,
 				D018EF34289503BF00EA2BA1 /* ServicesContainer.swift in Sources */,
+				D0A1B48928B9A7C400FB4127 /* ImagesService.swift in Sources */,
 				D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */,
 				D018EF302894F04C00EA2BA1 /* AppState.swift in Sources */,
 				D018EF49289E7CF200EA2BA1 /* AppEnvironment.swift in Sources */,

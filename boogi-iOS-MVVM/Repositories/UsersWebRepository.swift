@@ -60,7 +60,7 @@ extension RealUsersWebRepository.API: APICall {
         return [
             "Accept": "application/json",
             // TODO: need user authentication token
-            "": "X-Auth-Token"
+            "X-Auth-Token": "X-Auth-Token"
         ]
     }
     
@@ -70,6 +70,4 @@ extension RealUsersWebRepository.API: APICall {
             return nil
         }
     }
-    
-    
 }

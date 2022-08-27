@@ -171,24 +171,7 @@ extension CreatePost {
     var createButton: some View {
         Button {
             Task {
-                do {
-                    /*
-                     
-                    createPost.hashtags.removeAll { $0 == "" }
-                    createPost.communityId = selected.id
-                    isProgressing = true
-                    
-                    createPost.postMediaIds = try await WebService.webService.createPostwithImage(images: images)
-                    
-                    try await WebService.webService.createPost(form: createPost)
-                    
-                    isProgressing = false
-                    confirmPresent = true
-                    dismiss()
-                     */
-                } catch {
-                    // isProgressing = false
-                }
+                await viewModel.requestCreate()
             }
         } label: {
             HStack {
