@@ -20,7 +20,7 @@ extension CreatePost {
         @Published var confirmPresent = false
         @Published var isProgressing = false
         
-        var joinedCommunities = Community.Joined(communities: [])
+        @Published var joinedCommunities = Community.Joined(communities: [])
         
         let container: DIContainer
         init(container: DIContainer) {
