@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         let env = AppEnvironment.bootstrap()
         let _con = env.container
+        // TODO: -- rootview 만들 때 컨테이너 넣어주세요.
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

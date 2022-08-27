@@ -32,6 +32,12 @@
 		D0A1B48728B9A32A00FB4127 /* ImagesWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48628B9A32A00FB4127 /* ImagesWebRepository.swift */; };
 		D0A1B48928B9A7C400FB4127 /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48828B9A7C400FB4127 /* ImagesService.swift */; };
 		D0A1B48C28B9C9D700FB4127 /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B48B28B9C9D700FB4127 /* Create.swift */; };
+		D0A1B49128B9E90100FB4127 /* SearchWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B49028B9E90100FB4127 /* SearchWebRepository.swift */; };
+		D0A1B49328B9ED9C00FB4127 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B49228B9ED9C00FB4127 /* SearchService.swift */; };
+		D0A1B49528B9F0B600FB4127 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B49428B9F0B600FB4127 /* SearchView.swift */; };
+		D0A1B49728B9F16F00FB4127 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B49628B9F16F00FB4127 /* SearchViewModel.swift */; };
+		D0A1B49928B9F45B00FB4127 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B49828B9F45B00FB4127 /* SearchBar.swift */; };
+		D0A1B49B28B9FD7000FB4127 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B49A28B9FD7000FB4127 /* Search.swift */; };
 		D0D2F1E5287D1E2A00AB3E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */; };
 		D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */; };
 		D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */; };
@@ -86,6 +92,12 @@
 		D0A1B48628B9A32A00FB4127 /* ImagesWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesWebRepository.swift; sourceTree = "<group>"; };
 		D0A1B48828B9A7C400FB4127 /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
 		D0A1B48B28B9C9D700FB4127 /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
+		D0A1B49028B9E90100FB4127 /* SearchWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWebRepository.swift; sourceTree = "<group>"; };
+		D0A1B49228B9ED9C00FB4127 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		D0A1B49428B9F0B600FB4127 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		D0A1B49628B9F16F00FB4127 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		D0A1B49828B9F45B00FB4127 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		D0A1B49A28B9FD7000FB4127 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		D0D2F1E1287D1E2A00AB3E6A /* boogi-iOS-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "boogi-iOS-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +168,7 @@
 				D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */,
 				D0A1B48428B0A59400FB4127 /* UsersWebRepository.swift */,
 				D0A1B48628B9A32A00FB4127 /* ImagesWebRepository.swift */,
+				D0A1B49028B9E90100FB4127 /* SearchWebRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -168,6 +181,7 @@
 				D0A1B47C28B0886200FB4127 /* PostsService.swift */,
 				D0A1B48228B0A54100FB4127 /* UsersService.swift */,
 				D0A1B48828B9A7C400FB4127 /* ImagesService.swift */,
+				D0A1B49228B9ED9C00FB4127 /* SearchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -177,6 +191,7 @@
 			children = (
 				D018EF3D289E3A7100EA2BA1 /* Community.swift */,
 				D0A1B47A28B0849E00FB4127 /* Post.swift */,
+				D0A1B49A28B9FD7000FB4127 /* Search.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,6 +228,7 @@
 		D060F0AF2894E144000116EE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D0A1B48D28B9E6F900FB4127 /* SearchView */,
 				D0A1B48A28B9C17B00FB4127 /* CreateView */,
 				D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */,
 				D0D2F1EA287D1E2A00AB3E6A /* Main.storyboard */,
@@ -237,6 +253,16 @@
 				D018EF3F289E437C00EA2BA1 /* CreateCommunity */,
 			);
 			path = CreateView;
+			sourceTree = "<group>";
+		};
+		D0A1B48D28B9E6F900FB4127 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				D0A1B49428B9F0B600FB4127 /* SearchView.swift */,
+				D0A1B49628B9F16F00FB4127 /* SearchViewModel.swift */,
+				D0A1B49828B9F45B00FB4127 /* SearchBar.swift */,
+			);
+			path = SearchView;
 			sourceTree = "<group>";
 		};
 		D0D2F1D8287D1E2A00AB3E6A = {
@@ -430,10 +456,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A1B49B28B9FD7000FB4127 /* Search.swift in Sources */,
 				D0A1B47F28B08BC800FB4127 /* CreatePost.swift in Sources */,
 				D018EF36289504D100EA2BA1 /* DependencyInjector.swift in Sources */,
 				D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */,
 				D0A1B48528B0A59400FB4127 /* UsersWebRepository.swift in Sources */,
+				D0A1B49128B9E90100FB4127 /* SearchWebRepository.swift in Sources */,
 				D0A1B48728B9A32A00FB4127 /* ImagesWebRepository.swift in Sources */,
 				D018EF45289E48E400EA2BA1 /* CommunitiesService.swift in Sources */,
 				D018EF34289503BF00EA2BA1 /* ServicesContainer.swift in Sources */,
@@ -450,11 +478,15 @@
 				D018EF3E289E3A7100EA2BA1 /* Community.swift in Sources */,
 				D0A1B48C28B9C9D700FB4127 /* Create.swift in Sources */,
 				D018EF41289E43C600EA2BA1 /* CreateCommunity.swift in Sources */,
+				D0A1B49928B9F45B00FB4127 /* SearchBar.swift in Sources */,
 				D0A1B47D28B0886200FB4127 /* PostsService.swift in Sources */,
 				D018EF43289E44E500EA2BA1 /* CreateCommunityViewModel.swift in Sources */,
 				D0A1B48128B08C6C00FB4127 /* CreatePostViewModel.swift in Sources */,
+				D0A1B49728B9F16F00FB4127 /* SearchViewModel.swift in Sources */,
 				D0A1B47B28B0849E00FB4127 /* Post.swift in Sources */,
 				D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */,
+				D0A1B49328B9ED9C00FB4127 /* SearchService.swift in Sources */,
+				D0A1B49528B9F0B600FB4127 /* SearchView.swift in Sources */,
 				D0A1B48328B0A54100FB4127 /* UsersService.swift in Sources */,
 				D018EF47289E5F2F00EA2BA1 /* Loadable.swift in Sources */,
 			);

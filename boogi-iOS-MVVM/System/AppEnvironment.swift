@@ -41,23 +41,35 @@ extension AppEnvironment {
     }
     
     private static func configuredWebRepositories(session: URLSession) -> DIContainer.Repositories {
+        let ip = "http://34.64.169.65:80/api"
+        
         let communitiesWebRepository = RealCommunitiesWebRepository(
-            session: session, baseURL: "ip/communities"
+            session: session, baseURL: "\(ip)/communities"
         )
         
         let postsWebRepository = RealPostsWebRepository(
-            session: session, baseURL: "ip/posts"
+            session: session, baseURL: "\(ip)/posts"
         )
         
         let usersWebRepository = RealUsersWebRepository(
-            session: session, baseURL: "ip/users"
+            session: session, baseURL: "\(ip)/users"
+        )
+        
+        let imagesWebRepository = RealImagesWebRepository(
+            session: session, baseURL: "\(ip)/images"
+        )
+        
+        let searchWebRepository = RealSearchWebRepository(
+            session: session, baseURL: "\(ip)"
         )
         
         
         return .init(
             communitiesWebRepository: communitiesWebRepository,
             postsWebRepository: postsWebRepository,
-            usersWebRepository: usersWebRepository
+            usersWebRepository: usersWebRepository,
+            imagesWebRepository: imagesWebRepository,
+            searchWebRepository: searchWebRepository
         )
     }
     
@@ -73,6 +85,10 @@ extension AppEnvironment {
         
         let usersService = RealUsersService(webRepository: webRepositories.usersWebRepository)
         
+        let imagesService = RealImagesService(webRepository: webRepositories.imagesWebRepository)
+        
+        let searchService = RealSearchService(webRepository: webRepositories.searchWebRepository)
+        
 //        let userPermissionsService = RealUserPermissionsService(
 //            appState: appState, openAppSettings: {
 //                URL(string: UIApplication.openSettingsURLString).flatMap {
@@ -84,7 +100,9 @@ extension AppEnvironment {
             // userPermissionsService: userPermissionsService)
             communitiesService: communitiesService,
             postsService: postsService,
-            usersService: usersService
+            usersService: usersService,
+            imagesService: imagesService,
+            searchService: searchService
         )
     }
 }
