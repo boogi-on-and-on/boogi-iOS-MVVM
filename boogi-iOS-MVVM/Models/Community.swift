@@ -15,7 +15,7 @@ extension Community {
     struct Create: Codable {
         var name: String = ""
         var description: String = ""
-        var category: CommunityCategory = .academic
+        var category: Category = .academic
         var hashtags: [String] = []
         var isPrivate: Bool = false
         var autoApproval: Bool = false
@@ -41,8 +41,9 @@ extension Community {
     }
 }
 
-extension Community.Create {
-    enum CommunityCategory: String, Equatable, Codable, CaseIterable {
+// MARK: --enum
+extension Community {
+    enum Category: String, Equatable, Codable, CaseIterable {
         case all = "ALL", academic = "ACADEMIC", club = "CLUB", hobby = "HOBBY", other = "OTHER"
         
         func type() -> String {
