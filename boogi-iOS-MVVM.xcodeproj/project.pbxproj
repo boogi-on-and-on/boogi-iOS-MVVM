@@ -21,6 +21,11 @@
 		D018EF47289E5F2F00EA2BA1 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF46289E5F2F00EA2BA1 /* Loadable.swift */; };
 		D018EF49289E7CF200EA2BA1 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */; };
 		D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */; };
+		D048301528C2DE74006DFF01 /* CommunityCategoryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048301428C2DE74006DFF01 /* CommunityCategoryBar.swift */; };
+		D048301828C2DFD7006DFF01 /* SearchTypeSelectBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048301728C2DFD7006DFF01 /* SearchTypeSelectBar.swift */; };
+		D048301A28C2E5B6006DFF01 /* PostSearchResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048301928C2E5B6006DFF01 /* PostSearchResultList.swift */; };
+		D05E89E528C2E87B0018202D /* CommunitySearchResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E89E428C2E87B0018202D /* CommunitySearchResultList.swift */; };
+		D05E89E728C30ED00018202D /* HideKeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E89E628C30ED00018202D /* HideKeyBoard.swift */; };
 		D0A1B47628A9D75E00FB4127 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = D0A1B47528A9D75E00FB4127 /* WrappingHStack */; };
 		D0A1B47928B0844C00FB4127 /* PostsWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */; };
 		D0A1B47B28B0849E00FB4127 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B47A28B0849E00FB4127 /* Post.swift */; };
@@ -82,6 +87,11 @@
 		D018EF46289E5F2F00EA2BA1 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesContainer.swift; sourceTree = "<group>"; };
+		D048301428C2DE74006DFF01 /* CommunityCategoryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCategoryBar.swift; sourceTree = "<group>"; };
+		D048301728C2DFD7006DFF01 /* SearchTypeSelectBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeSelectBar.swift; sourceTree = "<group>"; };
+		D048301928C2E5B6006DFF01 /* PostSearchResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchResultList.swift; sourceTree = "<group>"; };
+		D05E89E428C2E87B0018202D /* CommunitySearchResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitySearchResultList.swift; sourceTree = "<group>"; };
+		D05E89E628C30ED00018202D /* HideKeyBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyBoard.swift; sourceTree = "<group>"; };
 		D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsWebRepository.swift; sourceTree = "<group>"; };
 		D0A1B47A28B0849E00FB4127 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D0A1B47C28B0886200FB4127 /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
@@ -146,6 +156,7 @@
 				D018EF2D2894EFCC00EA2BA1 /* APICall.swift */,
 				D018EF39289508B200EA2BA1 /* WebRepository.swift */,
 				D018EF46289E5F2F00EA2BA1 /* Loadable.swift */,
+				D05E89E628C30ED00018202D /* HideKeyBoard.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -205,6 +216,18 @@
 			path = CreateCommunity;
 			sourceTree = "<group>";
 		};
+		D048301628C2DEF5006DFF01 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				D0A1B49828B9F45B00FB4127 /* SearchBar.swift */,
+				D048301428C2DE74006DFF01 /* CommunityCategoryBar.swift */,
+				D048301728C2DFD7006DFF01 /* SearchTypeSelectBar.swift */,
+				D048301928C2E5B6006DFF01 /* PostSearchResultList.swift */,
+				D05E89E428C2E87B0018202D /* CommunitySearchResultList.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		D060F0AD2894E0E7000116EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +283,7 @@
 			children = (
 				D0A1B49428B9F0B600FB4127 /* SearchView.swift */,
 				D0A1B49628B9F16F00FB4127 /* SearchViewModel.swift */,
-				D0A1B49828B9F45B00FB4127 /* SearchBar.swift */,
+				D048301628C2DEF5006DFF01 /* Component */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -290,8 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				D018EF2C2894EF8800EA2BA1 /* Models */,
-				D018EF2B2894EF7B00EA2BA1 /* Services */,
 				D018EF2A2894EF6F00EA2BA1 /* Repositories */,
+				D018EF2B2894EF7B00EA2BA1 /* Services */,
 				D018EF292894EF6100EA2BA1 /* Injected */,
 				D018EF282894EF4900EA2BA1 /* Utilities */,
 				D060F0AF2894E144000116EE /* UI */,
@@ -477,16 +500,21 @@
 				D018EF382895088B00EA2BA1 /* CommunitiesWebRepository.swift in Sources */,
 				D018EF3E289E3A7100EA2BA1 /* Community.swift in Sources */,
 				D0A1B48C28B9C9D700FB4127 /* Create.swift in Sources */,
+				D048301528C2DE74006DFF01 /* CommunityCategoryBar.swift in Sources */,
+				D05E89E528C2E87B0018202D /* CommunitySearchResultList.swift in Sources */,
 				D018EF41289E43C600EA2BA1 /* CreateCommunity.swift in Sources */,
 				D0A1B49928B9F45B00FB4127 /* SearchBar.swift in Sources */,
 				D0A1B47D28B0886200FB4127 /* PostsService.swift in Sources */,
 				D018EF43289E44E500EA2BA1 /* CreateCommunityViewModel.swift in Sources */,
 				D0A1B48128B08C6C00FB4127 /* CreatePostViewModel.swift in Sources */,
+				D05E89E728C30ED00018202D /* HideKeyBoard.swift in Sources */,
 				D0A1B49728B9F16F00FB4127 /* SearchViewModel.swift in Sources */,
 				D0A1B47B28B0849E00FB4127 /* Post.swift in Sources */,
 				D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */,
 				D0A1B49328B9ED9C00FB4127 /* SearchService.swift in Sources */,
 				D0A1B49528B9F0B600FB4127 /* SearchView.swift in Sources */,
+				D048301A28C2E5B6006DFF01 /* PostSearchResultList.swift in Sources */,
+				D048301828C2DFD7006DFF01 /* SearchTypeSelectBar.swift in Sources */,
 				D0A1B48328B0A54100FB4127 /* UsersService.swift in Sources */,
 				D018EF47289E5F2F00EA2BA1 /* Loadable.swift in Sources */,
 			);
