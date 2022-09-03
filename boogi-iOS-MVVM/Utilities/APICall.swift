@@ -11,6 +11,7 @@ protocol APICall {
     var path: String { get }
     var method: String { get }
     var headers: [String: String]? { get }
+    var parameters: [URLQueryItem]? { get }
     func body() throws -> Data?
 }
 
@@ -34,9 +35,16 @@ extension APIError: LocalizedError {
 
 extension APICall {
     func urlRequest(baseURL: String) throws -> URLRequest {
-        guard let url = URL(string: baseURL + path) else {
+        guard var url = URLComponents(string: baseURL + path) else {
             throw APIError.invalidURL
         }
+        
+        url.queryItems = parameters
+        
+        guard let url = url.url else {
+            throw APIError.invalidURL
+        }
+        
         var request = URLRequest(url: url)
         request.httpMethod = method
         request.allHTTPHeaderFields = headers
