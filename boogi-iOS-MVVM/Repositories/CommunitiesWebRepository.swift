@@ -52,8 +52,12 @@ extension RealCommunitiesWebRepository.API: APICall {
         return [
             "Content-Type": "application/json",
             // TODO: need user authentication token
-            "X-Auth-Token": ""
+            "X-Auth-Token": "82e1133c-6d4e-4c39-91d1-c7390c6f9829"
         ]
+    }
+    
+    var parameters: [URLQueryItem]? {
+        return nil
     }
     
     func body() throws -> Data? {
@@ -62,6 +66,4 @@ extension RealCommunitiesWebRepository.API: APICall {
             return try JSONEncoder().encode(form)
         }
     }
-    
-    
 }
