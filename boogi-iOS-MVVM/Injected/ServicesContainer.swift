@@ -41,5 +41,11 @@ extension DIContainer {
                   searchService: StubSearchService()
             )
         }
+        
+        static func getDateTime(datetime: String) -> String {
+            let tokens = datetime.components(separatedBy: ["T", "-", ":", "."])
+            
+            return "\(tokens[0][tokens[0].index(tokens[0].startIndex, offsetBy: 2)...]).\(tokens[1]).\(tokens[2]) \(tokens[3]):\(tokens[4])"
+        }
     }
 }

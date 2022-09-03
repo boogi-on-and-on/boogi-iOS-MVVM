@@ -8,17 +8,17 @@
 import Foundation
 
 protocol SearchWebRepository: WebRepository {
-    func searchCommunities() async -> Result<Search.CommunitySearchResult, Error>
-    func searchPosts() async -> Result<Search.PostSearchResult, Error>
+    func searchCommunities(parameter: Search.Parameter) async -> Result<Search.CommunitySearchResult, Error>
+    func searchPosts(parameter: Search.Parameter) async -> Result<Search.PostSearchResult, Error>
 }
 
 struct RealSearchWebRepository: SearchWebRepository {
-    func searchCommunities() async -> Result<Search.CommunitySearchResult, Error> {
-        return await call(endpoint: API.searchCommunities)
+    func searchCommunities(parameter: Search.Parameter) async -> Result<Search.CommunitySearchResult, Error> {
+        return await call(endpoint: API.searchCommunities(parameter))
     }
     
-    func searchPosts() async -> Result<Search.PostSearchResult, Error> {
-        return await call(endpoint: API.searchPosts)
+    func searchPosts(parameter: Search.Parameter) async -> Result<Search.PostSearchResult, Error> {
+        return await call(endpoint: API.searchPosts(parameter))
     }
     
     
@@ -36,8 +36,8 @@ struct RealSearchWebRepository: SearchWebRepository {
 
 extension RealSearchWebRepository {
     enum API {
-        case searchPosts
-        case searchCommunities
+        case searchPosts(Search.Parameter)
+        case searchCommunities(Search.Parameter)
     }
 }
 
@@ -61,9 +61,33 @@ extension RealSearchWebRepository.API: APICall {
     var headers: [String : String]? {
         return [
             "Content-Type": "application/json",
-            // TODO: need user authentication token
-            "X-Auth-Token": "X-Auth-Token"
+            "X-Auth-Token": "82e1133c-6d4e-4c39-91d1-c7390c6f9829"
         ]
+    }
+    
+    var parameters: [URLQueryItem]? {
+        var queryItems: [URLQueryItem] = []
+        switch self {
+        case let .searchPosts(p), let .searchCommunities(p):
+            queryItems = [
+                URLQueryItem(name: "order", value: p.order.rawValue),
+                URLQueryItem(name: "keyword", value: p.keyword),
+                URLQueryItem(name: "size", value: "5"),
+                URLQueryItem(name: "page", value: 0.description),
+            ]
+            break
+        }
+        
+        if case let .searchCommunities(p) = self {
+            queryItems.append(URLQueryItem(name: "category", value: p.category == .all ? nil : p.category.rawValue))
+            if p.isPrivate != .all {
+                queryItems.append(
+                    URLQueryItem(name: "isPrivate", value: p.isPrivate == .private ? "true" : "false")
+                )
+            }
+        }
+        
+        return queryItems
     }
     
     func body() throws -> Data? {
