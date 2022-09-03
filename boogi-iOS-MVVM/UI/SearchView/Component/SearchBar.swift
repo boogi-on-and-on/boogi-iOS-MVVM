@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
+extension SearchView {
 struct SearchBar: View {
+    let search: () async -> ()
     @Binding var keyword: String
     @State var isEditing = false
     
@@ -16,7 +18,10 @@ struct SearchBar: View {
         HStack {
             ZStack {
                 TextField("Search ...", text: $keyword, onCommit: {
-                    self.isEditing = false
+                    Task {
+                        await search()
+                        self.isEditing = false
+                    }
                 })
                     .padding()
                     .background(
@@ -30,6 +35,10 @@ struct SearchBar: View {
                     Spacer()
                     
                     Button {
+                        Task {
+                            await search()
+                            self.isEditing = false
+                        }
                     } label: {
                         Image(systemName: "magnifyingglass")
                     }
@@ -41,7 +50,7 @@ struct SearchBar: View {
             if isEditing {
                 Button {
                     self.isEditing = false
-                    self.keyword = ""
+                    keyword = ""
                 } label: {
                     Text("Cancel")
                 }
@@ -49,4 +58,5 @@ struct SearchBar: View {
             }
         }
     }
+}
 }
