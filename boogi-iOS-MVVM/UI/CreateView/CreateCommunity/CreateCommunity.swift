@@ -42,7 +42,7 @@ private extension CreateCommunity {
     var categoryPicker: some View {
         Section("카테고리") {
             Picker("카테고리", selection: $viewModel.form.category) {
-                ForEach(Community.Create.CommunityCategory.allCases.filter { $0 != .all }, id: \.self) { category in
+                ForEach(Community.Category.allCases.filter { $0 != .all }, id: \.self) { category in
                     Text(category.type())
                 }
             }
