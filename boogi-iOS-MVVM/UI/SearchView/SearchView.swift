@@ -14,8 +14,8 @@ struct SearchView: View {
     var body: some View {
         VStack {
             SearchBar(
-                search: viewModel.search,
-                keyword: $viewModel.searchParameter.keyword
+                keyword: $viewModel.searchParameter.keyword,
+                search: viewModel.search
             )
             SearchTypeSelectBar(
                 isCommunitySearch: $viewModel.isCommunitySearch,

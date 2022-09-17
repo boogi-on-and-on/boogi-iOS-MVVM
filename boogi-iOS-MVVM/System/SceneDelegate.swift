@@ -21,13 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let env = AppEnvironment.bootstrap()
         // TODO: -- rootview 만들 때 컨테이너 넣어주세요.
         
-        /*
         let contentView = SearchView(viewModel: SearchView.ViewModel(container: env.container))
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = UIHostingController(rootView: contentView)
         self.window = window
         window.makeKeyAndVisible()
-         */
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

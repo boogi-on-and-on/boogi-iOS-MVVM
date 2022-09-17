@@ -21,11 +21,10 @@ extension Search {
             var hashtags: [String]?
             var memberCount: Int
             var category: String
-            var `private`: Bool
+            var isPrivate: Bool
         }
         struct Page: Codable {
             var nextPage: Int
-            var totalCount: Int
             var hasNext: Bool
         }
         
@@ -33,7 +32,7 @@ extension Search {
         var pageInfo: CommunitySearchResult.Page
         
         static func `default`() -> CommunitySearchResult {
-            return CommunitySearchResult(communities: [], pageInfo: Page(nextPage: -1, totalCount: -1, hasNext: false))
+            return CommunitySearchResult(communities: [], pageInfo: Page(nextPage: -1, hasNext: false))
         }
     }
 }
@@ -60,7 +59,6 @@ extension Search {
         }
         struct Page: Codable {
             var nextPage: Int
-            var totalCount: Int
             var hasNext: Bool
         }
         
@@ -68,7 +66,7 @@ extension Search {
         var pageInfo: PostSearchResult.Page
         
         static func `default`() -> PostSearchResult {
-            return PostSearchResult(posts: [], pageInfo: Page(nextPage: -1, totalCount: -1, hasNext: false))
+            return PostSearchResult(posts: [], pageInfo: Page(nextPage: -1, hasNext: false))
         }
     }
 }
