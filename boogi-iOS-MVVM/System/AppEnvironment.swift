@@ -63,13 +63,18 @@ extension AppEnvironment {
             session: session, baseURL: "\(ip)"
         )
         
+        let alarmsWebRepository = RealAlarmsWebRepository(
+            session: session, baseURL: "/alarms"
+        )
+        
         
         return .init(
             communitiesWebRepository: communitiesWebRepository,
             postsWebRepository: postsWebRepository,
             usersWebRepository: usersWebRepository,
             imagesWebRepository: imagesWebRepository,
-            searchWebRepository: searchWebRepository
+            searchWebRepository: searchWebRepository,
+            alarmsWebRepository: alarmsWebRepository
         )
     }
     
@@ -89,6 +94,8 @@ extension AppEnvironment {
         
         let searchService = RealSearchService(webRepository: webRepositories.searchWebRepository)
         
+        let alarmsService = RealAlarmsService(webRepository: webRepositories.alarmsWebRepository)
+        
 //        let userPermissionsService = RealUserPermissionsService(
 //            appState: appState, openAppSettings: {
 //                URL(string: UIApplication.openSettingsURLString).flatMap {
@@ -102,7 +109,8 @@ extension AppEnvironment {
             postsService: postsService,
             usersService: usersService,
             imagesService: imagesService,
-            searchService: searchService
+            searchService: searchService,
+            alarmsService: alarmsService
         )
     }
 }
