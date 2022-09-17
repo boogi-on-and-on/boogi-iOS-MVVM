@@ -54,10 +54,10 @@ struct RealSearchService: SearchService {
 
 struct StubSearchService: SearchService {
     func getCommunitiesSearchList(parameter: Search.Parameter) async -> Search.CommunitySearchResult {
-        Search.CommunitySearchResult(communities: [], pageInfo: Search.CommunitySearchResult.Page(nextPage: 0, totalCount: 0, hasNext: false))
+        Search.CommunitySearchResult(communities: [], pageInfo: Search.CommunitySearchResult.Page(nextPage: 0, hasNext: false))
     }
     
     func getPostsSearchList(parameter: Search.Parameter) async -> Search.PostSearchResult {
-        Search.PostSearchResult(posts: [], pageInfo: Search.PostSearchResult.Page(nextPage: 0, totalCount: 0, hasNext: false))
+        Search.PostSearchResult(posts: [], pageInfo: Search.PostSearchResult.Page(nextPage: 0, hasNext: false))
     }
 }

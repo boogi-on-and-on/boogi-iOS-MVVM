@@ -79,13 +79,17 @@ extension RealSearchWebRepository.API: APICall {
         }
         
         if case let .searchCommunities(p) = self {
-            queryItems.append(URLQueryItem(name: "category", value: p.category == .all ? nil : p.category.rawValue))
+            if p.category != .all {
+                queryItems.append(URLQueryItem(name: "category", value: p.category.rawValue))
+            }
             if p.isPrivate != .all {
                 queryItems.append(
                     URLQueryItem(name: "isPrivate", value: p.isPrivate == .private ? "true" : "false")
                 )
             }
         }
+        
+        print("queryItems: \(queryItems)")
         
         return queryItems
     }

@@ -85,7 +85,7 @@ extension SearchView.CommunitySearchResultList {
                     
                     Spacer()
                     
-                    Text("\(community.private ? "비공개" : "공개")")
+                    Text("\(community.isPrivate ? "비공개" : "공개")")
                     
                     Text(" | ")
                     
