@@ -10,9 +10,9 @@ import SwiftUI
 
 extension SearchView {
 struct SearchBar: View {
-    let search: () async -> ()
     @Binding var keyword: String
     @State var isEditing = false
+    let search: () async -> ()
     
     var body: some View {
         HStack {
