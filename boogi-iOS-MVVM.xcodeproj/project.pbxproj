@@ -105,9 +105,9 @@
 		D098CCB328C32B3F004DC73C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D098CCB628D5568D004DC73C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		D098CCB828D557A2004DC73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D098CCB928D558A3004DC73C /* Repositories.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Repositories.md; sourceTree = "<group>"; };
-		D098CCBA28D55930004DC73C /* Services.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Services.md; sourceTree = "<group>"; };
-		D098CCBC28D55984004DC73C /* Injected.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Injected.md; sourceTree = "<group>"; };
+		D098CCB928D558A3004DC73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D098CCBA28D55930004DC73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D098CCBC28D55984004DC73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D098CCBD28D55ACE004DC73C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		D098CCC028D55B61004DC73C /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 		D098CCC328D55B7D004DC73C /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
@@ -116,8 +116,8 @@
 		D098CCCA28D570AC004DC73C /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		D098CCCC28D57D3F004DC73C /* AlarmsWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsWebRepository.swift; sourceTree = "<group>"; };
 		D098CCCE28D58E42004DC73C /* AlarmsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmsService.swift; sourceTree = "<group>"; };
-		D098CCD028D5A5D7004DC73C /* System.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = System.md; sourceTree = "<group>"; };
-		D098CCD128D5A660004DC73C /* Utilities.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Utilities.md; sourceTree = "<group>"; };
+		D098CCD028D5A5D7004DC73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D098CCD128D5A660004DC73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsWebRepository.swift; sourceTree = "<group>"; };
 		D0A1B47A28B0849E00FB4127 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D0A1B47C28B0886200FB4127 /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 		D018EF282894EF4900EA2BA1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				D098CCD128D5A660004DC73C /* Utilities.md */,
+				D098CCD128D5A660004DC73C /* README.md */,
 				D018EF2D2894EFCC00EA2BA1 /* APICall.swift */,
 				D018EF39289508B200EA2BA1 /* WebRepository.swift */,
 				D018EF46289E5F2F00EA2BA1 /* Loadable.swift */,
@@ -191,7 +191,7 @@
 		D018EF292894EF6100EA2BA1 /* Injected */ = {
 			isa = PBXGroup;
 			children = (
-				D098CCBC28D55984004DC73C /* Injected.md */,
+				D098CCBC28D55984004DC73C /* README.md */,
 				D018EF2F2894F04C00EA2BA1 /* AppState.swift */,
 				D018EF33289503BF00EA2BA1 /* ServicesContainer.swift */,
 				D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */,
@@ -203,7 +203,7 @@
 		D018EF2A2894EF6F00EA2BA1 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				D098CCB928D558A3004DC73C /* Repositories.md */,
+				D098CCB928D558A3004DC73C /* README.md */,
 				D018EF372895088B00EA2BA1 /* CommunitiesWebRepository.swift */,
 				D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */,
 				D0A1B48428B0A59400FB4127 /* UsersWebRepository.swift */,
@@ -217,7 +217,7 @@
 		D018EF2B2894EF7B00EA2BA1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D098CCBA28D55930004DC73C /* Services.md */,
+				D098CCBA28D55930004DC73C /* README.md */,
 				D018EF312894F19C00EA2BA1 /* UserPermissionsService.swift */,
 				D018EF44289E48E400EA2BA1 /* CommunitiesService.swift */,
 				D0A1B47C28B0886200FB4127 /* PostsService.swift */,
@@ -275,7 +275,7 @@
 		D060F0AE2894E130000116EE /* System */ = {
 			isa = PBXGroup;
 			children = (
-				D098CCD028D5A5D7004DC73C /* System.md */,
+				D098CCD028D5A5D7004DC73C /* README.md */,
 				D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */,
 				D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */,
 				D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */,
