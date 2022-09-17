@@ -17,8 +17,12 @@ struct AppState: Equatable {
 
 extension AppState {
     struct UserData: Equatable {
-        var email: String?
-        var xAuthToken: String?
+        static func == (lhs: AppState.UserData, rhs: AppState.UserData) -> Bool {
+            return lhs.email == rhs.email && lhs.xAuthToken == rhs.xAuthToken
+        }
+        
+        @AppStorage("email") var email: String = ""
+        @AppStorage("xAuthToken") var xAuthToken: String = "82e1133c-6d4e-4c39-91d1-c7390c6f9829"
     }
 }
 
