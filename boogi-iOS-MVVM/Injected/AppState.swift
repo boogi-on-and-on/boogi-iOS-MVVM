@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 struct AppState: Equatable {
     var userData = UserData()
@@ -28,8 +27,6 @@ extension AppState {
 
 extension AppState {
     struct ViewRouting: Equatable {
-//        var countriesList = CountriesList.Routing()
-//        var countryDetails = CountryDetails.Routing()
     }
 }
 

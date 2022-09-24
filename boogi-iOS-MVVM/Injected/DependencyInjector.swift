@@ -12,15 +12,16 @@ import Combine
 
 struct DIContainer: EnvironmentKey {
     
-    // let appState: Store<AppState>
+    let appState: AppState
     let services: Services
+//    let interactors: Interactors
     
     static var defaultValue: Self { Self.default }
     
-    private static let `default` = DIContainer(/* appState: AppState(), */services: .stub)
+    private static let `default` = DIContainer(appState: AppState(), services: .stub)
     
-    init(/* appState: Store<AppState>, */services: DIContainer.Services) {
-        // self.appState = appState
+    init(appState: AppState, services: DIContainer.Services) {
+        self.appState = appState
         self.services = services
     }
     

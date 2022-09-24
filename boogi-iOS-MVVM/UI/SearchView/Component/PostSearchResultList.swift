@@ -77,6 +77,7 @@ extension SearchView {
                 LazyVStack {
                     ForEach(result.posts, id: \.self) { post in
                         NavigationLink {
+                            Text("Not Implemented")
                             /*
                             PostDetailLink(postId: post.id)
                              */
