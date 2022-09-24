@@ -19,9 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let env = AppEnvironment.bootstrap()
-        // TODO: -- rootview 만들 때 컨테이너 넣어주세요.
-        
-        let contentView = SearchView(viewModel: SearchView.ViewModel(container: env.container))
+        let contentView = Main(viewModel: Main.ViewModel(container: env.container))
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = UIHostingController(rootView: contentView)
         self.window = window

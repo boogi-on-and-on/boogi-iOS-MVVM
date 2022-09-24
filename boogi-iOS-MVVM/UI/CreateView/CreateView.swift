@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Create: View {
+struct CreateView: View {
     let container: DIContainer
     
     var body: some View {
