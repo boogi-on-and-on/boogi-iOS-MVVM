@@ -26,26 +26,23 @@ protocol UserPermissionsService: AnyObject {
     func request(permission: Permission)
 }
 
-/*
-
 // MARK: - RealUserPermissionsService
 
 final class RealUserPermissionsService: UserPermissionsService {
     
-    // private let appState: Store<AppState>
+    private var appState: AppState
     private let openAppSettings: () -> Void
     
-    init(appState: Store<AppState>, openAppSettings: @escaping () -> Void) {
+    init(appState: AppState, openAppSettings: @escaping () -> Void) {
         self.appState = appState
         self.openAppSettings = openAppSettings
     }
     
     func resolveStatus(for permission: Permission) {
-        let keyPath = AppState.permissionKeyPath(for: permission)
-        let currentStatus = appState[keyPath]
+        let currentStatus = appState.permissions.push
         guard currentStatus == .unknown else { return }
-        let onResolve: (Permission.Status) -> Void = { [weak appState] status in
-            appState?[keyPath] = status
+        let onResolve: (Permission.Status) -> Void = { status in
+            self.appState.permissions.push = status
         }
         switch permission {
         case .pushNotifications:
@@ -54,8 +51,7 @@ final class RealUserPermissionsService: UserPermissionsService {
     }
     
     func request(permission: Permission) {
-        let keyPath = AppState.permissionKeyPath(for: permission)
-        let currentStatus = appState[keyPath]
+        let currentStatus = appState.permissions.push
         guard currentStatus != .denied else {
             openAppSettings()
             return
@@ -95,7 +91,7 @@ private extension RealUserPermissionsService {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (isGranted, error) in
             DispatchQueue.main.async {
-                self.appState[\.permissions.push] = isGranted ? .granted : .denied
+                self.appState.permissions.push = isGranted ? .granted : .denied
             }
         }
     }
@@ -111,4 +107,3 @@ final class StubUserPermissionsService: UserPermissionsService {
     }
 }
 
-*/

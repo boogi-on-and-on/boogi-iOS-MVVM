@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+import UIKit
 
 struct AppEnvironment {
     let container: DIContainer
@@ -15,10 +15,11 @@ struct AppEnvironment {
 
 extension AppEnvironment {
     static func bootstrap() -> AppEnvironment {
+        let appState = AppState()
         let session = configuredURLSession()
         let webRepositories = configuredWebRepositories(session: session)
-        let services = configuredServices(/* appState: appState,*/webRepositories: webRepositories)
-        let diContainer = DIContainer(/* appState: appState, */services: services)
+        let services = configuredServices(appState: appState, webRepositories: webRepositories)
+        let diContainer = DIContainer(appState: appState, services: services)
         // let deepLinksHandler = RealDeepLinksHandler(container: diContainer)
         // let pushNotificationsHandler = RealPushNotificationsHandler(deepLinksHandler: deepLinksHandler)
         // let systemEventsHandler = RealSystemEventsHandler(
@@ -79,32 +80,37 @@ extension AppEnvironment {
     }
     
     private static func configuredServices(
-        // appState: Store<AppState>,
+        appState: AppState,
         webRepositories: DIContainer.Repositories
     ) -> DIContainer.Services {
+        
         let communitiesService = RealCommunitiesService(
-            webRepository: webRepositories.communitiesWebRepository)
-//            appState: appState)
-        
-        let postsService = RealPostsService(webRepository: webRepositories.postsWebRepository)
-        
-        let usersService = RealUsersService(webRepository: webRepositories.usersWebRepository)
-        
-        let imagesService = RealImagesService(webRepository: webRepositories.imagesWebRepository)
-        
-        let searchService = RealSearchService(webRepository: webRepositories.searchWebRepository)
-        
-        let alarmsService = RealAlarmsService(webRepository: webRepositories.alarmsWebRepository)
-        
-//        let userPermissionsService = RealUserPermissionsService(
-//            appState: appState, openAppSettings: {
-//                URL(string: UIApplication.openSettingsURLString).flatMap {
-//                    UIApplication.shared.open($0, options: [:], completionHandler: nil)
-//                }
-//            })
+            webRepository: webRepositories.communitiesWebRepository
+        )
+        let postsService = RealPostsService(
+            webRepository: webRepositories.postsWebRepository
+        )
+        let usersService = RealUsersService(
+            webRepository: webRepositories.usersWebRepository
+        )
+        let imagesService = RealImagesService(
+            webRepository: webRepositories.imagesWebRepository
+        )
+        let searchService = RealSearchService(
+            webRepository: webRepositories.searchWebRepository
+        )
+        let alarmsService = RealAlarmsService(
+            webRepository: webRepositories.alarmsWebRepository
+        )
+        let userPermissionsService = RealUserPermissionsService(
+            appState: appState, openAppSettings: {
+                URL(string: UIApplication.openSettingsURLString).flatMap {
+                    UIApplication.shared.open($0, options: [:], completionHandler: nil)
+                }
+            })
         
         return .init(
-            // userPermissionsService: userPermissionsService)
+            userPermissionsService: userPermissionsService,
             communitiesService: communitiesService,
             postsService: postsService,
             usersService: usersService,
