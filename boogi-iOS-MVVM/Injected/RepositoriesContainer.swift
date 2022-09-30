@@ -15,5 +15,6 @@ extension DIContainer {
         let imagesWebRepository: ImagesWebRepository
         let searchWebRepository: SearchWebRepository
         let alarmsWebRepository: AlarmsWebRepository
+        let noticesWebRepository: NoticesWebRepository
     }
 }

@@ -1,20 +1,19 @@
 //
-//  AlarmsWebRepository.swift
+//  NoticesWebRepository.swift
 //  boogi-iOS-MVVM
 //
-//  Created by 김덕환 on 2022/09/17.
+//  Created by 김덕환 on 2022/09/30.
 //
 
 import Foundation
 
-protocol AlarmsWebRepository: WebRepository {
-    func getAlarms() async -> Result<Alarm, Error>
-    // func deleteAlarms(id: Int) -> Result<Int, Error>
+protocol NoticesWebRepository: WebRepository {
+    func getRecentNotices(communityId: Int?) async -> Result<Notice, Error>
 }
 
-struct RealAlarmsWebRepository: AlarmsWebRepository {
-    func getAlarms() async -> Result<Alarm, Error> {
-        return await call(endpoint: API.getAlarms)
+struct RealNoticesWebRepository: NoticesWebRepository {
+    func getRecentNotices(communityId: Int?) async -> Result<Notice, Error> {
+        return await call(endpoint: API.getRecentNotices(communityId))
     }
     
     init(session: URLSession, baseURL: String) {
@@ -27,30 +26,25 @@ struct RealAlarmsWebRepository: AlarmsWebRepository {
 }
 
 // MARK: - Endpoints
-extension RealAlarmsWebRepository {
+extension RealNoticesWebRepository {
     enum API {
-        case getAlarms
-        case deleteAlarms(Int)
+        case getRecentNotices(Int?)
     }
 }
 
-extension RealAlarmsWebRepository.API: APICall {
+extension RealNoticesWebRepository.API: APICall {
     var path: String {
         switch self {
-        case .getAlarms:
+        case .getRecentNotices:
             return "/"
-        case let .deleteAlarms(id):
-            return "\(id)/delete"
         }
     }
     
     
     var method: String {
         switch self {
-        case .getAlarms:
+        case .getRecentNotices:
             return "GET"
-        case .deleteAlarms:
-            return "POST"
         }
     }
     
@@ -68,6 +62,4 @@ extension RealAlarmsWebRepository.API: APICall {
     func body() throws -> Data? {
         return nil
     }
-    
-    
 }

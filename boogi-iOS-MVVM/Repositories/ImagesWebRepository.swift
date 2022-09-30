@@ -56,7 +56,7 @@ extension RealImagesWebRepository.API: APICall {
             return [
                 "Content-Type": "multipart/form-data; boundary=\(boundary)",
                 // TODO: need user authentication token
-                "X-Auth-Token": "82e1133c-6d4e-4c39-91d1-c7390c6f9829"
+                "X-Auth-Token": "f835a769-1f74-48e0-9d30-c4709c1128ac"
             ]
         }
     }

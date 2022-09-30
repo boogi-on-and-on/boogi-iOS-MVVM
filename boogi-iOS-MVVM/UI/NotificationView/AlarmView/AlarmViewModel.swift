@@ -18,8 +18,10 @@ extension AlarmView {
         }
         
         func getAlarms() async {
-            self.alarms = await container.services.alarmsService
-                .getAlarms()
+            let res = await container.services.alarmsService.getAlarms()
+            DispatchQueue.main.async {
+                self.alarms = res
+            }
         }
     }
 }
