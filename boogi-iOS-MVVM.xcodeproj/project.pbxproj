@@ -38,6 +38,11 @@
 		D098CCCF28D58E43004DC73C /* AlarmsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098CCCE28D58E42004DC73C /* AlarmsService.swift */; };
 		D098CD4628DEEDDF004DC73C /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098CD4528DEEDDF004DC73C /* CreateView.swift */; };
 		D098CD4828DEEDF7004DC73C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098CD4728DEEDF7004DC73C /* Main.swift */; };
+		D098CD4B28E6F4C5004DC73C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098CD4A28E6F4C5004DC73C /* HomeView.swift */; };
+		D098CD4D28E6F86F004DC73C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098CD4C28E6F86F004DC73C /* HomeViewModel.swift */; };
+		D098CD5028E6FB0D004DC73C /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098CD4F28E6FB0D004DC73C /* Notice.swift */; };
+		D098CD5228E6FBB4004DC73C /* NoticesWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098CD5128E6FBB4004DC73C /* NoticesWebRepository.swift */; };
+		D098CD5428E6FD7F004DC73C /* NoticesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098CD5328E6FD7F004DC73C /* NoticesService.swift */; };
 		D0A1B47628A9D75E00FB4127 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = D0A1B47528A9D75E00FB4127 /* WrappingHStack */; };
 		D0A1B47928B0844C00FB4127 /* PostsWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */; };
 		D0A1B47B28B0849E00FB4127 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B47A28B0849E00FB4127 /* Post.swift */; };
@@ -121,6 +126,11 @@
 		D098CCD128D5A660004DC73C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D098CD4528DEEDDF004DC73C /* CreateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		D098CD4728DEEDF7004DC73C /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		D098CD4A28E6F4C5004DC73C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D098CD4C28E6F86F004DC73C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D098CD4F28E6FB0D004DC73C /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		D098CD5128E6FBB4004DC73C /* NoticesWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesWebRepository.swift; sourceTree = "<group>"; };
+		D098CD5328E6FD7F004DC73C /* NoticesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticesService.swift; sourceTree = "<group>"; };
 		D0A1B47828B0844C00FB4127 /* PostsWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsWebRepository.swift; sourceTree = "<group>"; };
 		D0A1B47A28B0849E00FB4127 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D0A1B47C28B0886200FB4127 /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
@@ -212,6 +222,7 @@
 				D0A1B48628B9A32A00FB4127 /* ImagesWebRepository.swift */,
 				D0A1B49028B9E90100FB4127 /* SearchWebRepository.swift */,
 				D098CCCC28D57D3F004DC73C /* AlarmsWebRepository.swift */,
+				D098CD5128E6FBB4004DC73C /* NoticesWebRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -227,6 +238,7 @@
 				D0A1B48828B9A7C400FB4127 /* ImagesService.swift */,
 				D0A1B49228B9ED9C00FB4127 /* SearchService.swift */,
 				D098CCCE28D58E42004DC73C /* AlarmsService.swift */,
+				D098CD5328E6FD7F004DC73C /* NoticesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -239,6 +251,7 @@
 				D0A1B47A28B0849E00FB4127 /* Post.swift */,
 				D0A1B49A28B9FD7000FB4127 /* Search.swift */,
 				D098CCC528D56B7E004DC73C /* Alarm.swift */,
+				D098CD4F28E6FB0D004DC73C /* Notice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				D098CD4728DEEDF7004DC73C /* Main.swift */,
+				D098CD4928E6F4B6004DC73C /* Home */,
 				D0A1B48D28B9E6F900FB4127 /* SearchView */,
 				D0A1B48A28B9C17B00FB4127 /* CreateView */,
 				D098CCB528D55663004DC73C /* NotificationView */,
@@ -333,6 +347,15 @@
 				D098CCCA28D570AC004DC73C /* AlarmCell.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		D098CD4928E6F4B6004DC73C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D098CD4A28E6F4C5004DC73C /* HomeView.swift */,
+				D098CD4C28E6F86F004DC73C /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		D0A1B47728B0814E00FB4127 /* CreatePost */ = {
@@ -560,6 +583,7 @@
 				D0A1B49B28B9FD7000FB4127 /* Search.swift in Sources */,
 				D098CCBE28D55ACE004DC73C /* NotificationViewModel.swift in Sources */,
 				D0A1B47F28B08BC800FB4127 /* CreatePost.swift in Sources */,
+				D098CD4D28E6F86F004DC73C /* HomeViewModel.swift in Sources */,
 				D098CCCF28D58E43004DC73C /* AlarmsService.swift in Sources */,
 				D018EF36289504D100EA2BA1 /* DependencyInjector.swift in Sources */,
 				D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */,
@@ -571,6 +595,9 @@
 				D0A1B48728B9A32A00FB4127 /* ImagesWebRepository.swift in Sources */,
 				D098CCC128D55B61004DC73C /* AlarmView.swift in Sources */,
 				D018EF45289E48E400EA2BA1 /* CommunitiesService.swift in Sources */,
+				D098CD5428E6FD7F004DC73C /* NoticesService.swift in Sources */,
+				D098CD5028E6FB0D004DC73C /* Notice.swift in Sources */,
+				D098CD5228E6FBB4004DC73C /* NoticesWebRepository.swift in Sources */,
 				D018EF34289503BF00EA2BA1 /* ServicesContainer.swift in Sources */,
 				D0A1B48928B9A7C400FB4127 /* ImagesService.swift in Sources */,
 				D098CCC428D55B7D004DC73C /* MessageView.swift in Sources */,
@@ -586,6 +613,7 @@
 				D018EF2E2894EFCC00EA2BA1 /* APICall.swift in Sources */,
 				D018EF382895088B00EA2BA1 /* CommunitiesWebRepository.swift in Sources */,
 				D018EF3E289E3A7100EA2BA1 /* Community.swift in Sources */,
+				D098CD4B28E6F4C5004DC73C /* HomeView.swift in Sources */,
 				D048301528C2DE74006DFF01 /* CommunityCategoryBar.swift in Sources */,
 				D05E89E528C2E87B0018202D /* CommunitySearchResultList.swift in Sources */,
 				D018EF41289E43C600EA2BA1 /* CreateCommunity.swift in Sources */,

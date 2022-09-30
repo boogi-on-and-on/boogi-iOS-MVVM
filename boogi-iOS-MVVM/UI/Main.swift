@@ -13,10 +13,24 @@ struct Main: View{
     
     var body: some View {
         TabView {
-            CreateView(container: viewModel.container )
-                .tabItem {
-                    Image(systemName: "plus.app")
-                }
+            HomeView(
+                viewModel: HomeView.ViewModel(
+                    container: viewModel.container
+                )
+            )
+            .tabItem {
+                Image(systemName: "house")
+                Text("홈")
+            }
+            
+            
+            CreateView(
+                container: viewModel.container
+            )
+            .tabItem {
+                Image(systemName: "plus.app")
+                Text("등록")
+            }
             
             SearchView(
                 viewModel: SearchView.ViewModel(
@@ -25,6 +39,7 @@ struct Main: View{
             )
             .tabItem {
                 Image(systemName: "magnifyingglass.circle")
+                Text("검색")
             }
             
             NotificationView(
@@ -34,6 +49,7 @@ struct Main: View{
             )
             .tabItem {
                 Image(systemName: "bell")
+                Text("알림")
             }
         }
     }
