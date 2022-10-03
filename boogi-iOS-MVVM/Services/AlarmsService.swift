@@ -18,8 +18,13 @@ struct RealAlarmsService: AlarmsService {
         let res = await webRepository.getAlarms()
         
         switch res {
-        case .success(let data):
+        case .success(var data):
             print(data)
+            data.alarms.enumerated().forEach { (idx, item) in
+                data.alarms[idx].createdAt =
+                DIContainer.Services.getDateTime(datetime: item.createdAt)
+                print(data.alarms[idx].createdAt)
+            }
             return data
         case .failure(let err):
             print(err)

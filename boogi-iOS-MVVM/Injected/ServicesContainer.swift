@@ -5,6 +5,8 @@
 //  Created by 김덕환 on 2022/07/30.
 //
 
+import Foundation
+
 extension DIContainer {
     struct Services {
         let userPermissionsService: UserPermissionsService
@@ -15,6 +17,7 @@ extension DIContainer {
         let searchService: SearchService
         let alarmsService: AlarmsService
         let noticesService: NoticesService
+        let messagesService: MessagesService
         
         init(
              userPermissionsService: UserPermissionsService,
@@ -24,7 +27,8 @@ extension DIContainer {
              imagesService: ImagesService,
              searchService: SearchService,
              alarmsService: AlarmsService,
-             noticesService: NoticesService
+             noticesService: NoticesService,
+             messagesService: MessagesService
         ) {
             self.userPermissionsService = userPermissionsService
             self.communitiesService = communitiesService
@@ -34,6 +38,7 @@ extension DIContainer {
             self.searchService = searchService
             self.alarmsService = alarmsService
             self.noticesService = noticesService
+            self.messagesService = messagesService
         }
         
         static var stub: Self {
@@ -45,14 +50,23 @@ extension DIContainer {
                   imagesService: StubImagesService(),
                   searchService: StubSearchService(),
                   alarmsService: StubAlarmsService(),
-                  noticesService: StubNoticesService()
+                  noticesService: StubNoticesService(),
+                  messagesService: StubMessagesService()
             )
         }
         
         static func getDateTime(datetime: String) -> String {
-            let tokens = datetime.components(separatedBy: ["T", "-", ":", "."])
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+            dateFormatter.timeZone = NSTimeZone(name: "ko_KR") as TimeZone?
             
-            return "\(tokens[0][tokens[0].index(tokens[0].startIndex, offsetBy: 2)...]).\(tokens[1]).\(tokens[2]) \(tokens[3]):\(tokens[4])"
+            guard let date = dateFormatter.date(from: datetime) else {
+                return ""
+            }
+            
+            dateFormatter.dateFormat = "yy-MM-dd HH:mm"
+            return dateFormatter.string(from: date)
         }
     }
 }
+
