@@ -1,29 +1,13 @@
 //
-//  Post.swift
+//  HotPost.swift
 //  boogi-iOS-MVVM
 //
-//  Created by 김덕환 on 2022/08/20.
+//  Created by Macbook on 2022/10/03.
 //
 
 import Foundation
 
-struct Post {
-    
-}
 
-// request
-extension Post {
-    struct Create: Codable {
-        var communityId: Int = -1
-        var content: String = ""
-        var hashtags: [String] = []
-        var postMediaIds: [String] = []
-        var mentionedUserIds: [Int] = []
-    }
-}
-
-
-// response
 extension Post {
     struct HotPost: Codable {
         struct Content: Codable, Identifiable {

@@ -10,7 +10,7 @@ import Foundation
 // MARK: - ViewModel
 extension AlarmView {
     class ViewModel: ObservableObject {
-        @Published var alarms = Alarm(alarms: [])
+        @Published var alarms = Alarm.AlarmInfo(alarms: [])
         
         let container: DIContainer
         init(container: DIContainer) {

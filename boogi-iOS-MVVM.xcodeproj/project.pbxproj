@@ -79,6 +79,14 @@
 		D0D2F215287D432C00AB3E6A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D0D2F214287D432C00AB3E6A /* .gitignore */; };
 		FA89589028E94BEB00F60169 /* JoinedCommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89588F28E94BEB00F60169 /* JoinedCommunityView.swift */; };
 		FAAE6B3E28E83F60001525E7 /* HotPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE6B3D28E83F60001525E7 /* HotPostView.swift */; };
+		FACCAAE128EAF1AF00A2CA8A /* CommunityCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCAAE028EAF1AF00A2CA8A /* CommunityCreate.swift */; };
+		FACCAAE328EAF1DC00A2CA8A /* JoinedCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCAAE228EAF1DC00A2CA8A /* JoinedCommunity.swift */; };
+		FACCAAED28EAF25400A2CA8A /* PostCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCAAEC28EAF25400A2CA8A /* PostCreate.swift */; };
+		FACCAAEF28EAF27900A2CA8A /* HotPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCAAEE28EAF27900A2CA8A /* HotPost.swift */; };
+		FACCAAF228EAF2D700A2CA8A /* RecentNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCAAF128EAF2D700A2CA8A /* RecentNotice.swift */; };
+		FACCAAF428EAFA0C00A2CA8A /* PostSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCAAF328EAFA0C00A2CA8A /* PostSearchResult.swift */; };
+		FACCAAF628EAFA2900A2CA8A /* CommunitySearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCAAF528EAFA2900A2CA8A /* CommunitySearchResult.swift */; };
+		FACCAAF928EAFB7800A2CA8A /* AlarmInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCAAF828EAFB7800A2CA8A /* AlarmInfo.swift */; };
 		FAFC263628EA90B700A0412A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC263528EA90B700A0412A /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +189,14 @@
 		D0D2F214287D432C00AB3E6A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FA89588F28E94BEB00F60169 /* JoinedCommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedCommunityView.swift; sourceTree = "<group>"; };
 		FAAE6B3D28E83F60001525E7 /* HotPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotPostView.swift; sourceTree = "<group>"; };
+		FACCAAE028EAF1AF00A2CA8A /* CommunityCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCreate.swift; sourceTree = "<group>"; };
+		FACCAAE228EAF1DC00A2CA8A /* JoinedCommunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedCommunity.swift; sourceTree = "<group>"; };
+		FACCAAEC28EAF25400A2CA8A /* PostCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreate.swift; sourceTree = "<group>"; };
+		FACCAAEE28EAF27900A2CA8A /* HotPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotPost.swift; sourceTree = "<group>"; };
+		FACCAAF128EAF2D700A2CA8A /* RecentNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentNotice.swift; sourceTree = "<group>"; };
+		FACCAAF328EAFA0C00A2CA8A /* PostSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchResult.swift; sourceTree = "<group>"; };
+		FACCAAF528EAFA2900A2CA8A /* CommunitySearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitySearchResult.swift; sourceTree = "<group>"; };
+		FACCAAF828EAFB7800A2CA8A /* AlarmInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmInfo.swift; sourceTree = "<group>"; };
 		FAFC263528EA90B700A0412A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,6 +286,11 @@
 		D018EF2C2894EF8800EA2BA1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FACCAAE728EAF20800A2CA8A /* Notice */,
+				FACCAAE628EAF20300A2CA8A /* Alarm */,
+				FACCAAE528EAF1FC00A2CA8A /* Search */,
+				FACCAAE428EAF1F700A2CA8A /* Post */,
+				FACCAADD28EAF09B00A2CA8A /* Community */,
 				D098CCB828D557A2004DC73C /* README.md */,
 				D018EF3D289E3A7100EA2BA1 /* Community.swift */,
 				D0A1B47A28B0849E00FB4127 /* Post.swift */,
@@ -498,6 +519,110 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		FACCAADD28EAF09B00A2CA8A /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAADF28EAF0BB00A2CA8A /* Response */,
+				FACCAADE28EAF0B100A2CA8A /* Request */,
+				D018EF3D289E3A7100EA2BA1 /* Community.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		FACCAADE28EAF0B100A2CA8A /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAE028EAF1AF00A2CA8A /* CommunityCreate.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		FACCAADF28EAF0BB00A2CA8A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAE228EAF1DC00A2CA8A /* JoinedCommunity.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		FACCAAE428EAF1F700A2CA8A /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAE928EAF23500A2CA8A /* Response */,
+				FACCAAE828EAF23100A2CA8A /* Request */,
+				D0A1B47A28B0849E00FB4127 /* Post.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		FACCAAE528EAF1FC00A2CA8A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAEB28EAF24000A2CA8A /* Response */,
+				D0A1B49A28B9FD7000FB4127 /* Search.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		FACCAAE628EAF20300A2CA8A /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAF728EAFA8C00A2CA8A /* Response */,
+				D098CCC528D56B7E004DC73C /* Alarm.swift */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		FACCAAE728EAF20800A2CA8A /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAF028EAF29A00A2CA8A /* Response */,
+				D098CD4F28E6FB0D004DC73C /* Notice.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		FACCAAE828EAF23100A2CA8A /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAEC28EAF25400A2CA8A /* PostCreate.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		FACCAAE928EAF23500A2CA8A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAEE28EAF27900A2CA8A /* HotPost.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		FACCAAEB28EAF24000A2CA8A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAF328EAFA0C00A2CA8A /* PostSearchResult.swift */,
+				FACCAAF528EAFA2900A2CA8A /* CommunitySearchResult.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		FACCAAF028EAF29A00A2CA8A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAF128EAF2D700A2CA8A /* RecentNotice.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		FACCAAF728EAFA8C00A2CA8A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				FACCAAF828EAFB7800A2CA8A /* AlarmInfo.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		FAFC263428EA909F00A0412A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,6 +770,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACCAAF628EAFA2900A2CA8A /* CommunitySearchResult.swift in Sources */,
+				FACCAAED28EAF25400A2CA8A /* PostCreate.swift in Sources */,
 				D0A1B49B28B9FD7000FB4127 /* Search.swift in Sources */,
 				D0C82F6628E8467700B17FCA /* MessagesService.swift in Sources */,
 				D098CCBE28D55ACE004DC73C /* NotificationViewModel.swift in Sources */,
@@ -654,6 +781,7 @@
 				D018EF36289504D100EA2BA1 /* DependencyInjector.swift in Sources */,
 				D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */,
 				D098CCCB28D570AC004DC73C /* AlarmCell.swift in Sources */,
+				FACCAAEF28EAF27900A2CA8A /* HotPost.swift in Sources */,
 				D0A1B48528B0A59400FB4127 /* UsersWebRepository.swift in Sources */,
 				D0A1B49128B9E90100FB4127 /* SearchWebRepository.swift in Sources */,
 				D0C82F6F28E84DE300B17FCA /* MessageContent.swift in Sources */,
@@ -665,6 +793,7 @@
 				FA89589028E94BEB00F60169 /* JoinedCommunityView.swift in Sources */,
 				D098CCC128D55B61004DC73C /* AlarmView.swift in Sources */,
 				D018EF45289E48E400EA2BA1 /* CommunitiesService.swift in Sources */,
+				FACCAAE128EAF1AF00A2CA8A /* CommunityCreate.swift in Sources */,
 				D098CD5428E6FD7F004DC73C /* NoticesService.swift in Sources */,
 				D098CD5028E6FB0D004DC73C /* Notice.swift in Sources */,
 				D098CD5228E6FBB4004DC73C /* NoticesWebRepository.swift in Sources */,
@@ -673,6 +802,7 @@
 				D098CCC428D55B7D004DC73C /* MessageView.swift in Sources */,
 				FAFC263628EA90B700A0412A /* ColorExtension.swift in Sources */,
 				D098CD5628E83E28004DC73C /* Message.swift in Sources */,
+				FACCAAE328EAF1DC00A2CA8A /* JoinedCommunity.swift in Sources */,
 				D098CCC628D56B7E004DC73C /* Alarm.swift in Sources */,
 				D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */,
 				D018EF302894F04C00EA2BA1 /* AppState.swift in Sources */,
@@ -680,6 +810,7 @@
 				D018EF49289E7CF200EA2BA1 /* AppEnvironment.swift in Sources */,
 				D0D2F1E5287D1E2A00AB3E6A /* AppDelegate.swift in Sources */,
 				D0A1B47928B0844C00FB4127 /* PostsWebRepository.swift in Sources */,
+				FACCAAF928EAFB7800A2CA8A /* AlarmInfo.swift in Sources */,
 				D018EF322894F19C00EA2BA1 /* UserPermissionsService.swift in Sources */,
 				D018EF3A289508B200EA2BA1 /* WebRepository.swift in Sources */,
 				D018EF2E2894EFCC00EA2BA1 /* APICall.swift in Sources */,
@@ -698,6 +829,8 @@
 				D05E89E728C30ED00018202D /* HideKeyBoard.swift in Sources */,
 				D098CCB728D5568D004DC73C /* NotificationView.swift in Sources */,
 				D0A1B49728B9F16F00FB4127 /* SearchViewModel.swift in Sources */,
+				FACCAAF228EAF2D700A2CA8A /* RecentNotice.swift in Sources */,
+				FACCAAF428EAFA0C00A2CA8A /* PostSearchResult.swift in Sources */,
 				D0A1B47B28B0849E00FB4127 /* Post.swift in Sources */,
 				D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */,
 				D0A1B49328B9ED9C00FB4127 /* SearchService.swift in Sources */,

@@ -9,7 +9,7 @@ import Foundation
 
 extension HomeView {
     class ViewModel: ObservableObject {
-        @Published var notice = Notice(notices: [])
+        @Published var notice = Notice.RecentNotice(notices: [])
         @Published var hotPosts = Post.HotPost(hots: [])
         
         let container: DIContainer

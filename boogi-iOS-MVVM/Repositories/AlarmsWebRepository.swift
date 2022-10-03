@@ -8,12 +8,12 @@
 import Foundation
 
 protocol AlarmsWebRepository: WebRepository {
-    func getAlarms() async -> Result<Alarm, Error>
+    func getAlarms() async -> Result<Alarm.AlarmInfo, Error>
     // func deleteAlarms(id: Int) -> Result<Int, Error>
 }
 
 struct RealAlarmsWebRepository: AlarmsWebRepository {
-    func getAlarms() async -> Result<Alarm, Error> {
+    func getAlarms() async -> Result<Alarm.AlarmInfo, Error> {
         return await call(endpoint: API.getAlarms)
     }
     

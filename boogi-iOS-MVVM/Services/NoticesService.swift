@@ -8,13 +8,13 @@
 import Foundation
 
 protocol NoticesService {
-    func getNotices(communityId: Int?) async -> Notice
+    func getNotices(communityId: Int?) async -> Notice.RecentNotice
 }
 
 struct RealNoticesService: NoticesService {
     let webRepository: NoticesWebRepository
     
-    func getNotices(communityId: Int?) async -> Notice {
+    func getNotices(communityId: Int?) async -> Notice.RecentNotice {
         let res = await webRepository.getRecentNotices(communityId: communityId)
         
         switch res {
@@ -28,13 +28,13 @@ struct RealNoticesService: NoticesService {
             return data
         case .failure(let err):
             print(err)
-            return Notice(notices: [])
+            return Notice.RecentNotice(notices: [])
         }
     }
 }
 
 struct StubNoticesService: NoticesService {
-    func getNotices(communityId: Int?) async -> Notice {
-        Notice(notices: [])
+    func getNotices(communityId: Int?) async -> Notice.RecentNotice {
+        Notice.RecentNotice(notices: [])
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct AlarmCell: View {
-    let alarm: Alarm.Content
+    let alarm: Alarm.AlarmInfo.Content
     
     var body: some View {
         HStack {

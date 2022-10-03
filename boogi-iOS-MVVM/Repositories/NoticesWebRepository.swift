@@ -8,11 +8,11 @@
 import Foundation
 
 protocol NoticesWebRepository: WebRepository {
-    func getRecentNotices(communityId: Int?) async -> Result<Notice, Error>
+    func getRecentNotices(communityId: Int?) async -> Result<Notice.RecentNotice, Error>
 }
 
 struct RealNoticesWebRepository: NoticesWebRepository {
-    func getRecentNotices(communityId: Int?) async -> Result<Notice, Error> {
+    func getRecentNotices(communityId: Int?) async -> Result<Notice.RecentNotice, Error> {
         return await call(endpoint: API.getRecentNotices(communityId))
     }
     

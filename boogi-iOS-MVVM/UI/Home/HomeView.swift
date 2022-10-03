@@ -32,7 +32,7 @@ struct HomeView: View {
 }
 
 struct AppNotices: View {
-    @Binding var notice: Notice
+    @Binding var notice: Notice.RecentNotice
     
     var body: some View {
         VStack(alignment: .leading) {

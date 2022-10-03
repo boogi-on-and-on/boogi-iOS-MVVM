@@ -8,13 +8,13 @@
 import Foundation
 
 protocol AlarmsService {
-    func getAlarms() async -> Alarm
+    func getAlarms() async -> Alarm.AlarmInfo
 }
 
 struct RealAlarmsService: AlarmsService {
     let webRepository: AlarmsWebRepository
     
-    func getAlarms() async -> Alarm {
+    func getAlarms() async -> Alarm.AlarmInfo {
         let res = await webRepository.getAlarms()
         
         switch res {
@@ -28,13 +28,13 @@ struct RealAlarmsService: AlarmsService {
             return data
         case .failure(let err):
             print(err)
-            return Alarm(alarms: [])
+            return Alarm.AlarmInfo(alarms: [])
         }
     }
 }
 
 struct StubAlarmsService: AlarmsService {
-    func getAlarms() async -> Alarm {
-        return Alarm(alarms: [])
+    func getAlarms() async -> Alarm.AlarmInfo {
+        return Alarm.AlarmInfo(alarms: [])
     }
 }
