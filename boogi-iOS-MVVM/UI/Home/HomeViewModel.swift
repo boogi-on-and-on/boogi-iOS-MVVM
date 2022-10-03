@@ -10,6 +10,7 @@ import Foundation
 extension HomeView {
     class ViewModel: ObservableObject {
         @Published var notice = Notice(notices: [])
+        @Published var hotPosts = Post.HotPost(hots: [])
         
         let container: DIContainer
         init(container: DIContainer) {
@@ -21,6 +22,14 @@ extension HomeView {
             
             DispatchQueue.main.async {
                 self.notice = res
+            }
+        }
+        
+        func getHotposts() async {
+            let res = await container.services.postsService.requestGetHotposts()
+            
+            DispatchQueue.main.async {
+                self.hotPosts = res
             }
         }
     }
