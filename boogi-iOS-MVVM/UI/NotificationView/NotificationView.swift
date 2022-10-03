@@ -15,39 +15,45 @@ struct NotificationView: View {
     @ObservedObject private(set) var viewModel: ViewModel
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                
-                Button {
-                    selection = 0
-                    easterCnt += 1
-                    if 10 < easterCnt {
-                        easter = true
+        NavigationView {
+            VStack {
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        selection = 0
+                        easterCnt += 1
+                        if 10 < easterCnt {
+                            easter = true
+                        }
+                    } label: {
+                        Text("알림")
+                            .foregroundColor(selection == 0 ? .blue : .black)
                     }
-                } label: {
-                    Text("알림")
-                        .foregroundColor(selection == 0 ? .blue : .black)
+                    
+                    Spacer()
+                    
+                    Button {
+                        selection = 1
+                    } label: {
+                        Text("쪽지")
+                            .foregroundColor(selection == 1 ? .blue : .black)
+                    }
+                    
+                    Spacer()
+                }
+                .padding()
+                .background(.gray.opacity(0.5))
+                
+                if selection == 0 {
+                    AlarmView(viewModel: AlarmView.ViewModel(container: viewModel.container))
+                        .navigationBarHidden(true)
+                } else if selection == 1 {
+                    MessageView(viewModel: MessageView.ViewModel(container: viewModel.container))
+                        .navigationBarHidden(true)
                 }
                 
                 Spacer()
-                
-                Button {
-                    selection = 1
-                } label: {
-                    Text("쪽지")
-                        .foregroundColor(selection == 1 ? .blue : .black)
-                }
-                
-                Spacer()
-            }
-            .padding()
-            .background(.gray.opacity(0.5))
-            
-            if selection == 0 {
-                AlarmView(viewModel: AlarmView.ViewModel(container: viewModel.container))
-            } else if selection == 1 {
-                
             }
         }
     }
