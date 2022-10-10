@@ -56,6 +56,7 @@ extension WebRepository {
             }
             
             let token = response.value(forHTTPHeaderField: "X-Auth-Token")
+            print("token: \(token)")
             return .success(token)
         }
         catch let error as APIError {

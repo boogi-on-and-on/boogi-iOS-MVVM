@@ -44,7 +44,7 @@ extension RealUsersWebRepository.API: APICall {
     var path: String {
         switch self {
         case .getToken(let email):
-            return "/users/token/\(email)"
+            return "/token/\(email)"
         case .getJoinedCommunities:
             return "/communities/joined"
         }
