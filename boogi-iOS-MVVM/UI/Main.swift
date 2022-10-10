@@ -10,46 +10,51 @@ import SwiftUI
 
 struct Main: View{
     @ObservedObject private(set) var viewModel: ViewModel
+    @AppStorage("launchedBefore") var launchedBefore: Bool = false
     
     var body: some View {
-        TabView {
-            HomeView(
-                viewModel: HomeView.ViewModel(
+        if !launchedBefore {
+            FirstLaunch(viewModel: FirstLaunch.ViewModel(container: viewModel.container))
+        } else {
+            TabView {
+                HomeView(
+                    viewModel: HomeView.ViewModel(
+                        container: viewModel.container
+                    )
+                )
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("홈")
+                }
+                
+                
+                CreateView(
                     container: viewModel.container
                 )
-            )
-            .tabItem {
-                Image(systemName: "house")
-                Text("홈")
-            }
-            
-            
-            CreateView(
-                container: viewModel.container
-            )
-            .tabItem {
-                Image(systemName: "plus.app")
-                Text("등록")
-            }
-            
-            SearchView(
-                viewModel: SearchView.ViewModel(
-                    container: viewModel.container
+                .tabItem {
+                    Image(systemName: "plus.app")
+                    Text("등록")
+                }
+                
+                SearchView(
+                    viewModel: SearchView.ViewModel(
+                        container: viewModel.container
+                    )
                 )
-            )
-            .tabItem {
-                Image(systemName: "magnifyingglass.circle")
-                Text("검색")
-            }
-            
-            NotificationView(
-                viewModel: NotificationView.ViewModel(
-                    container: viewModel.container
+                .tabItem {
+                    Image(systemName: "magnifyingglass.circle")
+                    Text("검색")
+                }
+                
+                NotificationView(
+                    viewModel: NotificationView.ViewModel(
+                        container: viewModel.container
+                    )
                 )
-            )
-            .tabItem {
-                Image(systemName: "bell")
-                Text("알림")
+                .tabItem {
+                    Image(systemName: "bell")
+                    Text("알림")
+                }
             }
         }
     }
