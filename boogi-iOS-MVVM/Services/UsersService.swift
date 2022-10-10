@@ -9,11 +9,27 @@ import Foundation
 import UIKit
 
 protocol UsersService {
+    func getToken(email: String) async -> Bool
     func getJoinedCommunities() async -> Community.Joined
 }
 
 struct RealUsersService: UsersService {
     let webRepository: UsersWebRepository
+    
+    func getToken(email: String) async -> Bool {
+        let res = await webRepository.getToken(email: email)
+        
+        switch res {
+        case .success(let token):
+            UserDefaults.standard.set(email, forKey: "email")
+            UserDefaults.standard.set(token, forKey: "xAuthToken")
+            print(token)
+            return true
+        case .failure(let err):
+            print(err)
+            return false
+        }
+    }
     
     func getJoinedCommunities() async -> Community.Joined {
         let res = await webRepository.getJoinedCommunities()
@@ -32,5 +48,9 @@ struct RealUsersService: UsersService {
 struct StubUsersService: UsersService {
     func getJoinedCommunities() async -> Community.Joined {
         Community.Joined(communities: [])
+    }
+    
+    func getToken(email: String) async -> Bool {
+        false
     }
 }

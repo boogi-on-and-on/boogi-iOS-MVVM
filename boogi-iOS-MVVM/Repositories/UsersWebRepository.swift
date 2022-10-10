@@ -8,10 +8,15 @@
 import Foundation
 
 protocol UsersWebRepository: WebRepository {
+    func getToken(email: String) async -> Result<String?, Error>
     func getJoinedCommunities() async -> Result<Community.Joined, Error>
 }
 
 struct RealUsersWebRepository: UsersWebRepository {
+    func getToken(email: String) async -> Result<String?, Error> {
+        return await auth(endpoint: API.getToken(email))
+    }
+    
     func getJoinedCommunities() async -> Result<Community.Joined, Error> {
         return await call(endpoint: API.getJoinedCommunities)
     }
@@ -30,6 +35,7 @@ struct RealUsersWebRepository: UsersWebRepository {
 
 extension RealUsersWebRepository {
     enum API {
+        case getToken(String)
         case getJoinedCommunities
     }
 }
@@ -37,6 +43,8 @@ extension RealUsersWebRepository {
 extension RealUsersWebRepository.API: APICall {
     var path: String {
         switch self {
+        case .getToken(let email):
+            return "/users/token/\(email)"
         case .getJoinedCommunities:
             return "/communities/joined"
         }
@@ -46,14 +54,15 @@ extension RealUsersWebRepository.API: APICall {
         switch self {
         case .getJoinedCommunities:
             return "GET"
+        case .getToken:
+            return "POST"
         }
     }
     
     var headers: [String : String]? {
         return [
             "Content-Type": "application/json",
-            // TODO: need user authentication token
-            "X-Auth-Token": "f835a769-1f74-48e0-9d30-c4709c1128ac"
+            "X-Auth-Token": UserDefaults.standard.string(forKey: "xAuthToken") ?? ""
         ]
     }
     
@@ -63,7 +72,7 @@ extension RealUsersWebRepository.API: APICall {
     
     func body() throws -> Data? {
         switch self {
-        case .getJoinedCommunities:
+        case .getToken, .getJoinedCommunities:
             return nil
         }
     }
