@@ -21,7 +21,7 @@ extension AppState {
         }
         
         @AppStorage("email") var email: String = ""
-        @AppStorage("xAuthToken") var xAuthToken: String = "82e1133c-6d4e-4c39-91d1-c7390c6f9829"
+        @AppStorage("xAuthToken") var xAuthToken: String = ""
     }
 }
 
