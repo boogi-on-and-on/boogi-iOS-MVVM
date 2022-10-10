@@ -42,7 +42,7 @@ extension AppEnvironment {
     }
     
     private static func configuredWebRepositories(session: URLSession) -> DIContainer.Repositories {
-        let ip = "http://34.64.169.65:80/api"
+        let ip = "http://34.64.211.94:80/api"
         
         let communitiesWebRepository = RealCommunitiesWebRepository(
             session: session, baseURL: "\(ip)/communities"

@@ -67,7 +67,7 @@ extension RealMessagesWebRepository.API: APICall {
     var headers: [String : String]? {
         return [
             "Content-Type": "application/json",
-            "X-Auth-Token": "f835a769-1f74-48e0-9d30-c4709c1128ac"
+            "X-Auth-Token": UserDefaults.standard.string(forKey: "xAuthToken") ?? ""
         ]
     }
     
