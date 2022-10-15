@@ -98,6 +98,9 @@ extension CreatePost {
                     Text(community.name)
                 }
             }
+            .task {
+                await viewModel.getJoinedCommunities()
+            }
         }
     }
     

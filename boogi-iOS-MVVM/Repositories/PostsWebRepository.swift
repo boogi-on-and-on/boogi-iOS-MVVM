@@ -10,6 +10,7 @@ import Foundation
 protocol PostsWebRepository: WebRepository {
     func createPost(form: Post.Create) async -> Result<Int, Error>
     func getHotPosts() async -> Result<Post.HotPost, Error>
+    func getUserPosts() async -> Result<Post.UserPosts, Error>
 }
 
 struct RealPostsWebRepository: PostsWebRepository {
@@ -19,6 +20,10 @@ struct RealPostsWebRepository: PostsWebRepository {
     
     func getHotPosts() async -> Result<Post.HotPost, Error> {
         return await call(endpoint: API.hot)
+    }
+    
+    func getUserPosts() async -> Result<Post.UserPosts, Error> {
+        return await call(endpoint: API.userPosts)
     }
     
     init(session: URLSession, baseURL: String) {
@@ -36,6 +41,7 @@ extension RealPostsWebRepository {
     enum API {
         case create(Post.Create)
         case hot
+        case userPosts
     }
 }
 
@@ -46,6 +52,8 @@ extension RealPostsWebRepository.API: APICall {
             return "/"
         case .hot:
             return "/hot"
+        case .userPosts:
+            return "/users"
         }
     }
     
@@ -53,7 +61,7 @@ extension RealPostsWebRepository.API: APICall {
         switch self {
         case .create:
             return "POST"
-        case .hot:
+        case .hot, .userPosts:
             return "GET"
         }
     }
@@ -73,7 +81,7 @@ extension RealPostsWebRepository.API: APICall {
         switch self {
         case .create(let form):
             return try JSONEncoder().encode(form)
-        case .hot:
+        case .hot, .userPosts:
             return nil
         }
     }

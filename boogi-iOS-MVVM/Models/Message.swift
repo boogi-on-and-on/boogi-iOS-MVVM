@@ -48,7 +48,6 @@ extension Message {
         
         struct PageInfo: Codable {
             var nextPage: Int
-            var totalCount: Int
             var hasNext: Bool
         }
             

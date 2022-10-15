@@ -16,7 +16,7 @@ extension MessageDetailView {
             ),
             messages: [],
             pageInfo: Message.MessageDetail.PageInfo(
-                nextPage: 0, totalCount: 0, hasNext: false
+                nextPage: 0, hasNext: false
             )
         )
         

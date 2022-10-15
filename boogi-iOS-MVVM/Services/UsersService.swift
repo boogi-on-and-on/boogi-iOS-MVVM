@@ -10,6 +10,7 @@ import UIKit
 
 protocol UsersService {
     func getToken(email: String) async -> Bool
+    func getProfile(userId: Int?) async -> User.Profile
     func getJoinedCommunities() async -> Community.Joined
 }
 
@@ -21,13 +22,28 @@ struct RealUsersService: UsersService {
         
         switch res {
         case .success(let token):
-            UserDefaults.standard.set(email, forKey: "email")
-            UserDefaults.standard.set(token, forKey: "xAuthToken")
             print(token)
+            
             return true
         case .failure(let err):
             print(err)
             return false
+        }
+    }
+    
+    func getProfile(userId: Int?) async -> User.Profile {
+        let res = await webRepository.getProfile(userId: userId)
+        
+        switch res {
+        case .success(let data):
+            print(data)
+            return data
+        case .failure(let err):
+            print(err)
+            return User.Profile(
+                me: false,
+                user: User.Profile.Info(id: -1, profileImageUrl: nil, name: "", tagNum: "", introduce: "", department: "")
+            )
         }
     }
     
@@ -46,11 +62,18 @@ struct RealUsersService: UsersService {
 }
 
 struct StubUsersService: UsersService {
-    func getJoinedCommunities() async -> Community.Joined {
-        Community.Joined(communities: [])
-    }
-    
     func getToken(email: String) async -> Bool {
         false
+    }
+    
+    func getProfile(userId: Int?) async -> User.Profile {
+        return User.Profile(
+            me: false,
+            user: User.Profile.Info(id: -1, profileImageUrl: nil, name: "", tagNum: "", introduce: "", department: "")
+        )
+    }
+    
+    func getJoinedCommunities() async -> Community.Joined {
+        Community.Joined(communities: [])
     }
 }

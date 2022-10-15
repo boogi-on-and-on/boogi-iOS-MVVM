@@ -25,8 +25,6 @@ struct RealMessagesService: MessagesService {
             data.messageRooms.enumerated().forEach { (idx, item) in
                 data.messageRooms[idx].recentMessage.receivedAt =
                 DIContainer.Services.getDateTime(datetime: item.recentMessage.receivedAt)
-                
-                print(data.messageRooms[idx].recentMessage.receivedAt)
             }
             return data
         case .failure(let err):
@@ -39,7 +37,11 @@ struct RealMessagesService: MessagesService {
         let res = await webRepository.getMessageDetail(oppnentId: oppnentId)
         
         switch res {
-        case .success(let data):
+        case .success(var data):
+            data.messages.enumerated().forEach { (idx, item) in
+                data.messages[idx].receivedAt =
+                DIContainer.Services.getDateTime(datetime: item.receivedAt)
+            }
             print(data)
             return data
         case .failure(let err):
@@ -47,7 +49,7 @@ struct RealMessagesService: MessagesService {
             return Message.MessageDetail(
                 user: Message.MessageDetail.User(id: 0, name: "", tagNum: ""),
                 messages: [],
-                pageInfo: Message.MessageDetail.PageInfo(nextPage: 0, totalCount: 0, hasNext: false))
+                pageInfo: Message.MessageDetail.PageInfo(nextPage: 0, hasNext: false))
         }
     }
     
@@ -74,7 +76,7 @@ struct StubMessagesService: MessagesService {
         return Message.MessageDetail(
             user: Message.MessageDetail.User(id: 0, name: "", tagNum: ""),
             messages: [],
-            pageInfo: Message.MessageDetail.PageInfo(nextPage: 0, totalCount: 0, hasNext: false))
+            pageInfo: Message.MessageDetail.PageInfo(nextPage: 0, hasNext: false))
     }
     
     func postMessage(oppnentId: Int, content: String) async -> Int {
