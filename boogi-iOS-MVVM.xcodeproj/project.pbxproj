@@ -78,7 +78,6 @@
 		D0D2F206287D1E2B00AB3E6A /* boogi_iOS_MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F205287D1E2B00AB3E6A /* boogi_iOS_MVVMUITests.swift */; };
 		D0D2F208287D1E2B00AB3E6A /* boogi_iOS_MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F207287D1E2B00AB3E6A /* boogi_iOS_MVVMUITestsLaunchTests.swift */; };
 		D0D2F215287D432C00AB3E6A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D0D2F214287D432C00AB3E6A /* .gitignore */; };
-		FA89589028E94BEB00F60169 /* JoinedCommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89588F28E94BEB00F60169 /* JoinedCommunityView.swift */; };
 		FAAE6B3E28E83F60001525E7 /* HotPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE6B3D28E83F60001525E7 /* HotPostView.swift */; };
 		FAFC263628EA90B700A0412A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC263528EA90B700A0412A /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
@@ -181,7 +180,6 @@
 		D0D2F205287D1E2B00AB3E6A /* boogi_iOS_MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boogi_iOS_MVVMUITests.swift; sourceTree = "<group>"; };
 		D0D2F207287D1E2B00AB3E6A /* boogi_iOS_MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boogi_iOS_MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D0D2F214287D432C00AB3E6A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		FA89588F28E94BEB00F60169 /* JoinedCommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedCommunityView.swift; sourceTree = "<group>"; };
 		FAAE6B3D28E83F60001525E7 /* HotPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotPostView.swift; sourceTree = "<group>"; };
 		FAFC263528EA90B700A0412A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -329,7 +327,6 @@
 			isa = PBXGroup;
 			children = (
 				FAFC263428EA909F00A0412A /* Utilities */,
-				FAAE6B3B28E83EC0001525E7 /* PostView */,
 				D098CD4728DEEDF7004DC73C /* Main.swift */,
 				D0C82F7428F0F8C100B17FCA /* FirstLaunch.swift */,
 				D098CD4928E6F4B6004DC73C /* Home */,
@@ -485,18 +482,10 @@
 			path = "boogi-iOS-MVVMUITests";
 			sourceTree = "<group>";
 		};
-		FAAE6B3B28E83EC0001525E7 /* PostView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PostView;
-			sourceTree = "<group>";
-		};
 		FAAE6B4028E88223001525E7 /* Component */ = {
 			isa = PBXGroup;
 			children = (
 				FAAE6B3D28E83F60001525E7 /* HotPostView.swift */,
-				FA89588F28E94BEB00F60169 /* JoinedCommunityView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -666,7 +655,6 @@
 				D0C82F6828E8476200B17FCA /* MessageViewModel.swift in Sources */,
 				D0C82F7328EA5B2A00B17FCA /* MessageDetailViewModel.swift in Sources */,
 				D0A1B48728B9A32A00FB4127 /* ImagesWebRepository.swift in Sources */,
-				FA89589028E94BEB00F60169 /* JoinedCommunityView.swift in Sources */,
 				D098CCC128D55B61004DC73C /* AlarmView.swift in Sources */,
 				D018EF45289E48E400EA2BA1 /* CommunitiesService.swift in Sources */,
 				D098CD5428E6FD7F004DC73C /* NoticesService.swift in Sources */,
