@@ -36,6 +36,7 @@ struct RealUsersWebRepository: UsersWebRepository {
 extension RealUsersWebRepository {
     enum API {
         case getToken(String)
+        case tokenValidation
         case getJoinedCommunities
     }
 }
@@ -45,6 +46,8 @@ extension RealUsersWebRepository.API: APICall {
         switch self {
         case .getToken(let email):
             return "/token/\(email)"
+        case .tokenValidation:
+            return "/token/validation"
         case .getJoinedCommunities:
             return "/communities/joined"
         }
@@ -54,7 +57,7 @@ extension RealUsersWebRepository.API: APICall {
         switch self {
         case .getJoinedCommunities:
             return "GET"
-        case .getToken:
+        case .getToken, .tokenValidation:
             return "POST"
         }
     }
@@ -72,7 +75,7 @@ extension RealUsersWebRepository.API: APICall {
     
     func body() throws -> Data? {
         switch self {
-        case .getToken, .getJoinedCommunities:
+        case .getToken, .getJoinedCommunities, .tokenValidation:
             return nil
         }
     }

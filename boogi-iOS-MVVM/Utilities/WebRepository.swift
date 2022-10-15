@@ -13,13 +13,33 @@ protocol WebRepository {
 }
 
 extension WebRepository {
+    func tokenValidation() async throws -> Bool {
+        let res: Result<User.TokenValidation, Error> =
+            await call(endpoint: RealUsersWebRepository.API.tokenValidation)
+        switch res {
+        case .success(let data):
+            return data.isValid
+        case .failure(let err):
+            print(err)
+            throw APIError.unexpectedResponse
+        }
+    }
+    
     func call<Value>(endpoint: APICall, httpCodes: HTTPCodes = .success) async -> Result<Value, Error>
         where Value: Decodable {
         do {
             // TODO: validate token
-//            if !isValid {
-//                auth
-//            }
+            if try await !tokenValidation() {
+                let res = await auth(endpoint: RealUsersWebRepository.API.getToken(
+                        UserDefaults.standard.string(forKey: "xAuthToken") ?? ""))
+                switch res {
+                case .success(let data):
+                    UserDefaults.standard.set(data, forKey: "xAuthToken")
+                case .failure(let err):
+                    print(err)
+                    throw APIError.unexpectedResponse
+                }
+            }
             
             let request = try endpoint.urlRequest(baseURL: baseURL)
             let (data, response) = try await session.data(for: request)
@@ -44,7 +64,7 @@ extension WebRepository {
     func auth(endpoint: APICall, httpCodes: HTTPCodes = .success) async -> Result<String?, Error> {
         do {
             let request = try endpoint.urlRequest(baseURL: baseURL)
-            let (_data, response) = try await session.data(for: request)
+            let (_, response) = try await session.data(for: request)
             
             guard let response = response as? HTTPURLResponse else {
                 throw APIError.unexpectedResponse
