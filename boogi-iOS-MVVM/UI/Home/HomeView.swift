@@ -12,15 +12,20 @@ struct HomeView: View {
     @ObservedObject private(set) var viewModel: ViewModel
     
     var body: some View {
-        VStack {
-            NavigationView {
+        NavigationView {
+            VStack {
                 AppNotices(notice: $viewModel.notice)
                     .task {
                         await viewModel.getRecentNotices()
                     }
                 
                 // HotPosts
+                HotPostView(hotPosts: $viewModel.hotPosts)
+                    .task {
+                        await viewModel.getHotposts()
+                    }
                 
+                // JoinedCommuities
             }
         }
     }

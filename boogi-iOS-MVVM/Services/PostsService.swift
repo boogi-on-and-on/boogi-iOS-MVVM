@@ -9,6 +9,7 @@ import Foundation
 
 protocol PostsService {
     func requestCreate(form: Post.Create) async -> Int
+    func requestGetHotposts() async -> Post.HotPost
 }
 
 struct RealPostsService: PostsService {
@@ -30,10 +31,27 @@ struct RealPostsService: PostsService {
             return -1
         }
     }
+    
+    func requestGetHotposts() async -> Post.HotPost {
+        let res = await webRepository.getHotPosts()
+        
+        switch res {
+        case .success(let data):
+            print(data)
+            return data
+        case .failure(let err):
+            print(err)
+            return Post.HotPost(hots: [])
+        }
+    }
 }
 
 struct StubPostsService: PostsService {
     func requestCreate(form: Post.Create) async -> Int {
         -1
+    }
+    
+    func requestGetHotposts() async -> Post.HotPost {
+        Post.HotPost(hots: [])
     }
 }

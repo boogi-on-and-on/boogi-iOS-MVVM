@@ -11,6 +11,7 @@ struct Post {
     
 }
 
+// request
 extension Post {
     struct Create: Codable {
         var communityId: Int = -1
@@ -18,5 +19,26 @@ extension Post {
         var hashtags: [String] = []
         var postMediaIds: [String] = []
         var mentionedUserIds: [Int] = []
+    }
+}
+
+
+// response
+extension Post {
+    struct HotPost: Codable {
+        struct Content: Codable, Identifiable {
+            var postId: Int
+            var communityId: Int
+            var content: String
+            var likeCount: Int
+            var commentCount: Int
+            var hashtags: [String]?
+            
+            var id: Int {
+                postId
+            }
+        }
+        
+        var hots: [Content]
     }
 }
