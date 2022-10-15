@@ -68,6 +68,7 @@
 		D0C82F6F28E84DE300B17FCA /* MessageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F6E28E84DE300B17FCA /* MessageContent.swift */; };
 		D0C82F7328EA5B2A00B17FCA /* MessageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F7228EA5B2A00B17FCA /* MessageDetailViewModel.swift */; };
 		D0C82F7528F0F8C100B17FCA /* FirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F7428F0F8C100B17FCA /* FirstLaunch.swift */; };
+		D0C82F7A28FA3E5900B17FCA /* HotPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F7928FA3E5900B17FCA /* HotPostView.swift */; };
 		D0D2F1E5287D1E2A00AB3E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */; };
 		D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */; };
 		D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */; };
@@ -166,6 +167,7 @@
 		D0C82F6E28E84DE300B17FCA /* MessageContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageContent.swift; sourceTree = "<group>"; };
 		D0C82F7228EA5B2A00B17FCA /* MessageDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewModel.swift; sourceTree = "<group>"; };
 		D0C82F7428F0F8C100B17FCA /* FirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunch.swift; sourceTree = "<group>"; };
+		D0C82F7928FA3E5900B17FCA /* HotPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotPostView.swift; sourceTree = "<group>"; };
 		D0D2F1E1287D1E2A00AB3E6A /* boogi-iOS-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "boogi-iOS-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -428,6 +430,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		D0C82F7B28FA401600B17FCA /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				D0C82F7928FA3E5900B17FCA /* HotPostView.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		D0D2F1D8287D1E2A00AB3E6A = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +447,7 @@
 				D0D2F1FA287D1E2B00AB3E6A /* boogi-iOS-MVVMTests */,
 				D0D2F204287D1E2B00AB3E6A /* boogi-iOS-MVVMUITests */,
 				D0D2F1E2287D1E2A00AB3E6A /* Products */,
+				D0C82F7B28FA401600B17FCA /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -678,6 +689,7 @@
 				D018EF382895088B00EA2BA1 /* CommunitiesWebRepository.swift in Sources */,
 				D018EF3E289E3A7100EA2BA1 /* Community.swift in Sources */,
 				D098CD4B28E6F4C5004DC73C /* HomeView.swift in Sources */,
+				D0C82F7A28FA3E5900B17FCA /* HotPostView.swift in Sources */,
 				D048301528C2DE74006DFF01 /* CommunityCategoryBar.swift in Sources */,
 				D05E89E528C2E87B0018202D /* CommunitySearchResultList.swift in Sources */,
 				FAAE6B3E28E83F60001525E7 /* HotPostView.swift in Sources */,
@@ -879,6 +891,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZJBH884U9D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "boogi-iOS-MVVM/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -890,8 +903,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "boogi.boogi-iOS-MVVM";
+				MARKETING_VERSION = 0.0.22;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.Boogi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -904,8 +917,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZJBH884U9D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "boogi-iOS-MVVM/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -917,9 +932,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "boogi.boogi-iOS-MVVM";
+				MARKETING_VERSION = 0.0.22;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.Boogi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
