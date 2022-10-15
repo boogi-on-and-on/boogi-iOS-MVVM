@@ -9,12 +9,17 @@ import Foundation
 
 protocol UsersWebRepository: WebRepository {
     func getToken(email: String) async -> Result<String?, Error>
+    func getProfile(userId: Int?) async -> Result<User.Profile, Error>
     func getJoinedCommunities() async -> Result<Community.Joined, Error>
 }
 
 struct RealUsersWebRepository: UsersWebRepository {
     func getToken(email: String) async -> Result<String?, Error> {
         return await auth(endpoint: API.getToken(email))
+    }
+    
+    func getProfile(userId: Int?) async -> Result<User.Profile, Error> {
+        return await call(endpoint: API.getProfile(userId))
     }
     
     func getJoinedCommunities() async -> Result<Community.Joined, Error> {
@@ -36,6 +41,7 @@ struct RealUsersWebRepository: UsersWebRepository {
 extension RealUsersWebRepository {
     enum API {
         case getToken(String)
+        case getProfile(Int?)
         case tokenValidation
         case getJoinedCommunities
     }
@@ -44,6 +50,8 @@ extension RealUsersWebRepository {
 extension RealUsersWebRepository.API: APICall {
     var path: String {
         switch self {
+        case .getProfile:
+            return "/"
         case .getToken(let email):
             return "/token/\(email)"
         case .tokenValidation:
@@ -55,7 +63,7 @@ extension RealUsersWebRepository.API: APICall {
     
     var method: String {
         switch self {
-        case .getJoinedCommunities:
+        case .getJoinedCommunities, .getProfile:
             return "GET"
         case .getToken, .tokenValidation:
             return "POST"
@@ -70,12 +78,17 @@ extension RealUsersWebRepository.API: APICall {
     }
     
     var parameters: [URLQueryItem]? {
-        return nil
+        switch self {
+        case .getProfile(let userId):
+            return [URLQueryItem(name: "userId", value: userId?.description)]
+        default:
+            return nil
+        }
     }
     
     func body() throws -> Data? {
         switch self {
-        case .getToken, .getJoinedCommunities, .tokenValidation:
+        case .getToken, .getProfile, .getJoinedCommunities, .tokenValidation:
             return nil
         }
     }

@@ -13,16 +13,19 @@ protocol WebRepository {
 }
 
 extension WebRepository {
-    func tokenValidation() async throws -> Bool {
-        let res: Result<User.TokenValidation, Error> =
-            await call(endpoint: RealUsersWebRepository.API.tokenValidation)
-        switch res {
-        case .success(let data):
-            return data.isValid
-        case .failure(let err):
-            print(err)
+    func tokenValidation(httpCodes: HTTPCodes = .success) async throws -> Bool {
+        let request = try RealUsersWebRepository.API.tokenValidation.urlRequest(baseURL: "http://34.64.211.94:80/api/users")
+        let (data, response) = try await session.data(for: request)
+        
+        guard let code = (response as? HTTPURLResponse)?.statusCode else {
             throw APIError.unexpectedResponse
         }
+        guard httpCodes.contains(code) else {
+            throw APIError.httpCode(code)
+        }
+        
+        let value = try JSONDecoder().decode(User.TokenValidation.self, from: data)
+        return value.isValid
     }
     
     func call<Value>(endpoint: APICall, httpCodes: HTTPCodes = .success) async -> Result<Value, Error>
@@ -77,6 +80,7 @@ extension WebRepository {
             
             let token = response.value(forHTTPHeaderField: "X-Auth-Token")
             print("token: \(token)")
+            UserDefaults.standard.set(token, forKey: "xAuthToken")
             return .success(token)
         }
         catch let error as APIError {

@@ -16,3 +16,19 @@ extension User {
         let isValid: Bool
     }
 }
+
+extension User {
+    struct Profile: Codable {
+        struct Info: Codable {
+            let id: Int
+            let profileImageUrl: String?
+            let name: String
+            let tagNum: String
+            let introduce: String
+            let department: String
+        }
+        
+        let me: Bool
+        let user: Info
+    }
+}

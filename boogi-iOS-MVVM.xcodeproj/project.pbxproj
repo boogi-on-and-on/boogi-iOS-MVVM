@@ -21,6 +21,7 @@
 		D018EF47289E5F2F00EA2BA1 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF46289E5F2F00EA2BA1 /* Loadable.swift */; };
 		D018EF49289E7CF200EA2BA1 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */; };
 		D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */; };
+		D03A168A28FA9C100037ECB0 /* UserPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03A168928FA9C100037ECB0 /* UserPosts.swift */; };
 		D048301528C2DE74006DFF01 /* CommunityCategoryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048301428C2DE74006DFF01 /* CommunityCategoryBar.swift */; };
 		D048301828C2DFD7006DFF01 /* SearchTypeSelectBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048301728C2DFD7006DFF01 /* SearchTypeSelectBar.swift */; };
 		D048301A28C2E5B6006DFF01 /* PostSearchResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048301928C2E5B6006DFF01 /* PostSearchResultList.swift */; };
@@ -70,6 +71,7 @@
 		D0C82F7528F0F8C100B17FCA /* FirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F7428F0F8C100B17FCA /* FirstLaunch.swift */; };
 		D0C82F7F28FA5F7500B17FCA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F7E28FA5F7500B17FCA /* ProfileView.swift */; };
 		D0C82F8128FA644C00B17FCA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F8028FA644C00B17FCA /* User.swift */; };
+		D0C82F8328FA6F6100B17FCA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F8228FA6F6100B17FCA /* ProfileViewModel.swift */; };
 		D0D2F1E5287D1E2A00AB3E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */; };
 		D0D2F1E7287D1E2A00AB3E6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */; };
 		D0D2F1E9287D1E2A00AB3E6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2F1E8287D1E2A00AB3E6A /* ViewController.swift */; };
@@ -116,6 +118,7 @@
 		D018EF46289E5F2F00EA2BA1 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesContainer.swift; sourceTree = "<group>"; };
+		D03A168928FA9C100037ECB0 /* UserPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPosts.swift; sourceTree = "<group>"; };
 		D048301428C2DE74006DFF01 /* CommunityCategoryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCategoryBar.swift; sourceTree = "<group>"; };
 		D048301728C2DFD7006DFF01 /* SearchTypeSelectBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeSelectBar.swift; sourceTree = "<group>"; };
 		D048301928C2E5B6006DFF01 /* PostSearchResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchResultList.swift; sourceTree = "<group>"; };
@@ -171,6 +174,7 @@
 		D0C82F7928FA3E5900B17FCA /* HotPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotPostView.swift; sourceTree = "<group>"; };
 		D0C82F7E28FA5F7500B17FCA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D0C82F8028FA644C00B17FCA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D0C82F8228FA6F6100B17FCA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		D0D2F1E1287D1E2A00AB3E6A /* boogi-iOS-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "boogi-iOS-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D2F1E4287D1E2A00AB3E6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D2F1E6287D1E2A00AB3E6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +298,14 @@
 				D018EF42289E44E500EA2BA1 /* CreateCommunityViewModel.swift */,
 			);
 			path = CreateCommunity;
+			sourceTree = "<group>";
+		};
+		D03A168828FA9C030037ECB0 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				D03A168928FA9C100037ECB0 /* UserPosts.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		D048301628C2DEF5006DFF01 /* Component */ = {
@@ -447,6 +459,8 @@
 			isa = PBXGroup;
 			children = (
 				D0C82F7E28FA5F7500B17FCA /* ProfileView.swift */,
+				D0C82F8228FA6F6100B17FCA /* ProfileViewModel.swift */,
+				D03A168828FA9C030037ECB0 /* Component */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -668,12 +682,14 @@
 				D098CD4D28E6F86F004DC73C /* HomeViewModel.swift in Sources */,
 				D098CCCF28D58E43004DC73C /* AlarmsService.swift in Sources */,
 				D018EF36289504D100EA2BA1 /* DependencyInjector.swift in Sources */,
+				D0C82F8328FA6F6100B17FCA /* ProfileViewModel.swift in Sources */,
 				D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */,
 				D098CCCB28D570AC004DC73C /* AlarmCell.swift in Sources */,
 				D0C82F7528F0F8C100B17FCA /* FirstLaunch.swift in Sources */,
 				D0C82F8128FA644C00B17FCA /* User.swift in Sources */,
 				D0A1B48528B0A59400FB4127 /* UsersWebRepository.swift in Sources */,
 				D0A1B49128B9E90100FB4127 /* SearchWebRepository.swift in Sources */,
+				D03A168A28FA9C100037ECB0 /* UserPosts.swift in Sources */,
 				D0C82F6F28E84DE300B17FCA /* MessageContent.swift in Sources */,
 				D098CCCD28D57D3F004DC73C /* AlarmsWebRepository.swift in Sources */,
 				D098CD4628DEEDDF004DC73C /* CreateView.swift in Sources */,

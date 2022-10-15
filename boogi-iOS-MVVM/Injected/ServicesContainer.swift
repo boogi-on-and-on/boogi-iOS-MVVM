@@ -70,3 +70,23 @@ extension DIContainer {
     }
 }
 
+
+extension Date {
+    static func getDate(datetime: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        formatter.locale = Locale(identifier: "ko_KR")
+        guard let date = formatter.date(from: datetime) else {
+            return Date.now
+        }
+        
+        return date
+    }
+    
+    func timeAgoDisplay() -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.unitsStyle = .full
+        return formatter.localizedString(for: self, relativeTo: Date())
+    }
+}

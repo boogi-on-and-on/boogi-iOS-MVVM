@@ -55,6 +55,16 @@ struct Main: View{
                     Image(systemName: "bell")
                     Text("알림")
                 }
+                
+                ProfileView(
+                    viewModel: ProfileView.ViewModel(
+                        container: viewModel.container
+                    )
+                )
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("프로필")
+                }
             }
         }
     }

@@ -42,3 +42,28 @@ extension Post {
         var hots: [Content]
     }
 }
+
+extension Post {
+    struct UserPosts: Codable {
+        struct Community: Codable, Hashable {
+            let id: Int
+            let name: String
+        }
+        
+        struct Post: Codable, Hashable {
+            let content: String
+            let community: Community
+            var createdAt: String
+            let hashtags: [String]?
+            let id: Int
+        }
+        
+        struct PageInfo: Codable {
+            let nextPage: Int
+            let hasNext: Bool
+        }
+        
+        var posts: [UserPosts.Post]
+        let pageInfo: PageInfo
+    }
+}
