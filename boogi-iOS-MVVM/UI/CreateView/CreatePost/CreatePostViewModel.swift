@@ -31,7 +31,9 @@ extension CreatePost {
             let res = await container.services.usersService
                 .getJoinedCommunities()
             
-            joinedCommunities = res
+            DispatchQueue.main.async {
+                self.joinedCommunities = res
+            }
         }
         
         func requestCreate() async {
