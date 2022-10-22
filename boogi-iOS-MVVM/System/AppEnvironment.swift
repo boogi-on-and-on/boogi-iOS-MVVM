@@ -76,6 +76,10 @@ extension AppEnvironment {
             session: session, baseURL: "\(ip)/messages"
         )
         
+        let commentsWebRepository = RealCommentsWebRepository(
+            session: session, baseURL: "\(ip)/comments"
+        )
+        
         
         return .init(
             communitiesWebRepository: communitiesWebRepository,
@@ -85,7 +89,8 @@ extension AppEnvironment {
             searchWebRepository: searchWebRepository,
             alarmsWebRepository: alarmsWebRepository,
             noticesWebRepository: noticesWebRepository,
-            messagesWebRepository: messagesWebRepository
+            messagesWebRepository: messagesWebRepository,
+            commentsWebRepository: commentsWebRepository
         )
     }
     
@@ -118,6 +123,9 @@ extension AppEnvironment {
         let messagesService = RealMessagesService(
             webRepository: webRepositories.messagesWebRepository
         )
+        let commentsService = RealCommentsService(
+            webRepository: webRepositories.commentsWebRepository
+        )
         
         
         let userPermissionsService = RealUserPermissionsService(
@@ -136,7 +144,8 @@ extension AppEnvironment {
             searchService: searchService,
             alarmsService: alarmsService,
             noticesService: noticesService,
-            messagesService: messagesService
+            messagesService: messagesService,
+            commentsService: commentsService
         )
     }
 }

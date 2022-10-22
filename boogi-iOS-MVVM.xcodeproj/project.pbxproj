@@ -21,6 +21,10 @@
 		D018EF47289E5F2F00EA2BA1 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF46289E5F2F00EA2BA1 /* Loadable.swift */; };
 		D018EF49289E7CF200EA2BA1 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */; };
 		D018EF4B289E7FCB00EA2BA1 /* RepositoriesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */; };
+		D02BB341290386B90003F2A9 /* UserComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02BB340290386B90003F2A9 /* UserComments.swift */; };
+		D02BB3432903881B0003F2A9 /* CommentsWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02BB3422903881B0003F2A9 /* CommentsWebRepository.swift */; };
+		D02BB34529038AAE0003F2A9 /* CommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02BB34429038AAE0003F2A9 /* CommentsService.swift */; };
+		D02BB347290398ED0003F2A9 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02BB346290398ED0003F2A9 /* Comment.swift */; };
 		D03A168A28FA9C100037ECB0 /* UserPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03A168928FA9C100037ECB0 /* UserPosts.swift */; };
 		D048301528C2DE74006DFF01 /* CommunityCategoryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048301428C2DE74006DFF01 /* CommunityCategoryBar.swift */; };
 		D048301828C2DFD7006DFF01 /* SearchTypeSelectBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048301728C2DFD7006DFF01 /* SearchTypeSelectBar.swift */; };
@@ -118,6 +122,10 @@
 		D018EF46289E5F2F00EA2BA1 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		D018EF48289E7CF200EA2BA1 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		D018EF4A289E7FCB00EA2BA1 /* RepositoriesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesContainer.swift; sourceTree = "<group>"; };
+		D02BB340290386B90003F2A9 /* UserComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserComments.swift; sourceTree = "<group>"; };
+		D02BB3422903881B0003F2A9 /* CommentsWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsWebRepository.swift; sourceTree = "<group>"; };
+		D02BB34429038AAE0003F2A9 /* CommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsService.swift; sourceTree = "<group>"; };
+		D02BB346290398ED0003F2A9 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D03A168928FA9C100037ECB0 /* UserPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPosts.swift; sourceTree = "<group>"; };
 		D048301428C2DE74006DFF01 /* CommunityCategoryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCategoryBar.swift; sourceTree = "<group>"; };
 		D048301728C2DFD7006DFF01 /* SearchTypeSelectBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeSelectBar.swift; sourceTree = "<group>"; };
@@ -255,6 +263,7 @@
 				D098CCCC28D57D3F004DC73C /* AlarmsWebRepository.swift */,
 				D098CD5128E6FBB4004DC73C /* NoticesWebRepository.swift */,
 				D0C82F6328E8450400B17FCA /* MessagesWebRepository.swift */,
+				D02BB3422903881B0003F2A9 /* CommentsWebRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -272,6 +281,7 @@
 				D098CCCE28D58E42004DC73C /* AlarmsService.swift */,
 				D098CD5328E6FD7F004DC73C /* NoticesService.swift */,
 				D0C82F6528E8467700B17FCA /* MessagesService.swift */,
+				D02BB34429038AAE0003F2A9 /* CommentsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -287,6 +297,7 @@
 				D098CD4F28E6FB0D004DC73C /* Notice.swift */,
 				D098CD5528E83E28004DC73C /* Message.swift */,
 				D0C82F8028FA644C00B17FCA /* User.swift */,
+				D02BB346290398ED0003F2A9 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				D03A168928FA9C100037ECB0 /* UserPosts.swift */,
+				D02BB340290386B90003F2A9 /* UserComments.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -703,6 +715,8 @@
 				D098CD5228E6FBB4004DC73C /* NoticesWebRepository.swift in Sources */,
 				D018EF34289503BF00EA2BA1 /* ServicesContainer.swift in Sources */,
 				D0A1B48928B9A7C400FB4127 /* ImagesService.swift in Sources */,
+				D02BB34529038AAE0003F2A9 /* CommentsService.swift in Sources */,
+				D02BB341290386B90003F2A9 /* UserComments.swift in Sources */,
 				D098CCC428D55B7D004DC73C /* MessageView.swift in Sources */,
 				FAFC263628EA90B700A0412A /* ColorExtension.swift in Sources */,
 				D0C82F7F28FA5F7500B17FCA /* ProfileView.swift in Sources */,
@@ -720,6 +734,7 @@
 				D018EF382895088B00EA2BA1 /* CommunitiesWebRepository.swift in Sources */,
 				D018EF3E289E3A7100EA2BA1 /* Community.swift in Sources */,
 				D098CD4B28E6F4C5004DC73C /* HomeView.swift in Sources */,
+				D02BB347290398ED0003F2A9 /* Comment.swift in Sources */,
 				D048301528C2DE74006DFF01 /* CommunityCategoryBar.swift in Sources */,
 				D05E89E528C2E87B0018202D /* CommunitySearchResultList.swift in Sources */,
 				FAAE6B3E28E83F60001525E7 /* HotPostView.swift in Sources */,
@@ -742,6 +757,7 @@
 				D0C82F6B28E84CFA00B17FCA /* MessageDetailView.swift in Sources */,
 				D048301828C2DFD7006DFF01 /* SearchTypeSelectBar.swift in Sources */,
 				D0A1B48328B0A54100FB4127 /* UsersService.swift in Sources */,
+				D02BB3432903881B0003F2A9 /* CommentsWebRepository.swift in Sources */,
 				D018EF47289E5F2F00EA2BA1 /* Loadable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -933,7 +949,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.22;
+				MARKETING_VERSION = 0.0.23;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.Boogi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -962,7 +978,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.22;
+				MARKETING_VERSION = 0.0.23;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.Boogi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

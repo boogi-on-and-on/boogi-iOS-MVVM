@@ -10,7 +10,7 @@ import Foundation
 protocol PostsService {
     func requestCreate(form: Post.Create) async -> Int
     func requestGetHotposts() async -> Post.HotPost
-    func requestGetUserPosts() async -> Post.UserPosts
+    func requestGetUserPosts(userId: Int?) async -> Post.UserPosts
 }
 
 struct RealPostsService: PostsService {
@@ -46,8 +46,8 @@ struct RealPostsService: PostsService {
         }
     }
     
-    func requestGetUserPosts() async -> Post.UserPosts {
-        let res = await webRepository.getUserPosts()
+    func requestGetUserPosts(userId: Int?) async -> Post.UserPosts {
+        let res = await webRepository.getUserPosts(userId: userId)
         
         switch res {
         case .success(var data):
@@ -69,7 +69,7 @@ struct StubPostsService: PostsService {
         Post.HotPost(hots: [])
     }
     
-    func requestGetUserPosts() async -> Post.UserPosts {
+    func requestGetUserPosts(userId: Int?) async -> Post.UserPosts {
         Post.UserPosts(posts: [], pageInfo: Post.UserPosts.PageInfo(nextPage: 0, hasNext: false))
     }
 }

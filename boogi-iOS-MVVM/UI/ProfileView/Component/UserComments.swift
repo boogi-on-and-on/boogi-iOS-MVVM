@@ -1,20 +1,20 @@
 //
-//  UserPosts.swift
+//  UserComments.swift
 //  boogi-iOS-MVVM
 //
-//  Created by 김덕환 on 2022/10/15.
+//  Created by 김덕환 on 2022/10/22.
 //
 
 import Foundation
 import SwiftUI
 
-struct UserPosts: View {
+struct UserComments: View {
     let profile: User.Profile
-    let userPosts: Post.UserPosts
+    let userComments: Comment.UserComments
     
     var body: some View {
         ScrollView {
-            ForEach(userPosts.posts, id: \.self) { post in
+            ForEach(userComments.comments, id: \.self) { comment in
                 VStack(alignment: .leading) {
                     HStack {
                         AsyncImage(url: URL(string: profile.user.profileImageUrl ?? "")) { img in
@@ -35,31 +35,15 @@ struct UserPosts: View {
                         
                         Spacer()
                         
-                        Text(Date.getDate(datetime: post.createdAt).timeAgoDisplay())
+                        Text(Date.getDate(datetime: comment.createdAt).timeAgoDisplay())
                     }
                     
-                    Text(post.content)
+                    Text(comment.content)
                         .padding()
-                    
-                    HStack {
-                        HStack {
-                            ForEach(post.hashtags ?? [], id: \.self) {
-                                Text("#\($0)")
-                                    .foregroundColor(.gray)
-                            }
-                        }
-                        
-                        Spacer()
-                        
-                        NavigationLink(post.community.name) {
-                        }
-                    }
-                    .padding()
-                    
-                    Divider()
                 }
                 .padding()
             }
         }
     }
 }
+

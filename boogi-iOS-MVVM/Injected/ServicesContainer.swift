@@ -18,6 +18,7 @@ extension DIContainer {
         let alarmsService: AlarmsService
         let noticesService: NoticesService
         let messagesService: MessagesService
+        let commentsService: CommentsService
         
         init(
              userPermissionsService: UserPermissionsService,
@@ -28,7 +29,8 @@ extension DIContainer {
              searchService: SearchService,
              alarmsService: AlarmsService,
              noticesService: NoticesService,
-             messagesService: MessagesService
+             messagesService: MessagesService,
+             commentsService: CommentsService
         ) {
             self.userPermissionsService = userPermissionsService
             self.communitiesService = communitiesService
@@ -39,6 +41,7 @@ extension DIContainer {
             self.alarmsService = alarmsService
             self.noticesService = noticesService
             self.messagesService = messagesService
+            self.commentsService = commentsService
         }
         
         static var stub: Self {
@@ -51,7 +54,8 @@ extension DIContainer {
                   searchService: StubSearchService(),
                   alarmsService: StubAlarmsService(),
                   noticesService: StubNoticesService(),
-                  messagesService: StubMessagesService()
+                  messagesService: StubMessagesService(),
+                  commentsService: StubCommentsService()
             )
         }
         

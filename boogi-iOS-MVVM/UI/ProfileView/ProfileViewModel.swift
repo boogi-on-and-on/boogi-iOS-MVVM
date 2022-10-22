@@ -10,11 +10,10 @@ import SwiftUI
 
 extension ProfileView {
     class ViewModel: ObservableObject {
-        @Published var profile = User.Profile(
-            me: false, user: User.Profile.Info(id: -1, profileImageUrl: nil, name: "", tagNum: "", introduce: "", department: "")
-        )
-        @Published var userPosts = Post.UserPosts(posts: [], pageInfo: Post.UserPosts.PageInfo(nextPage: 0, hasNext: false))
-        var selected = "게시글 목록"
+        @Published var profile = User.defaultProfile
+        @Published var userPosts = Post.defaultUserPosts
+        @Published var userComments = Comment.defaultUserComments
+        @Published var selected = "게시글 목록"
         let selection = ["게시글 목록", "댓글 목록"]
         
         let container: DIContainer
@@ -30,11 +29,19 @@ extension ProfileView {
             }
         }
         
-        func getUserPosts() async {
-            let res = await container.services.postsService.requestGetUserPosts()
+        func getUserPosts(userId: Int?) async {
+            let res = await container.services.postsService.requestGetUserPosts(userId: userId)
             
             DispatchQueue.main.async {
                 self.userPosts = res
+            }
+        }
+        
+        func getUserComments(userId: Int?) async {
+            let res = await container.services.commentsService.getUserComments(userId: userId)
+            
+            DispatchQueue.main.async {
+                self.userComments = res
             }
         }
     }
