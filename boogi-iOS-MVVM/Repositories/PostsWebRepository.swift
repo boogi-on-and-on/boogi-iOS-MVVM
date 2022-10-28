@@ -10,7 +10,7 @@ import Foundation
 protocol PostsWebRepository: WebRepository {
     func createPost(form: Post.Create) async -> Result<Int, Error>
     func getHotPosts() async -> Result<Post.HotPost, Error>
-    func getUserPosts() async -> Result<Post.UserPosts, Error>
+    func getUserPosts(userId: Int?) async -> Result<Post.UserPosts, Error>
 }
 
 struct RealPostsWebRepository: PostsWebRepository {
@@ -22,8 +22,8 @@ struct RealPostsWebRepository: PostsWebRepository {
         return await call(endpoint: API.hot)
     }
     
-    func getUserPosts() async -> Result<Post.UserPosts, Error> {
-        return await call(endpoint: API.userPosts)
+    func getUserPosts(userId: Int?) async -> Result<Post.UserPosts, Error> {
+        return await call(endpoint: API.userPosts(userId))
     }
     
     init(session: URLSession, baseURL: String) {
@@ -41,7 +41,7 @@ extension RealPostsWebRepository {
     enum API {
         case create(Post.Create)
         case hot
-        case userPosts
+        case userPosts(Int?)
     }
 }
 
@@ -74,7 +74,12 @@ extension RealPostsWebRepository.API: APICall {
     }
     
     var parameters: [URLQueryItem]? {
-        return nil
+        switch self {
+        case .userPosts(let id):
+            return [URLQueryItem(name: "userId", value: id?.description)]
+        default:
+            return nil
+        }
     }
     
     func body() throws -> Data? {

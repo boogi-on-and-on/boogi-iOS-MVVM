@@ -8,7 +8,7 @@
 import Foundation
 
 struct User {
-    
+    static let defaultProfile = Profile(me: true, user: Profile.Info(id: 0, profileImageUrl: nil, name: "", tagNum: "", introduce: "", department: ""))
 }
 
 extension User {

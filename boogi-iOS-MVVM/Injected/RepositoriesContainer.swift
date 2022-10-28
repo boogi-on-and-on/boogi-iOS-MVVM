@@ -17,5 +17,6 @@ extension DIContainer {
         let alarmsWebRepository: AlarmsWebRepository
         let noticesWebRepository: NoticesWebRepository
         let messagesWebRepository: MessagesWebRepository
+        let commentsWebRepository: CommentsWebRepository
     }
 }

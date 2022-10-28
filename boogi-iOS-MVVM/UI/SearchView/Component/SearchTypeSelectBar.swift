@@ -22,7 +22,8 @@ struct SearchTypeSelectBar: View {
             } label: {
                 Text("커뮤니티")
             }
-            .foregroundColor(isCommunitySearch ? .blue : .black)
+            .buttonStyle(.plain)
+            .foregroundColor(isCommunitySearch ? .blue : .gray)
             
             Button {
                 isCommunitySearch = false
@@ -30,7 +31,8 @@ struct SearchTypeSelectBar: View {
             } label: {
                 Text("게시글")
             }
-            .foregroundColor(isCommunitySearch ? .black : .blue)
+            .buttonStyle(.plain)
+            .foregroundColor(!isCommunitySearch ? .blue : .gray)
             
             Spacer()
             

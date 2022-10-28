@@ -37,16 +37,18 @@ struct ProfileView: View {
                 if viewModel.selected == "게시글 목록" {
                     UserPosts(profile: viewModel.profile, userPosts: viewModel.userPosts)
                         .task {
-                            await viewModel.getUserPosts()
+                            await viewModel.getUserPosts(userId: nil)
                         }
                 } else {
-                    
+                    UserComments(profile: viewModel.profile, userComments: viewModel.userComments)
+                        .task {
+                            await viewModel.getUserComments(userId: nil)
+                        }
                 }
             }
             .pickerStyle(.segmented)
             .task {
                 await viewModel.getProfile(userId: nil)
-                await viewModel.getUserPosts()
             }
         }
     }

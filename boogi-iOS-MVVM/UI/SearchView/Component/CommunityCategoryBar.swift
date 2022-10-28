@@ -20,38 +20,39 @@ struct CommunityCategoryBar: View {
             } label: {
                 Text(Community.Category.all.type())
             }
-            .foregroundColor(category == .all ? .blue : .black)
+            .foregroundColor(category == .all ? .blue : .gray)
             
             Button {
                 category = .academic
             } label: {
                 Text(Community.Category.academic.type())
             }
-            .foregroundColor(category == .academic ? .blue : .black)
+            .foregroundColor(category == .academic ? .blue : .gray)
             
             Button {
                 category = .club
             } label: {
                 Text(Community.Category.club.type())
             }
-            .foregroundColor(category == .club ? .blue : .black)
+            .foregroundColor(category == .club ? .blue : .gray)
             
             Button {
                 category = .hobby
             } label: {
                 Text(Community.Category.hobby.type())
             }
-            .foregroundColor(category == .hobby ? .blue : .black)
+            .foregroundColor(category == .hobby ? .blue : .gray)
             
             Button {
                 category = .other
             } label: {
                 Text(Community.Category.other.type())
             }
-            .foregroundColor(category == .other ? .blue : .black)
+            .foregroundColor(category == .other ? .blue : .gray)
             
             Spacer()
         }
+        .buttonStyle(.plain)
         .padding([.leading, .trailing])
     }
 }

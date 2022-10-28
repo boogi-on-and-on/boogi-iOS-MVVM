@@ -8,7 +8,7 @@
 import Foundation
 
 struct Post {
-    
+    static let defaultUserPosts = UserPosts(posts: [], pageInfo: UserPosts.PageInfo(nextPage: 0, hasNext: false))
 }
 
 // request
