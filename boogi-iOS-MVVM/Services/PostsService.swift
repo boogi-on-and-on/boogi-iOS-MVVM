@@ -11,6 +11,7 @@ protocol PostsService {
     func requestCreate(form: Post.Create) async -> Int
     func requestGetHotposts() async -> Post.HotPost
     func requestGetUserPosts(userId: Int?) async -> Post.UserPosts
+    func getPostDetail(postId: Int) async -> Post.Detail
 }
 
 struct RealPostsService: PostsService {
@@ -25,7 +26,6 @@ struct RealPostsService: PostsService {
         
         switch res {
         case .success(let data):
-            print(data)
             return data
         case .failure(let err):
             print(err)
@@ -38,7 +38,6 @@ struct RealPostsService: PostsService {
         
         switch res {
         case .success(let data):
-            print(data)
             return data
         case .failure(let err):
             print(err)
@@ -50,12 +49,23 @@ struct RealPostsService: PostsService {
         let res = await webRepository.getUserPosts(userId: userId)
         
         switch res {
-        case .success(var data):
-            print(data)
+        case .success(let data):
             return data
         case .failure(let err):
             print(err)
             return Post.UserPosts(posts: [], pageInfo: Post.UserPosts.PageInfo(nextPage: 0, hasNext: false))
+        }
+    }
+    
+    func getPostDetail(postId: Int) async -> Post.Detail {
+        let res = await webRepository.getPostDetail(postId: postId)
+        
+        switch res {
+        case .success(let data):
+            return data
+        case .failure(let err):
+            print(err)
+            return Post.defaultPostDetail
         }
     }
 }
@@ -71,5 +81,9 @@ struct StubPostsService: PostsService {
     
     func requestGetUserPosts(userId: Int?) async -> Post.UserPosts {
         Post.UserPosts(posts: [], pageInfo: Post.UserPosts.PageInfo(nextPage: 0, hasNext: false))
+    }
+    
+    func getPostDetail(postId: Int) async -> Post.Detail {
+        Post.defaultPostDetail
     }
 }

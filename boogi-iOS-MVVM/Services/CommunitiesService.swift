@@ -9,6 +9,7 @@ import Foundation
 
 protocol CommunitiesService {
     func createCommunity(form: Community.Create) async -> Int
+    func getCommunityDetail(communityId: Int) async -> Community.Detail
 }
 
 struct RealCommunitiesService: CommunitiesService {
@@ -23,11 +24,22 @@ struct RealCommunitiesService: CommunitiesService {
         
         switch res {
         case .success(let data):
-            print(data)
             return data
         case .failure(let err):
             print(err)
             return -1
+        }
+    }
+    
+    func getCommunityDetail(communityId: Int) async -> Community.Detail {
+        let res = await webRepository.getCommunityDetail(communityId: communityId)
+        
+        switch res {
+        case .success(let data):
+            return data
+        case .failure(let err):
+            print(err)
+            return Community.defaultCommunityDetail
         }
     }
 }
@@ -35,5 +47,9 @@ struct RealCommunitiesService: CommunitiesService {
 struct StubCommunitiesService: CommunitiesService {
     func createCommunity(form: Community.Create) async -> Int {
         -1
+    }
+    
+    func getCommunityDetail(communityId: Int) async -> Community.Detail {
+        Community.defaultCommunityDetail
     }
 }

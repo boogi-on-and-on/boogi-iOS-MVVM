@@ -8,7 +8,8 @@
 import Foundation
 
 struct Community {
-    
+    static let defaultJoinedCommunities = Community.Joined(communities: [])
+    static let defaultCommunityDetail = Community.Detail(sessionMemberType: nil, community: Detail.CommunityInfo(isPrivated: false, category: .academic, name: "", introduce: "", hashtags: nil, memberCount: "0", createdAt: ""), notices: [], posts: [])
 }
 
 extension Community {
@@ -31,6 +32,7 @@ extension Community {
             var likeCount: Int
             var commentCount: Int
         }
+        
         struct CommunityInfo: Codable, Hashable {
             var name: String
             var id: Int
@@ -38,6 +40,37 @@ extension Community {
         }
         
         var communities: [CommunityInfo]
+    }
+}
+
+extension Community {
+    struct Detail: Codable {
+        struct CommunityInfo: Codable {
+            let isPrivated: Bool
+            let category: Community.Category
+            let name: String
+            let introduce: String
+            let hashtags: [String]?
+            let memberCount: String
+            let createdAt: String
+        }
+        
+        struct Notice: Codable {
+            let id: Int
+            let title: String
+            var createdAt: String
+        }
+        
+        struct Post: Codable {
+            let id: Int
+            let content: String
+            var createdAt: String
+        }
+        
+        let sessionMemberType: String?
+        let community: Community.Detail.CommunityInfo
+        let notices: [Detail.Notice]
+        let posts: [Detail.Post]
     }
 }
 

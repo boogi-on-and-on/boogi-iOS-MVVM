@@ -11,6 +11,7 @@ protocol PostsWebRepository: WebRepository {
     func createPost(form: Post.Create) async -> Result<Int, Error>
     func getHotPosts() async -> Result<Post.HotPost, Error>
     func getUserPosts(userId: Int?) async -> Result<Post.UserPosts, Error>
+    func getPostDetail(postId: Int) async -> Result<Post.Detail, Error>
 }
 
 struct RealPostsWebRepository: PostsWebRepository {
@@ -24,6 +25,10 @@ struct RealPostsWebRepository: PostsWebRepository {
     
     func getUserPosts(userId: Int?) async -> Result<Post.UserPosts, Error> {
         return await call(endpoint: API.userPosts(userId))
+    }
+    
+    func getPostDetail(postId: Int) async -> Result<Post.Detail, Error> {
+        return await call(endpoint: API.postDetail(postId))
     }
     
     init(session: URLSession, baseURL: String) {
@@ -42,6 +47,7 @@ extension RealPostsWebRepository {
         case create(Post.Create)
         case hot
         case userPosts(Int?)
+        case postDetail(Int)
     }
 }
 
@@ -54,6 +60,8 @@ extension RealPostsWebRepository.API: APICall {
             return "/hot"
         case .userPosts:
             return "/users"
+        case .postDetail(let postId):
+            return "/\(postId)"
         }
     }
     
@@ -61,7 +69,7 @@ extension RealPostsWebRepository.API: APICall {
         switch self {
         case .create:
             return "POST"
-        case .hot, .userPosts:
+        case .hot, .userPosts, .postDetail:
             return "GET"
         }
     }
@@ -86,7 +94,7 @@ extension RealPostsWebRepository.API: APICall {
         switch self {
         case .create(let form):
             return try JSONEncoder().encode(form)
-        case .hot, .userPosts:
+        case .hot, .userPosts, .postDetail:
             return nil
         }
     }

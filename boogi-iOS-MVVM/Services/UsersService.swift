@@ -21,9 +21,7 @@ struct RealUsersService: UsersService {
         let res = await webRepository.getToken(email: email)
         
         switch res {
-        case .success(let token):
-            print(token)
-            
+        case .success:
             return true
         case .failure(let err):
             print(err)
@@ -67,10 +65,7 @@ struct StubUsersService: UsersService {
     }
     
     func getProfile(userId: Int?) async -> User.Profile {
-        return User.Profile(
-            me: false,
-            user: User.Profile.Info(id: -1, profileImageUrl: nil, name: "", tagNum: "", introduce: "", department: "")
-        )
+        return User.defaultProfile
     }
     
     func getJoinedCommunities() async -> Community.Joined {

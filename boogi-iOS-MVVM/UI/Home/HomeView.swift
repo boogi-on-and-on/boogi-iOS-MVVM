@@ -13,19 +13,26 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                AppNotices(notice: $viewModel.notice)
-                    .task {
-                        await viewModel.getRecentNotices()
-                    }
-                
-                // HotPosts
-                HotPostView(hotPosts: $viewModel.hotPosts)
-                    .task {
-                        await viewModel.getHotposts()
-                    }
-                
-                // JoinedCommuities
+            ScrollView {
+                VStack {
+                    AppNotices(notice: $viewModel.notice)
+                        .task {
+                            await viewModel.getRecentNotices()
+                        }
+                    
+                    // HotPosts
+                    HotPostView(hotPosts: $viewModel.hotPosts)
+                        .task {
+                            await viewModel.getHotposts()
+                        }
+                    
+                    // JoinedCommuities
+                    JoinedCommunityView(joinedCommunityLists: $viewModel.joinedCommunities)
+                        .task {
+                            print("Why???")
+                            await viewModel.getJoinedCommunities()
+                        }
+                }
             }
         }
     }

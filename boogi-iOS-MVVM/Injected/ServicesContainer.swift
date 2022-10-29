@@ -93,4 +93,17 @@ extension Date {
         formatter.unitsStyle = .full
         return formatter.localizedString(for: self, relativeTo: Date())
     }
+    
+    static func getDateTime(datetime: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        dateFormatter.timeZone = NSTimeZone(name: "ko_KR") as TimeZone?
+        
+        guard let date = dateFormatter.date(from: datetime) else {
+            return ""
+        }
+        
+        dateFormatter.dateFormat = "yy-MM-dd HH:mm"
+        return dateFormatter.string(from: date)
+    }
 }

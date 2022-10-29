@@ -12,46 +12,48 @@ struct SearchView: View {
     @ObservedObject private(set) var viewModel: ViewModel
     
     var body: some View {
-        VStack {
-            SearchBar(
-                keyword: $viewModel.searchParameter.keyword,
-                search: viewModel.search
-            )
-            SearchTypeSelectBar(
-                isCommunitySearch: $viewModel.isCommunitySearch,
-                order: $viewModel.searchParameter.order,
-                isPrivate: $viewModel.searchParameter.isPrivate
-            )
-            
-            Divider()
-                .foregroundColor(.black)
-            
-            
-            if viewModel.isCommunitySearch {
-                CommunityCategoryBar(category: $viewModel.communityCategory)
+        NavigationView {
+            VStack {
+                SearchBar(
+                    keyword: $viewModel.searchParameter.keyword,
+                    search: viewModel.search
+                )
+                SearchTypeSelectBar(
+                    isCommunitySearch: $viewModel.isCommunitySearch,
+                    order: $viewModel.searchParameter.order,
+                    isPrivate: $viewModel.searchParameter.isPrivate
+                )
+                
+                Divider()
+                    .foregroundColor(.black)
+                
+                
+                if viewModel.isCommunitySearch {
+                    CommunityCategoryBar(category: $viewModel.communityCategory)
+                }
+                
+                if viewModel.hasCommunitySearchResult {
+                    CommunitySearchResultList(result: $viewModel.communitySearchResult)
+                }
+                
+                if viewModel.hasPostSearchResult {
+                    PostSearchResultList(viewModel: viewModel, result: $viewModel.postSearchResult)
+                }
+                
+                Spacer()
             }
-            
-            if viewModel.hasCommunitySearchResult {
-                CommunitySearchResultList(result: $viewModel.communitySearchResult)
+            .transition(.opacity)
+            .animation(.default, value: viewModel.isCommunitySearch)
+            .onChange(of: viewModel.isCommunitySearch) { _ in
+                viewModel.hasCommunitySearchResult = false
+                viewModel.hasPostSearchResult = false
             }
-            
-            if viewModel.hasPostSearchResult {
-                PostSearchResultList(result: $viewModel.postSearchResult)
+            .onAppear {
+                viewModel.hasCommunitySearchResult = true
             }
-            
-            Spacer()
-        }
-        .transition(.opacity)
-        .animation(.default, value: viewModel.isCommunitySearch)
-        .onChange(of: viewModel.isCommunitySearch) { _ in
-            viewModel.hasCommunitySearchResult = false
-            viewModel.hasPostSearchResult = false
-        }
-        .onAppear {
-            viewModel.hasCommunitySearchResult = true
-        }
-        .onTapGesture {
-            hideKeyBoard()
+            .onTapGesture {
+                hideKeyBoard()
+            }
         }
     }
 }
