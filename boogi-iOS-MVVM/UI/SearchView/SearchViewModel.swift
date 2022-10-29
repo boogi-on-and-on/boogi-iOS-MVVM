@@ -18,6 +18,7 @@ extension SearchView {
         
         @Published var communitySearchResult = Search.CommunitySearchResult.default()
         @Published var postSearchResult = Search.PostSearchResult.default()
+        @Published var postDetail = Post.defaultPostDetail
         
         let container: DIContainer
         init(container: DIContainer) {
@@ -64,6 +65,14 @@ extension SearchView {
                 
                 self.hasPostSearchResult = true
                 self.postSearchResult = res
+            }
+        }
+        
+        func getPostDetail(postId: Int) async {
+            let res = await container.services.postsService.getPostDetail(postId: postId)
+            
+            DispatchQueue.main.async {
+                self.postDetail = res
             }
         }
     }

@@ -10,6 +10,7 @@ import SwiftUI
 
 extension SearchView {
     struct PostSearchResultList: View {
+        @ObservedObject private(set) var viewModel: ViewModel
         @Binding var result: Search.PostSearchResult
         
         struct Profile: View {
@@ -77,10 +78,7 @@ extension SearchView {
                 LazyVStack {
                     ForEach(result.posts, id: \.self) { post in
                         NavigationLink {
-                            Text("Not Implemented")
-                            /*
-                            PostDetailLink(postId: post.id)
-                             */
+                            PostDetailView(viewModel: PostDetailView.ViewModel(container: viewModel.container), postId: post.id)
                         } label : {
                             VStack(alignment: .leading) {
                                 Profile(userProfile: post.user)
@@ -122,19 +120,6 @@ extension SearchView {
             }
         }
         
-        /*
-         struct PostDetailLink: UIViewControllerRepresentable {
-         let postId: Int
-         
-         func makeUIViewController(context: Context) -> some UIViewController {
-         let vc = ViewControllerFactory.viewControllerFactory.makeViewController(controllerType: .postDetail, id: postId)
-         return vc
-         }
-         
-         func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-         }
-         }
-         */
     }
     
 }

@@ -9,11 +9,16 @@ import Foundation
 
 protocol CommunitiesWebRepository: WebRepository {
     func createCommunity(form: Community.Create) async -> Result<Int, Error>
+    func getCommunityDetail(communityId: Int) async -> Result<Community.Detail, Error>
 }
 
 struct RealCommunitiesWebRepository: CommunitiesWebRepository {
     func createCommunity(form: Community.Create) async -> Result<Int, Error> {
         return await call(endpoint: API.create(form))
+    }
+    
+    func getCommunityDetail(communityId: Int) async -> Result<Community.Detail, Error> {
+        return await call(endpoint: API.communityDetail(communityId))
     }
     
     init(session: URLSession, baseURL: String) {
@@ -30,6 +35,7 @@ struct RealCommunitiesWebRepository: CommunitiesWebRepository {
 extension RealCommunitiesWebRepository {
     enum API {
         case create(Community.Create)
+        case communityDetail(Int)
     }
 }
 
@@ -38,11 +44,15 @@ extension RealCommunitiesWebRepository.API: APICall {
         switch self {
         case .create:
             return "/"
+        case .communityDetail(let id):
+            return "/\(id)"
         }
     }
     
     var method: String {
         switch self {
+        case .communityDetail:
+            return "GET"
         case .create:
             return "POST"
         }
@@ -63,6 +73,8 @@ extension RealCommunitiesWebRepository.API: APICall {
         switch self {
         case .create(let form):
             return try JSONEncoder().encode(form)
+        case .communityDetail:
+            return nil
         }
     }
 }

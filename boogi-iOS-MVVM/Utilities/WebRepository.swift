@@ -79,7 +79,6 @@ extension WebRepository {
             }
             
             let token = response.value(forHTTPHeaderField: "X-Auth-Token")
-            print("token: \(token)")
             UserDefaults.standard.set(token, forKey: "xAuthToken")
             return .success(token)
         }

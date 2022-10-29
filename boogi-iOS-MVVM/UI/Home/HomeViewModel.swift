@@ -11,6 +11,7 @@ extension HomeView {
     class ViewModel: ObservableObject {
         @Published var notice = Notice(notices: [])
         @Published var hotPosts = Post.HotPost(hots: [])
+        @Published var joinedCommunities = Community.defaultJoinedCommunities
         
         let container: DIContainer
         init(container: DIContainer) {
@@ -30,6 +31,15 @@ extension HomeView {
             
             DispatchQueue.main.async {
                 self.hotPosts = res
+            }
+        }
+        
+        func getJoinedCommunities() async {
+            let res = await container.services.usersService.getJoinedCommunities()
+            print(res)
+            
+            DispatchQueue.main.async {
+                self.joinedCommunities = res
             }
         }
     }

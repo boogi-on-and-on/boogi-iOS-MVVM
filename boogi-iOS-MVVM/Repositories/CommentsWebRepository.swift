@@ -60,8 +60,6 @@ extension RealCommentsWebRepository.API: APICall {
         switch self {
         case .getUserComments(let id):
             return [URLQueryItem(name: "userId", value: id?.description)]
-        default:
-            return nil
         }
     }
     
