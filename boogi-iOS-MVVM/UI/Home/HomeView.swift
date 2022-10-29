@@ -14,7 +14,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
+                VStack(alignment: .leading) {
                     AppNotices(notice: $viewModel.notice)
                         .task {
                             await viewModel.getRecentNotices()

@@ -12,20 +12,27 @@ struct JoinedCommunityView: View {
     @Binding var joinedCommunityLists: Community.Joined
     
     var body: some View {
-        ForEach(joinedCommunityLists.communities, id: \.self) { community in
-            VStack {
-                Header(name: community.name)
-                
-                Article(
-                    content: community.post?.content,
-                    postMediaUrl: community.post?.postMediaUrl,
-                    hashtags: community.post?.hashtags
-                )
-                
-                // TODO: 컴파일러가 Footer를 싫어함..
-                // Footer(createdAt: community.post?.createdAt, likeCount: community.post?.likeCount)
+        VStack(alignment: .leading) {
+            Text("내가 가입한 커뮤니티")
+                .font(.title)
+            
+            ForEach(joinedCommunityLists.communities, id: \.self) { community in
+                VStack {
+                    Header(name: community.name)
+                    
+                    Article(
+                        content: community.post?.content,
+                        postMediaUrl: community.post?.postMediaUrl,
+                        hashtags: community.post?.hashtags
+                    )
+                    
+                    Footer(createdAt: community.post?.createdAt ?? "", likeCount: community.post?.likeCount ?? 0)
+                }
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: 8).stroke(.gray))
             }
         }
+        .padding()
     }
 }
 
@@ -36,15 +43,19 @@ extension JoinedCommunityView {
         var body: some View {
             HStack {
                 Text(name)
+                    .font(.title)
+                    
+                Spacer()
                 
                 NavigationLink {
                     Text("")
                 } label: {
                     Text("커뮤니티 홈")
-                        .padding()
+                        .padding(4)
                         .background(.gray)
-                        .cornerRadius(15)
+                        .cornerRadius(8)
                 }
+                .buttonStyle(.plain)
             }
         }
     }
@@ -58,37 +69,43 @@ extension JoinedCommunityView {
         
         var body: some View {
             HStack {
-                VStack {
+                VStack(alignment: .leading) {
                     Text(content ?? "")
+                        .padding(2)
                     
-                    ForEach(hashtags ?? [], id: \.self) { hashtag in
-                        Text("#\(hashtag)")
+                    HStack {
+                        ForEach(hashtags ?? [], id: \.self) { hashtag in
+                            Text("#\(hashtag)")
+                        }
+                        .padding(2)
                     }
                 }
+                
+                Spacer()
                 
                 AsyncImage(url: URL(string: postMediaUrl ?? "")) { img in
                     img.resizable()
                 } placeholder: {
-                    Text("No")
+                    Image(systemName: "photo.artframe")
                 }
             }
         }
     }
-    
-    
 }
 
 extension JoinedCommunityView {
     struct Footer: View {
-        let createdAt: String?
-        let likeCount: String?
+        let createdAt: String
+        let likeCount: Int
         
         var body: some View {
             HStack {
-                Text(Date.getDateTime(datetime: createdAt ?? ""))
+                Text(Date.getDateTime(datetime: createdAt))
                 Image(systemName: "heart")
-                Text(likeCount ?? "0")
+                Text(likeCount.description)
                 Image(systemName: "ellipsis.bubble")
+                
+                Spacer()
             }
         }
     }
