@@ -31,6 +31,7 @@ struct CreatePost: View {
                 communitySelect
                 article
                 tag
+                createButton
             }
         }
     }
@@ -98,9 +99,9 @@ extension CreatePost {
                     Text(community.name)
                 }
             }
-            .task {
-                await viewModel.getJoinedCommunities()
-            }
+        }
+        .task {
+            await viewModel.getJoinedCommunities()
         }
     }
     

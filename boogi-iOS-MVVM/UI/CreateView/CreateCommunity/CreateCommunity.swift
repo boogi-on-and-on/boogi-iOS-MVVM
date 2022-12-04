@@ -108,10 +108,10 @@ private extension CreateCommunity {
                 HStack {
                     Image(systemName: viewModel.form.isPrivate ? "checkmark.square.fill" : "square")
                     Text("비공개")
-                        .foregroundColor(.black)
                     Spacer()
                 }
             }
+            .buttonStyle(.plain)
             .padding()
             
             Button {
@@ -120,10 +120,10 @@ private extension CreateCommunity {
                 HStack {
                     Image(systemName: viewModel.form.autoApproval ? "checkmark.square.fill" : "square")
                     Text("자동가입승인")
-                        .foregroundColor(.black)
                     Spacer()
                 }
             }
+            .buttonStyle(.plain)
             .padding()
         }
     }

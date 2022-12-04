@@ -25,8 +25,6 @@ struct SearchView: View {
                 )
                 
                 Divider()
-                    .foregroundColor(.black)
-                
                 
                 if viewModel.isCommunitySearch {
                     CommunityCategoryBar(category: $viewModel.communityCategory)
