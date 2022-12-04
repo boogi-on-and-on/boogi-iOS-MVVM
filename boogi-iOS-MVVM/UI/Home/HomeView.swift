@@ -27,9 +27,10 @@ struct HomeView: View {
                         }
                     
                     // JoinedCommuities
-                    JoinedCommunityView(joinedCommunityLists: $viewModel.joinedCommunities)
+                    JoinedCommunityView(
+                        container: viewModel.container, joinedCommunityLists: $viewModel.joinedCommunities
+                    )
                         .task {
-                            print("Why???")
                             await viewModel.getJoinedCommunities()
                         }
                 }

@@ -55,7 +55,7 @@ extension Community {
             let createdAt: String
         }
         
-        struct Notice: Codable {
+        struct Notice: Codable, Hashable {
             let id: Int
             let title: String
             var createdAt: String

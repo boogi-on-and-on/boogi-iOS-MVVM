@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct JoinedCommunityView: View {
+    let container: DIContainer
     @Binding var joinedCommunityLists: Community.Joined
     
     var body: some View {
@@ -18,7 +19,7 @@ struct JoinedCommunityView: View {
             
             ForEach(joinedCommunityLists.communities, id: \.self) { community in
                 VStack {
-                    Header(name: community.name)
+                    Header(container: container, name: community.name, id: community.id)
                     
                     Article(
                         content: community.post?.content,
@@ -38,7 +39,9 @@ struct JoinedCommunityView: View {
 
 extension JoinedCommunityView {
     struct Header: View {
+        let container: DIContainer
         let name: String
+        let id: Int
         
         var body: some View {
             HStack {
@@ -48,7 +51,7 @@ extension JoinedCommunityView {
                 Spacer()
                 
                 NavigationLink {
-                    Text("")
+                    CommunityDetailView(communityId: id, viewModel: CommunityDetailView.ViewModel(container: container))
                 } label: {
                     Text("커뮤니티 홈")
                         .padding(4)
