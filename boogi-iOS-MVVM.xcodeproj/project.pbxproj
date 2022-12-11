@@ -70,6 +70,7 @@
 		D0A1B49728B9F16F00FB4127 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B49628B9F16F00FB4127 /* SearchViewModel.swift */; };
 		D0A1B49928B9F45B00FB4127 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B49828B9F45B00FB4127 /* SearchBar.swift */; };
 		D0A1B49B28B9FD7000FB4127 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A1B49A28B9FD7000FB4127 /* Search.swift */; };
+		D0A284AD29445ED80004659A /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A284AC29445ED80004659A /* CommentsView.swift */; };
 		D0C82F6428E8450400B17FCA /* MessagesWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F6328E8450400B17FCA /* MessagesWebRepository.swift */; };
 		D0C82F6628E8467700B17FCA /* MessagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F6528E8467700B17FCA /* MessagesService.swift */; };
 		D0C82F6828E8476200B17FCA /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C82F6728E8476200B17FCA /* MessageViewModel.swift */; };
@@ -181,6 +182,7 @@
 		D0A1B49628B9F16F00FB4127 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		D0A1B49828B9F45B00FB4127 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		D0A1B49A28B9FD7000FB4127 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		D0A284AC29445ED80004659A /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		D0C82F6328E8450400B17FCA /* MessagesWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesWebRepository.swift; sourceTree = "<group>"; };
 		D0C82F6528E8467700B17FCA /* MessagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesService.swift; sourceTree = "<group>"; };
 		D0C82F6728E8476200B17FCA /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			children = (
 				D02BB348290C2D6B0003F2A9 /* PostDetailView.swift */,
 				D02BB34B290CC71C0003F2A9 /* PostDetailViewModel.swift */,
+				D0A284AB29445EC00004659A /* Component */,
 			);
 			path = PostDetail;
 			sourceTree = "<group>";
@@ -478,6 +481,14 @@
 				D048301628C2DEF5006DFF01 /* Component */,
 			);
 			path = SearchView;
+			sourceTree = "<group>";
+		};
+		D0A284AB29445EC00004659A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				D0A284AC29445ED80004659A /* CommentsView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		D0C82F6928E84CE500B17FCA /* Component */ = {
@@ -780,6 +791,7 @@
 				D018EF43289E44E500EA2BA1 /* CreateCommunityViewModel.swift in Sources */,
 				D0A1B48128B08C6C00FB4127 /* CreatePostViewModel.swift in Sources */,
 				D0C82F6D28E84D9900B17FCA /* MessageTextBar.swift in Sources */,
+				D0A284AD29445ED80004659A /* CommentsView.swift in Sources */,
 				D05E89E728C30ED00018202D /* HideKeyBoard.swift in Sources */,
 				D098CCB728D5568D004DC73C /* NotificationView.swift in Sources */,
 				D0A1B49728B9F16F00FB4127 /* SearchViewModel.swift in Sources */,

@@ -61,7 +61,7 @@ extension Community {
             var createdAt: String
         }
         
-        struct Post: Codable {
+        struct Post: Codable, Hashable {
             let id: Int
             let content: String
             var createdAt: String

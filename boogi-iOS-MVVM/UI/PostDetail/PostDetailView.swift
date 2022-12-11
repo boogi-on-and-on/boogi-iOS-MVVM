@@ -24,19 +24,33 @@ struct PostDetailView: View {
                 .frame(width: 32, height: 32)
                 .padding()
                 
+                Spacer()
                 
-                Text(Date.getDate(datetime: viewModel.detail.createdAt).timeAgoDisplay())
+                Text(Date.getDateTime(datetime: viewModel.detail.createdAt))
             }
             
             Text(viewModel.detail.content)
+            
+            Divider()
             
             HStack {
                 Image(systemName: (viewModel.detail.likeId != nil) ? "heart.fill" : "heart")
                 Text(viewModel.detail.likeCount.description)
                 Image(systemName: "ellipsis.bubble")
                 Text(viewModel.detail.commentCount.description)
+                
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "ellipsis")
+                }
+
             }
+            
         }
+        .overlay(RoundedRectangle(cornerRadius: 8).stroke(.gray))
         .task {
             await viewModel.getPostDetail(postId: postId)
         }

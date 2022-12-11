@@ -100,3 +100,39 @@ extension Post {
         let me: Bool
     }
 }
+
+extension Post {
+    struct Comments: Codable {
+        struct Content: Codable {
+            struct User: Codable {
+                let id: Int
+                let name: String
+                let tagNum: String
+                let profileImageUrl: String?
+            }
+            
+            struct Member: Codable {
+                let id: Int   // member테이블 id
+                let memberType: String   // 멤버 타입(매니저, 부매니저, 일반)
+            }
+            
+            let id: Int // 부모 id
+            let user: Content.User
+            let member: Content.Member
+            let likeId: Int?  // 본인이 좋아요 했는지 안했는지 여부 (null이면 좋아요 X or 커뮤니티 가입 X)
+            let createdAt: String  // 댓글 생성 시간
+            let content: String  // 댓글 내용
+            let likeCount: Int  // 좋아요 수
+            let me: Bool   // 본인이 작성한 댓글이면 true
+        }
+        
+        struct PageInfo: Codable {
+            var nextPage: Int
+            var hashNext: Bool
+        }
+        
+        var comments: [Comments.Content]
+        var child: [Comments.Content]?
+        var pageInfo: PageInfo
+    }
+}

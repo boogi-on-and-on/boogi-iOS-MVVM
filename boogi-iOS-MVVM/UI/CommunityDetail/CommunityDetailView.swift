@@ -20,6 +20,10 @@ struct CommunityDetailView: View {
                 Divider()
                 
                 CommunityNoticies(notices: viewModel.communityDetail.notices)
+                
+                Divider()
+                
+                CommunityPosts(viewModel: viewModel, posts: viewModel.communityDetail.posts)
             }
             .task {
                 await viewModel.getCommunityDetail(communityId: communityId)
@@ -84,6 +88,38 @@ struct CommunityNoticies: View {
                     Text(Date.getDate(datetime: notice.createdAt).timeAgoDisplay())
                 }
                 .padding([.leading, .trailing])
+            }
+        }
+    }
+}
+
+struct CommunityPosts: View {
+    let viewModel: CommunityDetailView.ViewModel
+    let posts: [Community.Detail.Post]
+    var body: some View {
+        VStack {
+            HStack {
+                Text("게시글")
+                    .font(.largeTitle)
+                Spacer()
+            }
+            .padding()
+            
+            ForEach(posts, id: \.self) { post in
+                NavigationLink {
+                    PostDetailView(viewModel: PostDetailView.ViewModel(container: viewModel.container), postId: post.id)
+                } label: {
+                    HStack {
+                        Divider()
+                        Text(post.content)
+                            .lineLimit(1)
+                        Spacer()
+                        Text(Date.getDate(datetime: post.createdAt).timeAgoDisplay())
+                    }
+                    .padding([.leading, .trailing])
+                    
+                }
+                .buttonStyle(.plain)
             }
         }
     }
