@@ -10,6 +10,7 @@ import Foundation
 struct Post {
     static let defaultUserPosts = UserPosts(posts: [], pageInfo: UserPosts.PageInfo(nextPage: 0, hasNext: false))
     static let defaultPostDetail = Post.Detail(id: 0, user: Detail.User(id: 0, name: "", tagNum: "", profileImageUrl: nil), member: Detail.Member(id: 0, memberType: ""), community: Detail.Community(id: 0, name: ""), likeId: 0, createdAt: "", content: "", likeCount: 0, commentCount: 0, me: false)
+    static let defaultPostComments = Post.Comments(comments: [], pageInfo: Comments.PageInfo(nextPage: 0, hashNext: false))
 }
 
 // request
@@ -103,15 +104,15 @@ extension Post {
 
 extension Post {
     struct Comments: Codable {
-        struct Content: Codable {
-            struct User: Codable {
+        struct Content: Codable, Hashable {
+            struct User: Codable, Hashable {
                 let id: Int
                 let name: String
                 let tagNum: String
                 let profileImageUrl: String?
             }
             
-            struct Member: Codable {
+            struct Member: Codable, Hashable {
                 let id: Int   // member테이블 id
                 let memberType: String   // 멤버 타입(매니저, 부매니저, 일반)
             }

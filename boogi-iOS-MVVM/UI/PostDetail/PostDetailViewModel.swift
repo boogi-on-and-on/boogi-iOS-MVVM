@@ -10,6 +10,7 @@ import Foundation
 extension PostDetailView {
     class ViewModel: ObservableObject {
         @Published var detail = Post.defaultPostDetail
+        @Published var postComments = Post.defaultPostComments
         
         let container: DIContainer
         init(container: DIContainer) {
@@ -21,6 +22,14 @@ extension PostDetailView {
             
             DispatchQueue.main.async {
                 self.detail = res
+            }
+        }
+        
+        func getPostComments(postId: Int) async {
+            let res = await container.services.postsService.getPostComments(postId: postId)
+            
+            DispatchQueue.main.async {
+                self.postComments = res
             }
         }
     }
