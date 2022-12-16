@@ -1,15 +1,15 @@
 //
-//  SearchBar.swift
+//  CommentBar.swift
 //  boogi-iOS-MVVM
 //
-//  Created by 김덕환 on 2022/08/27.
+//  Created by 김덕환 on 2022/12/16.
 //
 
 import Foundation
 import SwiftUI
 
-extension SearchView {
-    struct SearchBar: View {
+extension CommentsView {
+    struct CommentBar: View {
         @Binding var keyword: String
         @State var isEditing = false
         let search: () async -> ()
@@ -17,7 +17,7 @@ extension SearchView {
         var body: some View {
             HStack {
                 ZStack {
-                    TextField("Search ...", text: $keyword, onCommit: {
+                    TextField("댓글을 입력하세요.", text: $keyword, onCommit: {
                         Task {
                             await search()
                             self.isEditing = false
@@ -40,7 +40,8 @@ extension SearchView {
                                 self.isEditing = false
                             }
                         } label: {
-                            Image(systemName: "magnifyingglass")
+                            Text("Post")
+                                .foregroundColor(isEditing ? .blue : .gray)
                         }
                         .padding(.trailing, 30)
                     }
@@ -60,5 +61,3 @@ extension SearchView {
         }
     }
 }
-
-

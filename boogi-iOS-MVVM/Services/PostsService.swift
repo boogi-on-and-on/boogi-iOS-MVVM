@@ -12,6 +12,7 @@ protocol PostsService {
     func requestGetHotposts() async -> Post.HotPost
     func requestGetUserPosts(userId: Int?) async -> Post.UserPosts
     func getPostDetail(postId: Int) async -> Post.Detail
+    func getPostComments(postId: Int) async -> Post.Comments
 }
 
 struct RealPostsService: PostsService {
@@ -68,6 +69,18 @@ struct RealPostsService: PostsService {
             return Post.defaultPostDetail
         }
     }
+    
+    func getPostComments(postId: Int) async -> Post.Comments {
+        let res = await webRepository.getPostComments(postId: postId)
+        
+        switch res {
+        case .success(let data):
+            return data
+        case .failure(let err):
+            print(err)
+            return Post.defaultPostComments
+        }
+    }
 }
 
 struct StubPostsService: PostsService {
@@ -85,5 +98,9 @@ struct StubPostsService: PostsService {
     
     func getPostDetail(postId: Int) async -> Post.Detail {
         Post.defaultPostDetail
+    }
+    
+    func getPostComments(postId: Int) async -> Post.Comments {
+        Post.defaultPostComments
     }
 }

@@ -46,11 +46,11 @@ struct PostDetailView: View {
                 } label: {
                     Image(systemName: "ellipsis")
                 }
-
             }
             
+            CommentsView(viewModel: viewModel)
         }
-        .overlay(RoundedRectangle(cornerRadius: 8).stroke(.gray))
+        // .overlay(RoundedRectangle(cornerRadius: 8).stroke(.gray))
         .task {
             await viewModel.getPostDetail(postId: postId)
         }
