@@ -37,9 +37,11 @@ extension CreatePost {
         }
         
         func requestCreate() async {
-            isProgressing = true
-            form.hashtags.removeAll { $0 == "" }
-            form.communityId = selectedCommunity.id
+            DispatchQueue.main.async {
+                self.isProgressing = true
+                self.form.hashtags.removeAll { $0 == "" }
+                self.form.communityId = self.selectedCommunity.id
+            }
             
             if !images.isEmpty {
                 form.postMediaIds = await container.services.imagesService.getPostMediaIds(images: images)
@@ -47,8 +49,11 @@ extension CreatePost {
             
             let _ = await container.services.postsService.requestCreate(form: form)
             
-            isProgressing = false
-            confirmPresent = true
+            DispatchQueue.main.sync {
+                self.isProgressing = false
+                self.confirmPresent = true
+                
+            }
         }
     }
 }
