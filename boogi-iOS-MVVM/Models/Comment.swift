@@ -27,3 +27,12 @@ extension Comment {
         let pageInfo: UserComments.PageInfo
     }
 }
+
+extension Comment {
+    struct Create: Codable {
+        let postId: Int // 게시글 Id
+        let parentCommentId: Int? // 부모 댓글 Id (댓글 : null, 대댓글 : Id값)
+        let content: String
+        let mentionedUserIds: [Int]
+    }
+}
