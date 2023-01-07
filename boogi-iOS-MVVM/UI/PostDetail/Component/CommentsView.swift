@@ -13,11 +13,36 @@ struct CommentsView: View {
     let postId: Int
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ScrollView {
-                VStack {
-                    ForEach(viewModel.postComments.comments, id: \.self) { comment in
-                        // TODO:
+                ForEach(viewModel.postComments.comments, id: \.self) { comment in
+                    VStack(alignment: .leading) {
+                        HStack {
+                            AsyncImage(url: URL(string: comment.user.profileImageUrl ?? "")) { img in
+                                img.resizable()
+                            } placeholder: {
+                                Image(systemName: "person.fill")
+                            }
+                            .clipShape(Circle())
+                            .frame(width: 32, height: 32)
+                            .padding()
+                            
+                            VStack {
+                                Text(comment.user.name)
+                                Text(comment.user.tagNum)
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        
+                        
+                        Text(comment.content)
+                            .padding([.top, .bottom])
+                        
+                        HStack {
+                            Text(Date.getDate(datetime: comment.createdAt).timeAgoDisplay())
+                            Text("답글쓰기")
+                            Text("좋아요 \(comment.likeCount)개")
+                        }
                     }
                 }
             }
