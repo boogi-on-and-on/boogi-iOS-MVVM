@@ -48,9 +48,10 @@ struct PostDetailView: View {
                 }
             }
             
-            CommentsView(viewModel: viewModel)
+            CommentsView(viewModel: viewModel, postId: postId)
         }
         // .overlay(RoundedRectangle(cornerRadius: 8).stroke(.gray))
+        .padding()
         .task {
             await viewModel.getPostDetail(postId: postId)
         }

@@ -9,6 +9,7 @@ import Foundation
 
 protocol CommentsService {
     func getUserComments(userId: Int?) async -> Comment.UserComments
+    func postComment(form: Comment.Create) async -> Int
 }
 
 struct RealCommentsService: CommentsService {
@@ -26,10 +27,26 @@ struct RealCommentsService: CommentsService {
             return Comment.UserComments(comments: [], pageInfo: Comment.UserComments.PageInfo(nextPage: 0, hasNext: false))
         }
     }
+    
+    func postComment(form: Comment.Create) async -> Int {
+        let res = await webRepository.postComments(form: form)
+        
+        switch res {
+        case .success(let id):
+            return id
+        case .failure(let err):
+            print(err)
+            return -1
+        }
+    }
 }
 
 struct StubCommentsService: CommentsService {
     func getUserComments(userId: Int?) async -> Comment.UserComments {
-        return Comment.UserComments(comments: [], pageInfo: Comment.UserComments.PageInfo(nextPage: 0, hasNext: false))
+        Comment.UserComments(comments: [], pageInfo: Comment.UserComments.PageInfo(nextPage: 0, hasNext: false))
+    }
+    
+    func postComment(form: Comment.Create) async -> Int {
+        -1
     }
 }

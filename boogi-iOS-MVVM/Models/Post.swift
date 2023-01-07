@@ -10,7 +10,7 @@ import Foundation
 struct Post {
     static let defaultUserPosts = UserPosts(posts: [], pageInfo: UserPosts.PageInfo(nextPage: 0, hasNext: false))
     static let defaultPostDetail = Post.Detail(id: 0, user: Detail.User(id: 0, name: "", tagNum: "", profileImageUrl: nil), member: Detail.Member(id: 0, memberType: ""), community: Detail.Community(id: 0, name: ""), likeId: 0, createdAt: "", content: "", likeCount: 0, commentCount: 0, me: false)
-    static let defaultPostComments = Post.Comments(comments: [], pageInfo: Comments.PageInfo(nextPage: 0, hashNext: false))
+    static let defaultPostComments = Post.Comments(comments: [], pageInfo: Comments.PageInfo(nextPage: 0, hasNext: false))
 }
 
 // request
@@ -129,7 +129,7 @@ extension Post {
         
         struct PageInfo: Codable {
             var nextPage: Int
-            var hashNext: Bool
+            var hasNext: Bool
         }
         
         var comments: [Comments.Content]

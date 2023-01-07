@@ -11,6 +11,8 @@ extension PostDetailView {
     class ViewModel: ObservableObject {
         @Published var detail = Post.defaultPostDetail
         @Published var postComments = Post.defaultPostComments
+        @Published var commentText = ""
+        @Published var postCommentResult = -1
         
         let container: DIContainer
         init(container: DIContainer) {
@@ -30,6 +32,14 @@ extension PostDetailView {
             
             DispatchQueue.main.async {
                 self.postComments = res
+            }
+        }
+        
+        func postComment(form: Comment.Create) async {
+            let res = await container.services.commentsService.postComment(form: form)
+            
+            DispatchQueue.main.async {
+                self.postCommentResult = res
             }
         }
     }
