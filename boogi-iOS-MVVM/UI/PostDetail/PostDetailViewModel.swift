@@ -35,12 +35,16 @@ extension PostDetailView {
             }
         }
         
-        func postComment(form: Comment.Create) async {
+        func postComment(form: Comment.CreateForm) async {
             let res = await container.services.commentsService.postComment(form: form)
             
             DispatchQueue.main.async {
-                self.postCommentResult = res
+                self.postCommentResult = res.id
             }
+        }
+        
+        func likeComment(commentId: Int) async -> Comment.Like {
+            await container.services.commentsService.likeComment(commentId: commentId)
         }
     }
 }

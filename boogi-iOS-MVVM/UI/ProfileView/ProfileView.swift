@@ -26,6 +26,9 @@ struct ProfileView: View {
                 
                 Text(viewModel.profile.user.name)
                 Text(viewModel.profile.user.tagNum)
+                    .foregroundColor(.gray)
+                    .font(.caption)
+                    
                 Text(viewModel.profile.user.introduce)
                 
                 Picker("", selection: $viewModel.selected) {
@@ -35,7 +38,7 @@ struct ProfileView: View {
                 }
                 
                 if viewModel.selected == "게시글 목록" {
-                    UserPosts(profile: viewModel.profile, userPosts: viewModel.userPosts)
+                    UserPosts(viewModel: CommunityDetailView.ViewModel(container: viewModel.container), profile: viewModel.profile, userPosts: viewModel.userPosts)
                         .task {
                             await viewModel.getUserPosts(userId: nil)
                         }

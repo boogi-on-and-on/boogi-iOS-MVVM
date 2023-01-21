@@ -9,16 +9,21 @@ import Foundation
 
 protocol CommentsWebRepository: WebRepository {
     func getUsersComments(userId: Int?) async -> Result<Comment.UserComments, Error>
-    func postComments(form: Comment.Create) async -> Result<Int, Error>
+    func postComments(form: Comment.CreateForm) async -> Result<Comment.CreateResult, Error>
+    func likeComment(commentId: Int) async -> Result<Comment.Like, Error>
 }
 
 struct RealCommentsWebRepository: CommentsWebRepository {
     func getUsersComments(userId: Int?) async -> Result<Comment.UserComments, Error> {
-        return await call(endpoint: API.getUserComments(userId))
+        await call(endpoint: API.getUserComments(userId))
     }
     
-    func postComments(form: Comment.Create) async -> Result<Int, Error> {
-        return await call(endpoint: API.postComment(form))
+    func postComments(form: Comment.CreateForm) async -> Result<Comment.CreateResult, Error> {
+        await call(endpoint: API.postComment(form))
+    }
+    
+    func likeComment(commentId: Int) async -> Result<Comment.Like, Error> {
+        await call(endpoint: API.likeComment(commentId))
     }
     
     init(session: URLSession, baseURL: String) {
@@ -34,7 +39,8 @@ struct RealCommentsWebRepository: CommentsWebRepository {
 extension RealCommentsWebRepository {
     enum API {
         case getUserComments(Int?)
-        case postComment(Comment.Create)
+        case postComment(Comment.CreateForm)
+        case likeComment(Int)
     }
 }
 
@@ -45,6 +51,8 @@ extension RealCommentsWebRepository.API: APICall {
             return "/"
         case .getUserComments:
             return "/users"
+        case .likeComment(let id):
+            return "/\(id)/likes"
         }
     }
     
@@ -53,7 +61,7 @@ extension RealCommentsWebRepository.API: APICall {
         switch self {
         case .getUserComments:
             return "GET"
-        case .postComment:
+        case .postComment, .likeComment:
             return "POST"
         }
     }
@@ -76,6 +84,8 @@ extension RealCommentsWebRepository.API: APICall {
                 URLQueryItem(name: "content", value: form.content),
                 // URLQueryItem(name: "postId", value: form.postId),
             ]
+        case .likeComment:
+            return nil
         }
     }
     

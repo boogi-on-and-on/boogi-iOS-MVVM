@@ -29,10 +29,20 @@ extension Comment {
 }
 
 extension Comment {
-    struct Create: Codable {
+    struct CreateForm: Codable {
         let postId: Int // 게시글 Id
         let parentCommentId: Int? // 부모 댓글 Id (댓글 : null, 대댓글 : Id값)
         let content: String
         let mentionedUserIds: [Int]
+    }
+    
+    struct CreateResult: Codable {
+        let id: Int
+    }
+}
+
+extension Comment {
+    struct Like: Codable {
+        let id: Int
     }
 }

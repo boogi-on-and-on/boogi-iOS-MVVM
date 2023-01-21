@@ -9,7 +9,8 @@ import Foundation
 
 protocol CommentsService {
     func getUserComments(userId: Int?) async -> Comment.UserComments
-    func postComment(form: Comment.Create) async -> Int
+    func postComment(form: Comment.CreateForm) async -> Comment.CreateResult
+    func likeComment(commentId: Int) async -> Comment.Like
 }
 
 struct RealCommentsService: CommentsService {
@@ -28,7 +29,7 @@ struct RealCommentsService: CommentsService {
         }
     }
     
-    func postComment(form: Comment.Create) async -> Int {
+    func postComment(form: Comment.CreateForm) async -> Comment.CreateResult {
         let res = await webRepository.postComments(form: form)
         
         switch res {
@@ -36,7 +37,19 @@ struct RealCommentsService: CommentsService {
             return id
         case .failure(let err):
             print(err)
-            return -1
+            return Comment.CreateResult(id: -1)
+        }
+    }
+    
+    func likeComment(commentId: Int) async -> Comment.Like {
+        let res = await webRepository.likeComment(commentId: commentId)
+        
+        switch res {
+        case .success(let id):
+            return id
+        case .failure(let err):
+            print(err)
+            return Comment.Like(id: -1)
         }
     }
 }
@@ -46,7 +59,11 @@ struct StubCommentsService: CommentsService {
         Comment.UserComments(comments: [], pageInfo: Comment.UserComments.PageInfo(nextPage: 0, hasNext: false))
     }
     
-    func postComment(form: Comment.Create) async -> Int {
-        -1
+    func postComment(form: Comment.CreateForm) async -> Comment.CreateResult {
+        Comment.CreateResult(id: -1)
+    }
+    
+    func likeComment(commentId: Int) async -> Comment.Like {
+        Comment.Like(id: -1)
     }
 }
