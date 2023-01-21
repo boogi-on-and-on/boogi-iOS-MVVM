@@ -42,6 +42,17 @@ struct CommentsView: View {
                             Text(Date.getDate(datetime: comment.createdAt).timeAgoDisplay())
                             Text("답글쓰기")
                             Text("좋아요 \(comment.likeCount)개")
+                            
+                            Spacer()
+                            
+                            Button {
+                                Task {
+                                    let res = await viewModel.likeComment(commentId: comment.id)
+                                }
+                            } label: {
+                                Image(systemName: (comment.likeId != nil) ? "heart.fill" : "heart")
+                            }
+                            .foregroundColor(.red)
                         }
                     }
                 }
@@ -52,7 +63,7 @@ struct CommentsView: View {
             
             CommentBar(keyword: $viewModel.commentText) {
                 await viewModel.postComment(
-                    form: Comment.Create(
+                    form: Comment.CreateForm(
                         postId: viewModel.detail.id,
                         parentCommentId: nil,
                         content: viewModel.commentText,
